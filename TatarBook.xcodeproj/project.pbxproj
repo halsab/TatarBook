@@ -8,17 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		5F91097C27EB766A00210E03 /* TatarBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91097B27EB766A00210E03 /* TatarBookApp.swift */; };
-		5F91097E27EB766A00210E03 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91097D27EB766A00210E03 /* ContentView.swift */; };
 		5F91098027EB766B00210E03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F91097F27EB766B00210E03 /* Assets.xcassets */; };
 		5F91098327EB766B00210E03 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F91098227EB766B00210E03 /* Preview Assets.xcassets */; };
+		5F91098C27EB797700210E03 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91098B27EB797700210E03 /* TabBarView.swift */; };
+		5F91099127EB84DC00210E03 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099027EB84DC00210E03 /* BookView.swift */; };
+		5F91099427EB88E900210E03 /* JSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099327EB88E900210E03 /* JSONSerializer.swift */; };
+		5F91099727EB8AC800210E03 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099627EB8AC800210E03 /* File.swift */; };
+		5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099927EB8C4D00210E03 /* Logger.swift */; };
+		5F91099D27EB8CB700210E03 /* book.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F91099C27EB8CB700210E03 /* book.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5F91097827EB766A00210E03 /* TatarBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TatarBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F91097B27EB766A00210E03 /* TatarBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TatarBookApp.swift; sourceTree = "<group>"; };
-		5F91097D27EB766A00210E03 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F91097F27EB766B00210E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F91098227EB766B00210E03 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5F91098B27EB797700210E03 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		5F91099027EB84DC00210E03 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		5F91099327EB88E900210E03 /* JSONSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSerializer.swift; sourceTree = "<group>"; };
+		5F91099627EB8AC800210E03 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		5F91099927EB8C4D00210E03 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		5F91099C27EB8CB700210E03 /* book.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = book.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +62,12 @@
 			isa = PBXGroup;
 			children = (
 				5F91097B27EB766A00210E03 /* TatarBookApp.swift */,
-				5F91097D27EB766A00210E03 /* ContentView.swift */,
-				5F91097F27EB766B00210E03 /* Assets.xcassets */,
+				5F91098927EB794D00210E03 /* Project */,
+				5F91098E27EB84A800210E03 /* Views */,
+				5F91099527EB8AB700210E03 /* Models */,
+				5F91099227EB885B00210E03 /* Services */,
+				5F91099827EB8C4000210E03 /* Helpers */,
+				5F91098D27EB7A8400210E03 /* Resources */,
 				5F91098127EB766B00210E03 /* Preview Content */,
 			);
 			path = TatarBook;
@@ -65,6 +79,71 @@
 				5F91098227EB766B00210E03 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5F91098927EB794D00210E03 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				5F91098B27EB797700210E03 /* TabBarView.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		5F91098D27EB7A8400210E03 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5F91097F27EB766B00210E03 /* Assets.xcassets */,
+				5F91099B27EB8C8700210E03 /* JSON */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5F91098E27EB84A800210E03 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5F91098F27EB84CE00210E03 /* TabBar */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5F91098F27EB84CE00210E03 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				5F91099027EB84DC00210E03 /* BookView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		5F91099227EB885B00210E03 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5F91099327EB88E900210E03 /* JSONSerializer.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5F91099527EB8AB700210E03 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5F91099627EB8AC800210E03 /* File.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5F91099827EB8C4000210E03 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5F91099927EB8C4D00210E03 /* Logger.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5F91099B27EB8C8700210E03 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				5F91099C27EB8CB700210E03 /* book.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +206,7 @@
 			files = (
 				5F91098327EB766B00210E03 /* Preview Assets.xcassets in Resources */,
 				5F91098027EB766B00210E03 /* Assets.xcassets in Resources */,
+				5F91099D27EB8CB700210E03 /* book.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +217,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F91097E27EB766A00210E03 /* ContentView.swift in Sources */,
+				5F91099427EB88E900210E03 /* JSONSerializer.swift in Sources */,
+				5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */,
+				5F91099127EB84DC00210E03 /* BookView.swift in Sources */,
+				5F91099727EB8AC800210E03 /* File.swift in Sources */,
+				5F91098C27EB797700210E03 /* TabBarView.swift in Sources */,
 				5F91097C27EB766A00210E03 /* TatarBookApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
