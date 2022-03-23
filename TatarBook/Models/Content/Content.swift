@@ -8,6 +8,6 @@
 import Foundation
 
 struct Content: Serializable {
-    let text: String
-    let list: TextList
+    let text: TextContent
+    let list: TextContent
 }
