@@ -19,6 +19,8 @@
 		5FF2735327EB94550075A855 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735227EB94550075A855 /* Book.swift */; };
 		5FF2735627EB97B60075A855 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735527EB97B60075A855 /* Serializable.swift */; };
 		5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735827EB99740075A855 /* BookViewModel.swift */; };
+		5FF2735B27EB9C4B0075A855 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735A27EB9C4B0075A855 /* Content.swift */; };
+		5FF2735D27EB9FCA0075A855 /* TextList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735C27EB9FCA0075A855 /* TextList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		5FF2735227EB94550075A855 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		5FF2735527EB97B60075A855 /* Serializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		5FF2735827EB99740075A855 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		5FF2735A27EB9C4B0075A855 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		5FF2735C27EB9FCA0075A855 /* TextList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +136,9 @@
 		5F91099527EB8AB700210E03 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5F91099F27EB93D800210E03 /* Book */,
 				5F91099627EB8AC800210E03 /* File.swift */,
+				5FF2735227EB94550075A855 /* Book.swift */,
+				5F91099F27EB93D800210E03 /* Content */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -154,12 +159,13 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		5F91099F27EB93D800210E03 /* Book */ = {
+		5F91099F27EB93D800210E03 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				5FF2735227EB94550075A855 /* Book.swift */,
+				5FF2735A27EB9C4B0075A855 /* Content.swift */,
+				5FF2735C27EB9FCA0075A855 /* TextList.swift */,
 			);
-			path = Book;
+			path = Content;
 			sourceTree = "<group>";
 		};
 		5FF2735427EB97820075A855 /* Protocols */ = {
@@ -253,6 +259,8 @@
 				5FF2735627EB97B60075A855 /* Serializable.swift in Sources */,
 				5F91099427EB88E900210E03 /* JSONSerializer.swift in Sources */,
 				5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */,
+				5FF2735B27EB9C4B0075A855 /* Content.swift in Sources */,
+				5FF2735D27EB9FCA0075A855 /* TextList.swift in Sources */,
 				5FF2735327EB94550075A855 /* Book.swift in Sources */,
 				5F91099127EB84DC00210E03 /* BookView.swift in Sources */,
 				5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */,

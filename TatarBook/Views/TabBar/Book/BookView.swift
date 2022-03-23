@@ -12,8 +12,15 @@ struct BookView: View {
     @StateObject private var vm = BookViewModel()
     
     var body: some View {
-        VStack {
-            Text(vm.book.title)
+        Form {
+            Section(header: Text(vm.book.title)) {
+                ForEach(vm.book.contents) { content in
+                    Text(content.text)
+                }
+            }
+            ForEach(vm.book.contents) { content in
+                TextListView(list: content.list)
+            }
         }
     }
 }
@@ -21,5 +28,16 @@ struct BookView: View {
 struct BookView_Previews: PreviewProvider {
     static var previews: some View {
         BookView()
+    }
+}
+
+struct TextListView: View {
+    let list: TextList
+    var body: some View {
+        Section(header: Text(list.title)) {
+            ForEach(list.rows, id: \.self) { row in
+                Text(row)
+            }
+        }
     }
 }

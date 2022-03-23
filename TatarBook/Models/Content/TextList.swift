@@ -1,5 +1,5 @@
 //
-//  Book.swift
+//  TextList.swift
 //  TatarBook
 //
 //  Created by Ha Sab on 23.03.2022.
@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct Book: Serializable {
+struct TextList: Serializable {
     let title: String
+    let rows: [String]
 }
