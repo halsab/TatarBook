@@ -16,6 +16,9 @@
 		5F91099727EB8AC800210E03 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099627EB8AC800210E03 /* File.swift */; };
 		5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099927EB8C4D00210E03 /* Logger.swift */; };
 		5F91099D27EB8CB700210E03 /* book.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F91099C27EB8CB700210E03 /* book.json */; };
+		5FF2735327EB94550075A855 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735227EB94550075A855 /* Book.swift */; };
+		5FF2735627EB97B60075A855 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735527EB97B60075A855 /* Serializable.swift */; };
+		5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735827EB99740075A855 /* BookViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		5F91099627EB8AC800210E03 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		5F91099927EB8C4D00210E03 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		5F91099C27EB8CB700210E03 /* book.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = book.json; sourceTree = "<group>"; };
+		5FF2735227EB94550075A855 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		5FF2735527EB97B60075A855 /* Serializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		5FF2735827EB99740075A855 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,7 @@
 				5F91099227EB885B00210E03 /* Services */,
 				5F91099827EB8C4000210E03 /* Helpers */,
 				5F91098D27EB7A8400210E03 /* Resources */,
+				5FF2735427EB97820075A855 /* Protocols */,
 				5F91098127EB766B00210E03 /* Preview Content */,
 			);
 			path = TatarBook;
@@ -109,7 +116,7 @@
 		5F91098F27EB84CE00210E03 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				5F91099027EB84DC00210E03 /* BookView.swift */,
+				5FF2735727EB995E0075A855 /* Book */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -125,6 +132,7 @@
 		5F91099527EB8AB700210E03 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5F91099F27EB93D800210E03 /* Book */,
 				5F91099627EB8AC800210E03 /* File.swift */,
 			);
 			path = Models;
@@ -144,6 +152,31 @@
 				5F91099C27EB8CB700210E03 /* book.json */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		5F91099F27EB93D800210E03 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				5FF2735227EB94550075A855 /* Book.swift */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		5FF2735427EB97820075A855 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5FF2735527EB97B60075A855 /* Serializable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5FF2735727EB995E0075A855 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				5F91099027EB84DC00210E03 /* BookView.swift */,
+				5FF2735827EB99740075A855 /* BookViewModel.swift */,
+			);
+			path = Book;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,9 +250,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FF2735627EB97B60075A855 /* Serializable.swift in Sources */,
 				5F91099427EB88E900210E03 /* JSONSerializer.swift in Sources */,
 				5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */,
+				5FF2735327EB94550075A855 /* Book.swift in Sources */,
 				5F91099127EB84DC00210E03 /* BookView.swift in Sources */,
+				5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */,
 				5F91099727EB8AC800210E03 /* File.swift in Sources */,
 				5F91098C27EB797700210E03 /* TabBarView.swift in Sources */,
 				5F91097C27EB766A00210E03 /* TatarBookApp.swift in Sources */,

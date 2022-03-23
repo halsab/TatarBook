@@ -34,7 +34,7 @@ class JSONSerializer {
         }
     }
     
-    func getModel<T: Codable>(file: File) -> T {
+    func getModel<T: Codable>(of file: File) -> T {
         let data = getData(of: file)
         let model: T = parse(data)
         return model

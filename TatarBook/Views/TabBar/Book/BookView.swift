@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct BookView: View {
+    
+    @StateObject private var vm = BookViewModel()
+    
     var body: some View {
-        Text("Hello")
+        VStack {
+            Text(vm.book.title)
+        }
     }
 }
 
