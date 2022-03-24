@@ -16,13 +16,13 @@
 		5F91099727EB8AC800210E03 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099627EB8AC800210E03 /* File.swift */; };
 		5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099927EB8C4D00210E03 /* Logger.swift */; };
 		5F91099D27EB8CB700210E03 /* book.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F91099C27EB8CB700210E03 /* book.json */; };
-		5FF2735327EB94550075A855 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735227EB94550075A855 /* Book.swift */; };
 		5FF2735627EB97B60075A855 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735527EB97B60075A855 /* Serializable.swift */; };
 		5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735827EB99740075A855 /* BookViewModel.swift */; };
 		5FF2735B27EB9C4B0075A855 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735A27EB9C4B0075A855 /* Content.swift */; };
 		5FF2735D27EB9FCA0075A855 /* TextContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735C27EB9FCA0075A855 /* TextContent.swift */; };
-		5FF2736327EBADCC0075A855 /* ListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2736227EBADCC0075A855 /* ListContentView.swift */; };
-		5FF2736527EBADEB0075A855 /* TextContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2736427EBADEB0075A855 /* TextContentView.swift */; };
+		5FF2736A27EBB8860075A855 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2736927EBB8860075A855 /* ContentView.swift */; };
+		5FF2736E27ECC0F60075A855 /* ContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2736D27ECC0F60075A855 /* ContentsView.swift */; };
+		5FF2737027ECC21D0075A855 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2736F27ECC21D0075A855 /* TextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,13 +36,14 @@
 		5F91099627EB8AC800210E03 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		5F91099927EB8C4D00210E03 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		5F91099C27EB8CB700210E03 /* book.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = book.json; sourceTree = "<group>"; };
-		5FF2735227EB94550075A855 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		5FF2735527EB97B60075A855 /* Serializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		5FF2735827EB99740075A855 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		5FF2735A27EB9C4B0075A855 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		5FF2735C27EB9FCA0075A855 /* TextContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContent.swift; sourceTree = "<group>"; };
-		5FF2736227EBADCC0075A855 /* ListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContentView.swift; sourceTree = "<group>"; };
-		5FF2736427EBADEB0075A855 /* TextContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContentView.swift; sourceTree = "<group>"; };
+		5FF2736627EBB3430075A855 /* TatarBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TatarBook.entitlements; sourceTree = "<group>"; };
+		5FF2736927EBB8860075A855 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5FF2736D27ECC0F60075A855 /* ContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsView.swift; sourceTree = "<group>"; };
+		5FF2736F27ECC21D0075A855 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +76,7 @@
 		5F91097A27EB766A00210E03 /* TatarBook */ = {
 			isa = PBXGroup;
 			children = (
+				5FF2736627EBB3430075A855 /* TatarBook.entitlements */,
 				5F91097B27EB766A00210E03 /* TatarBookApp.swift */,
 				5F91098927EB794D00210E03 /* Project */,
 				5F91098E27EB84A800210E03 /* Views */,
@@ -142,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				5F91099627EB8AC800210E03 /* File.swift */,
-				5FF2735227EB94550075A855 /* Book.swift */,
 				5F91099F27EB93D800210E03 /* Content */,
 			);
 			path = Models;
@@ -168,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF2735A27EB9C4B0075A855 /* Content.swift */,
-				5FF2735C27EB9FCA0075A855 /* TextContent.swift */,
+				5FF2736C27EBBCC80075A855 /* ContentInner */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -193,10 +194,27 @@
 		5FF2736127EBADB20075A855 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				5FF2736227EBADCC0075A855 /* ListContentView.swift */,
-				5FF2736427EBADEB0075A855 /* TextContentView.swift */,
+				5FF2736D27ECC0F60075A855 /* ContentsView.swift */,
+				5FF2736927EBB8860075A855 /* ContentView.swift */,
+				5FF2736B27EBBCA00075A855 /* ContentInner */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		5FF2736B27EBBCA00075A855 /* ContentInner */ = {
+			isa = PBXGroup;
+			children = (
+				5FF2736F27ECC21D0075A855 /* TextView.swift */,
+			);
+			path = ContentInner;
+			sourceTree = "<group>";
+		};
+		5FF2736C27EBBCC80075A855 /* ContentInner */ = {
+			isa = PBXGroup;
+			children = (
+				5FF2735C27EB9FCA0075A855 /* TextContent.swift */,
+			);
+			path = ContentInner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,15 +289,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FF2735627EB97B60075A855 /* Serializable.swift in Sources */,
-				5FF2736527EBADEB0075A855 /* TextContentView.swift in Sources */,
 				5F91099427EB88E900210E03 /* JSONSerializer.swift in Sources */,
 				5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */,
+				5FF2737027ECC21D0075A855 /* TextView.swift in Sources */,
 				5FF2735B27EB9C4B0075A855 /* Content.swift in Sources */,
 				5FF2735D27EB9FCA0075A855 /* TextContent.swift in Sources */,
-				5FF2735327EB94550075A855 /* Book.swift in Sources */,
-				5FF2736327EBADCC0075A855 /* ListContentView.swift in Sources */,
 				5F91099127EB84DC00210E03 /* BookView.swift in Sources */,
+				5FF2736E27ECC0F60075A855 /* ContentsView.swift in Sources */,
 				5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */,
+				5FF2736A27EBB8860075A855 /* ContentView.swift in Sources */,
 				5F91099727EB8AC800210E03 /* File.swift in Sources */,
 				5F91098C27EB797700210E03 /* TabBarView.swift in Sources */,
 				5F91097C27EB766A00210E03 /* TatarBookApp.swift in Sources */,
@@ -339,7 +357,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -393,7 +411,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -408,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TatarBook/TatarBook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TatarBook/Preview Content\"";
@@ -419,6 +438,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,9 +447,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hasab.TatarBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -437,6 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TatarBook/TatarBook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TatarBook/Preview Content\"";
@@ -448,6 +472,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,9 +481,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hasab.TatarBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};

@@ -9,11 +9,12 @@ import SwiftUI
 
 class BookViewModel: ObservableObject {
     
-    @Published var book: Book
+    @Published var contents: [Content]
     
     private let file = File(name: "book", type: "json")
     
     init() {
-        book = JSONSerializer.shared.getModel(of: file)
+        contents = JSONSerializer.shared.getModel(of: file)
+        Logger.console(.info, contents)
     }
 }

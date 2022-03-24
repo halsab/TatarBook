@@ -12,11 +12,9 @@ struct BookView: View {
     @StateObject private var vm = BookViewModel()
     
     var body: some View {
-        Form {
-            ForEach(vm.book.contents) { content in
-                ListContentView(textContent: content.list)
-                TextContentView(textContent: content.text)
-            }
+        NavigationView {
+            ContentsView(contents: vm.contents)
+                .navigationTitle(Text("Китап"))
         }
     }
 }
@@ -24,5 +22,6 @@ struct BookView: View {
 struct BookView_Previews: PreviewProvider {
     static var previews: some View {
         BookView()
+            .preferredColorScheme(.dark)
     }
 }

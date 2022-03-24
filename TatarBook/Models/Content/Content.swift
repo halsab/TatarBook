@@ -8,6 +8,10 @@
 import Foundation
 
 struct Content: Serializable {
-    let text: TextContent
-    let list: TextContent
+    let title: String?
+    
+    let text: TextContent?
+    let list: TextContent?
+    
+    let contents: [Content]?
 }
