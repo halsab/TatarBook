@@ -23,6 +23,7 @@
 		5FF2736A27EBB8860075A855 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2736927EBB8860075A855 /* ContentView.swift */; };
 		5FF2736E27ECC0F60075A855 /* ContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2736D27ECC0F60075A855 /* ContentsView.swift */; };
 		5FF2737027ECC21D0075A855 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2736F27ECC21D0075A855 /* TextView.swift */; };
+		5FF2737227ECC8FE0075A855 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737127ECC8FE0075A855 /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		5FF2736927EBB8860075A855 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5FF2736D27ECC0F60075A855 /* ContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsView.swift; sourceTree = "<group>"; };
 		5FF2736F27ECC21D0075A855 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		5FF2737127ECC8FE0075A855 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF2736F27ECC21D0075A855 /* TextView.swift */,
+				5FF2737127ECC8FE0075A855 /* ListView.swift */,
 			);
 			path = ContentInner;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				5FF2736E27ECC0F60075A855 /* ContentsView.swift in Sources */,
 				5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */,
 				5FF2736A27EBB8860075A855 /* ContentView.swift in Sources */,
+				5FF2737227ECC8FE0075A855 /* ListView.swift in Sources */,
 				5F91099727EB8AC800210E03 /* File.swift in Sources */,
 				5F91098C27EB797700210E03 /* TabBarView.swift in Sources */,
 				5F91097C27EB766A00210E03 /* TatarBookApp.swift in Sources */,

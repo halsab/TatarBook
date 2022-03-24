@@ -10,9 +10,12 @@ import SwiftUI
 struct ContentView: View {
     let content: Content
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
             if let textContent = content.text {
                 TextView(textContent: textContent)
+            }
+            if let textContent = content.list {
+                ListView(textContent: textContent)
             }
         }
     }
