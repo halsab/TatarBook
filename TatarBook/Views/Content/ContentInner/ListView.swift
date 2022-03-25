@@ -20,11 +20,16 @@ struct ListView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     ForEach(texts, id: \.self) { text in
                         HStack {
-                            Circle()
-                                .frame(width: 8, height: 8)
-                                .foregroundColor(.accentColor)
+                            VStack {
+                                Circle()
+                                    .frame(width: 8, height: 8)
+                                    .foregroundColor(.accentColor)
+                                    .padding(.top)
+                                Spacer()
+                            }
                             Text(.init(text))
                                 .font(.system(.body, design: .serif))
+                                .fixedSize(horizontal: false, vertical: true)
                             Spacer()
                         }
                         if text != texts.last {
