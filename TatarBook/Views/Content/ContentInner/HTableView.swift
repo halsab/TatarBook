@@ -14,23 +14,7 @@ struct HTableView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(hTableContent, id: \.self) { cell in
-                    VStack {
-                        Text(.init(cell.head))
-                            .font(.system(.headline, design: .serif))
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 8)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.accentColor.opacity(0.3))
-                        
-                        ForEach(cell.rows, id: \.self) { row in
-                            Text(.init(row))
-                                .font(.system(.body, design: .serif))
-                            
-                            if row != cell.rows.last {
-                                Divider()
-                            }
-                        }
-                    }
+                    HTableCellView(cell: cell)
                 }
             }
             .padding()
@@ -57,5 +41,30 @@ struct HTableView_Previews: PreviewProvider {
             TableSimpleCellContent(head: "Head 2", rows: ["Row 1", "Row 2", "Row 3"]),
             TableSimpleCellContent(head: "Head 3", rows: ["Row 1", "Row 2", "Row 3"])
         ])
+    }
+}
+
+struct HTableCellView: View {
+    let cell: TableSimpleCellContent
+    var body: some View {
+        VStack {
+            Text(.init(cell.head))
+                .font(.system(.headline, design: .serif))
+                .padding(.horizontal, 8)
+                .padding(.vertical, 8)
+                .frame(maxWidth: .infinity)
+                .background(Color.accentColor.opacity(0.3))
+            
+            if let rows = cell.rows {
+                ForEach(rows, id: \.self) { row in
+                    Text(.init(row))
+                        .font(.system(.body, design: .serif))
+                    
+                    if row != rows.last {
+                        Divider()
+                    }
+                }
+            }
+        }
     }
 }

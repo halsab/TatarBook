@@ -9,5 +9,5 @@ import Foundation
 
 struct TableSimpleCellContent: Serializable {
     let head: String
-    let rows: [String]
+    let rows: [String]?
 }

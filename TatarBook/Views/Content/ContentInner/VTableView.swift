@@ -12,27 +12,7 @@ struct VTableView: View {
     var body: some View {
         VStack {
             ForEach(vTableContent, id: \.self) { cell in
-                HStack {
-                    Text(.init(cell.head))
-                        .font(.system(.headline, design: .serif))
-                        .padding(.horizontal)
-                        .padding(.vertical, 8)
-                        .background(Color.accentColor.opacity(0.3))
-
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(cell.rows, id: \.self) { row in
-                                Text(.init(row))
-                                    .font(.system(.body, design: .serif))
-                                
-                                if row != cell.rows.last {
-                                    Divider()
-                                }
-                            }
-                        }
-                    }
-                    
-                }
+                VTableCellView(cell: cell)
             }
         }
         .padding()
@@ -47,5 +27,35 @@ struct VTableView_Previews: PreviewProvider {
             TableSimpleCellContent(head: "Head 2", rows: ["Row 1", "Row 2", "Row 3"]),
             TableSimpleCellContent(head: "Head 3", rows: ["Row 1", "Row 2", "Row 3"])
         ])
+    }
+}
+
+struct VTableCellView: View {
+    let cell: TableSimpleCellContent
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                Text(.init(cell.head))
+                    .font(.system(.headline, design: .serif))
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .background(Color.accentColor.opacity(0.3))
+                
+                if let rows = cell.rows {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(rows, id: \.self) { row in
+                                Text(.init(row))
+                                    .font(.system(.body, design: .serif))
+                                
+                                if row != rows.last {
+                                    Divider()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
