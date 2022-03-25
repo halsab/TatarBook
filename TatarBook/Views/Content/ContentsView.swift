@@ -18,11 +18,10 @@ struct ContentsView: View {
                         NavigationLinkView(title: title, contents: contents)
                     } else {
                         ContentView(content: content)
-                            .padding(.top, 8)
                     }
                 }
             }
-            .padding([.horizontal, .bottom])
+            .padding()
         }
     }
 }

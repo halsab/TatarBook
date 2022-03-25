@@ -17,11 +17,16 @@ struct NavigationLinkView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle(Text(title))
         ) {
-            Text(title)
-                .font(.system(.title2, design: .rounded))
+            Text(.init(title))
                 .bold()
                 .frame(maxWidth: .infinity)
                 .padding(8)
+                .if(!title.isArabic) { view in
+                    view.font(.system(.title2, design: .rounded))
+                }
+                .if(title.isArabic) { view in
+                    view.font(.system(.title2, design: .serif))
+                }
         }
         .buttonStyle(BorderedButtonStyle())
     }

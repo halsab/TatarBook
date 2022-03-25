@@ -9,6 +9,6 @@ import Foundation
 
 struct TextContent: Serializable {
     let title: String?
-    let texts: [String]
+    let texts: [String]?
     let footer: String?
 }

@@ -13,16 +13,27 @@ struct VTableView: View {
         VStack {
             ForEach(vTableContent, id: \.self) { cell in
                 HStack {
-                    Text(cell.head)
-                        .font(.system(.headline, design: .rounded))
+                    Text(.init(cell.head))
                         .padding(.horizontal)
                         .padding(.vertical, 8)
                         .background(Color.accentColor.opacity(0.3))
+                        .if(!cell.head.isArabic) {
+                            $0.font(.system(.headline, design: .rounded))
+                        }
+                        .if(cell.head.isArabic) {
+                            $0.font(.system(.title2, design: .serif))
+                        }
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             ForEach(cell.rows, id: \.self) { row in
-                                Text(row)
-                                    .font(.system(.body, design: .rounded))
+                                Text(.init(row))
+                                    .if(!row.isArabic) {
+                                        $0.font(.system(.body, design: .rounded))
+                                    }
+                                    .if(row.isArabic) {
+                                        $0.font(.system(.title2, design: .serif))
+                                    }
+                                
                                 if row != cell.rows.last {
                                     Divider()
                                 }

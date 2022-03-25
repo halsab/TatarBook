@@ -15,6 +15,5 @@ class BookViewModel: ObservableObject {
     
     init() {
         contents = JSONSerializer.shared.getModel(of: file)
-        Logger.console(.info, contents)
     }
 }

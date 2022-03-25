@@ -12,22 +12,42 @@ struct TextView: View {
     var body: some View {
         VStack {
             if let title = textContent.title {
-                Text(title)
-                    .font(.system(.title2, design: .rounded))
+                Text(.init(title))
                     .bold()
+                    .multilineTextAlignment(.center)
                     .padding(.bottom, 8)
-            }
-            VStack(alignment: .leading) {
-                VStack(alignment: .leading, spacing: 8) {
-                    ForEach(textContent.texts, id: \.self) { text in
-                        Text(text)
-                            .font(.system(.body, design: .rounded))
+                    .if(!title.isArabic) {
+                        $0.font(.system(.title2, design: .rounded))
                     }
-                }
-                if let footer = textContent.footer {
-                    Divider()
-                    Text(footer)
-                        .font(.system(.footnote, design: .rounded))
+                    .if(title.isArabic) {
+                        $0.font(.system(.title2, design: .serif))
+                    }
+            }
+            
+            if let texts = textContent.texts {
+                VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        ForEach(texts, id: \.self) { text in
+                            Text(.init(text))
+                                .if(!text.isArabic) {
+                                    $0.font(.system(.body, design: .rounded))
+                                }
+                                .if(text.isArabic) {
+                                    $0.font(.system(.largeTitle, design: .serif))
+                                }
+                        }
+                    }
+                    
+                    if let footer = textContent.footer {
+                        Divider()
+                        Text(.init(footer))
+                            .if(!footer.isArabic) {
+                                $0.font(.system(.footnote, design: .rounded))
+                            }
+                            .if(footer.isArabic) {
+                                $0.font(.system(.largeTitle, design: .serif))
+                            }
+                    }
                 }
             }
         }
