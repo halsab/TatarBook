@@ -33,24 +33,22 @@ struct VTableView_Previews: PreviewProvider {
 struct VTableCellView: View {
     let cell: TableSimpleCellContent
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                Text(.init(cell.head))
-                    .font(.system(.headline, design: .serif))
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
-                    .background(Color.accentColor.opacity(0.3))
-                
-                if let rows = cell.rows {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(rows, id: \.self) { row in
-                                Text(.init(row))
-                                    .font(.system(.body, design: .serif))
-                                
-                                if row != rows.last {
-                                    Divider()
-                                }
+        HStack {
+            Text(.init(cell.head))
+                .font(.system(.headline, design: .serif))
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+                .background(Color.accentColor.opacity(0.3))
+            
+            if let rows = cell.rows {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(rows, id: \.self) { row in
+                            Text(.init(row))
+                                .font(.system(.body, design: .serif))
+                            
+                            if row != rows.last {
+                                Divider()
                             }
                         }
                     }
