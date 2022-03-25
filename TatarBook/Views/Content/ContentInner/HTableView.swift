@@ -9,32 +9,22 @@ import SwiftUI
 
 struct HTableView: View {
     let hTableContent: [TableSimpleCellContent]
-    @State
-    private var scrollViewContentSize: CGSize = .zero
+    @State private var scrollViewContentSize: CGSize = .zero
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(hTableContent, id: \.self) { cell in
                     VStack {
                         Text(.init(cell.head))
+                            .font(.system(.headline, design: .serif))
                             .padding(.horizontal, 8)
                             .padding(.vertical, 8)
                             .frame(maxWidth: .infinity)
                             .background(Color.accentColor.opacity(0.3))
-                            .if(!cell.head.isArabic) {
-                                $0.font(.system(.headline, design: .rounded))
-                            }
-                            .if(cell.head.isArabic) {
-                                $0.font(.system(.title2, design: .serif))
-                            }
+                        
                         ForEach(cell.rows, id: \.self) { row in
                             Text(.init(row))
-                                .if(!row.isArabic) {
-                                    $0.font(.system(.body, design: .rounded))
-                                }
-                                .if(row.isArabic) {
-                                    $0.font(.system(.title2, design: .serif))
-                                }
+                                .font(.system(.body, design: .serif))
                             
                             if row != cell.rows.last {
                                 Divider()

@@ -13,15 +13,10 @@ struct TextView: View {
         VStack {
             if let title = textContent.title {
                 Text(.init(title))
+                    .font(.system(.title2, design: .serif))
                     .bold()
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 8)
-                    .if(!title.isArabic) {
-                        $0.font(.system(.title2, design: .rounded))
-                    }
-                    .if(title.isArabic) {
-                        $0.font(.system(.title2, design: .serif))
-                    }
             }
             
             if let texts = textContent.texts {
@@ -29,24 +24,15 @@ struct TextView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         ForEach(texts, id: \.self) { text in
                             Text(.init(text))
-                                .if(!text.isArabic) {
-                                    $0.font(.system(.body, design: .rounded))
-                                }
-                                .if(text.isArabic) {
-                                    $0.font(.system(.largeTitle, design: .serif))
-                                }
+                                .font(.system(.body, design: .serif))
                         }
                     }
                     
                     if let footer = textContent.footer {
                         Divider()
                         Text(.init(footer))
-                            .if(!footer.isArabic) {
-                                $0.font(.system(.footnote, design: .rounded))
-                            }
-                            .if(footer.isArabic) {
-                                $0.font(.system(.largeTitle, design: .serif))
-                            }
+                            .font(.system(.callout, design: .serif))
+                            .foregroundColor(.gray)
                     }
                 }
             }

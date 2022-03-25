@@ -18,15 +18,10 @@ struct NavigationLinkView: View {
                 .navigationTitle(Text(title))
         ) {
             Text(.init(title))
+                .font(.system(.title2, design: .serif))
                 .bold()
                 .frame(maxWidth: .infinity)
                 .padding(8)
-                .if(!title.isArabic) { view in
-                    view.font(.system(.title2, design: .rounded))
-                }
-                .if(title.isArabic) { view in
-                    view.font(.system(.title2, design: .serif))
-                }
         }
         .buttonStyle(BorderedButtonStyle())
     }

@@ -13,12 +13,7 @@ struct ListView: View {
         VStack(alignment: .leading) {
             if let title = textContent.title {
                 Text(.init(title))
-                    .if(!title.isArabic) {
-                        $0.font(.system(.headline, design: .rounded))
-                    }
-                    .if(title.isArabic) {
-                        $0.font(.system(.headline, design: .serif))
-                    }
+                    .font(.system(.headline, design: .serif))
             }
             
             if let texts = textContent.texts {
@@ -29,12 +24,7 @@ struct ListView: View {
                                 .frame(width: 8, height: 8)
                                 .foregroundColor(.accentColor)
                             Text(.init(text))
-                                .if(!text.isArabic) {
-                                    $0.font(.system(.body, design: .rounded))
-                                }
-                                .if(text.isArabic) {
-                                    $0.font(.system(.body, design: .serif))
-                                }
+                                .font(.system(.body, design: .serif))
                             Spacer()
                         }
                         if text != texts.last {
@@ -49,12 +39,8 @@ struct ListView: View {
             
             if let footer = textContent.footer {
                 Text(.init(footer))
-                    .if(!footer.isArabic) {
-                        $0.font(.system(.footnote, design: .rounded))
-                    }
-                    .if(footer.isArabic) {
-                        $0.font(.system(.footnote, design: .serif))
-                    }
+                    .font(.system(.callout, design: .serif))
+                    .foregroundColor(.gray)
             }
         }
     }

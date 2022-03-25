@@ -28,8 +28,6 @@
 		5FF2737827EDAF7E0075A855 /* TableSimpleCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737727EDAF7E0075A855 /* TableSimpleCellContent.swift */; };
 		5FF2737A27EDB03E0075A855 /* VTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737927EDB03E0075A855 /* VTableView.swift */; };
 		5FF2737C27EDB3FC0075A855 /* HTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737B27EDB3FC0075A855 /* HTableView.swift */; };
-		5FF2738227EE0B4D0075A855 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2738127EE0B4D0075A855 /* ViewExtensions.swift */; };
-		5FF2738427EE14490075A855 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2738327EE14490075A855 /* StringExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +54,6 @@
 		5FF2737727EDAF7E0075A855 /* TableSimpleCellContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSimpleCellContent.swift; sourceTree = "<group>"; };
 		5FF2737927EDB03E0075A855 /* VTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VTableView.swift; sourceTree = "<group>"; };
 		5FF2737B27EDB3FC0075A855 /* HTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTableView.swift; sourceTree = "<group>"; };
-		5FF2738127EE0B4D0075A855 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
-		5FF2738327EE14490075A855 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +162,6 @@
 		5F91099827EB8C4000210E03 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				5FF2738027EE0B3C0075A855 /* Extensions */,
 				5F91099927EB8C4D00210E03 /* Logger.swift */,
 			);
 			path = Helpers;
@@ -235,15 +230,6 @@
 				5FF2737727EDAF7E0075A855 /* TableSimpleCellContent.swift */,
 			);
 			path = ContentInner;
-			sourceTree = "<group>";
-		};
-		5FF2738027EE0B3C0075A855 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				5FF2738127EE0B4D0075A855 /* ViewExtensions.swift */,
-				5FF2738327EE14490075A855 /* StringExtensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,13 +309,11 @@
 				5F91099427EB88E900210E03 /* JSONSerializer.swift in Sources */,
 				5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */,
 				5FF2737027ECC21D0075A855 /* TextView.swift in Sources */,
-				5FF2738227EE0B4D0075A855 /* ViewExtensions.swift in Sources */,
 				5FF2735B27EB9C4B0075A855 /* Content.swift in Sources */,
 				5FF2735D27EB9FCA0075A855 /* TextContent.swift in Sources */,
 				5FF2737C27EDB3FC0075A855 /* HTableView.swift in Sources */,
 				5FF2737627ECF08F0075A855 /* NavigationLinkView.swift in Sources */,
 				5F91099127EB84DC00210E03 /* BookView.swift in Sources */,
-				5FF2738427EE14490075A855 /* StringExtensions.swift in Sources */,
 				5FF2736E27ECC0F60075A855 /* ContentsView.swift in Sources */,
 				5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */,
 				5FF2736A27EBB8860075A855 /* ContentView.swift in Sources */,
