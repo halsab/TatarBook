@@ -65,6 +65,7 @@ struct HTableCellView: View {
                     }
                 }
             }
+            Spacer()
         }
     }
 }
