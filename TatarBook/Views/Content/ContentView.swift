@@ -17,6 +17,12 @@ struct ContentView: View {
             if let textContent = content.list {
                 ListView(textContent: textContent)
             }
+            if let vTableContent = content.vTable {
+                VTableView(vTableContent: vTableContent)
+            }
+            if let hTableContent = content.hTable {
+                HTableView(hTableContent: hTableContent)
+            }
         }
     }
 }

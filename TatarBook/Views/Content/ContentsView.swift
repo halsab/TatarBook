@@ -15,25 +15,14 @@ struct ContentsView: View {
                 ForEach(contents) { content in
                     if let title = content.title,
                        let contents = content.contents {
-                        NavigationLink(
-                            destination:
-                                ContentsView(contents: contents)
-                                .navigationBarTitleDisplayMode(.inline)
-                                .navigationTitle(Text(title))
-                        ) {
-                            Text(title)
-                                .frame(maxWidth: .infinity)
-                                .padding(8)
-                        }
-                        .buttonStyle(BorderedButtonStyle())
-                        .padding(.horizontal)
+                        NavigationLinkView(title: title, contents: contents)
                     } else {
                         ContentView(content: content)
-                            .padding(.horizontal)
+                            .padding(.top, 8)
                     }
                 }
             }
-            .padding(.bottom)
+            .padding([.horizontal, .bottom])
         }
     }
 }

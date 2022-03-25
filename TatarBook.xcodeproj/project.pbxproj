@@ -24,6 +24,10 @@
 		5FF2736E27ECC0F60075A855 /* ContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2736D27ECC0F60075A855 /* ContentsView.swift */; };
 		5FF2737027ECC21D0075A855 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2736F27ECC21D0075A855 /* TextView.swift */; };
 		5FF2737227ECC8FE0075A855 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737127ECC8FE0075A855 /* ListView.swift */; };
+		5FF2737627ECF08F0075A855 /* NavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737527ECF08F0075A855 /* NavigationLinkView.swift */; };
+		5FF2737827EDAF7E0075A855 /* TableSimpleCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737727EDAF7E0075A855 /* TableSimpleCellContent.swift */; };
+		5FF2737A27EDB03E0075A855 /* VTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737927EDB03E0075A855 /* VTableView.swift */; };
+		5FF2737C27EDB3FC0075A855 /* HTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737B27EDB3FC0075A855 /* HTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		5FF2736D27ECC0F60075A855 /* ContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsView.swift; sourceTree = "<group>"; };
 		5FF2736F27ECC21D0075A855 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		5FF2737127ECC8FE0075A855 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		5FF2737527ECF08F0075A855 /* NavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLinkView.swift; sourceTree = "<group>"; };
+		5FF2737727EDAF7E0075A855 /* TableSimpleCellContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSimpleCellContent.swift; sourceTree = "<group>"; };
+		5FF2737927EDB03E0075A855 /* VTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VTableView.swift; sourceTree = "<group>"; };
+		5FF2737B27EDB3FC0075A855 /* HTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +206,7 @@
 			children = (
 				5FF2736D27ECC0F60075A855 /* ContentsView.swift */,
 				5FF2736927EBB8860075A855 /* ContentView.swift */,
+				5FF2737527ECF08F0075A855 /* NavigationLinkView.swift */,
 				5FF2736B27EBBCA00075A855 /* ContentInner */,
 			);
 			path = Content;
@@ -208,6 +217,8 @@
 			children = (
 				5FF2736F27ECC21D0075A855 /* TextView.swift */,
 				5FF2737127ECC8FE0075A855 /* ListView.swift */,
+				5FF2737927EDB03E0075A855 /* VTableView.swift */,
+				5FF2737B27EDB3FC0075A855 /* HTableView.swift */,
 			);
 			path = ContentInner;
 			sourceTree = "<group>";
@@ -216,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF2735C27EB9FCA0075A855 /* TextContent.swift */,
+				5FF2737727EDAF7E0075A855 /* TableSimpleCellContent.swift */,
 			);
 			path = ContentInner;
 			sourceTree = "<group>";
@@ -291,12 +303,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FF2737827EDAF7E0075A855 /* TableSimpleCellContent.swift in Sources */,
 				5FF2735627EB97B60075A855 /* Serializable.swift in Sources */,
+				5FF2737A27EDB03E0075A855 /* VTableView.swift in Sources */,
 				5F91099427EB88E900210E03 /* JSONSerializer.swift in Sources */,
 				5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */,
 				5FF2737027ECC21D0075A855 /* TextView.swift in Sources */,
 				5FF2735B27EB9C4B0075A855 /* Content.swift in Sources */,
 				5FF2735D27EB9FCA0075A855 /* TextContent.swift in Sources */,
+				5FF2737C27EDB3FC0075A855 /* HTableView.swift in Sources */,
+				5FF2737627ECF08F0075A855 /* NavigationLinkView.swift in Sources */,
 				5F91099127EB84DC00210E03 /* BookView.swift in Sources */,
 				5FF2736E27ECC0F60075A855 /* ContentsView.swift in Sources */,
 				5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */,

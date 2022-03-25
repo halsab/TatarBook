@@ -15,12 +15,12 @@ struct ListView: View {
                     Text(title)
                         .font(.headline)
                 }
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 8) {
                     if let texts = textContent.texts {
                         ForEach(texts, id: \.self) { text in
                             HStack {
                                 Circle()
-                                    .frame(width: 10, height: 10)
+                                    .frame(width: 8, height: 8)
                                     .foregroundColor(.accentColor)
                                 Text(text)
                                     .font(.body)

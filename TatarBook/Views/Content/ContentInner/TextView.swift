@@ -14,10 +14,10 @@ struct TextView: View {
             if let title = textContent.title {
                 Text(title)
                     .font(.title)
-                    .padding()
+                    .padding([.horizontal, .bottom])
             }
             VStack(alignment: .leading) {
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 8) {
                     if let texts = textContent.texts {
                         ForEach(texts, id: \.self) { text in
                             Text(text)

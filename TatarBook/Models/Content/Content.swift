@@ -13,5 +13,8 @@ struct Content: Serializable {
     let text: TextContent?
     let list: TextContent?
     
+    let vTable: [TableSimpleCellContent]?
+    let hTable: [TableSimpleCellContent]?
+    
     let contents: [Content]?
 }
