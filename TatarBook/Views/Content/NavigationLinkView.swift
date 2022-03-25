@@ -18,6 +18,8 @@ struct NavigationLinkView: View {
                 .navigationTitle(Text(title))
         ) {
             Text(title)
+                .font(.system(.title2, design: .rounded))
+                .bold()
                 .frame(maxWidth: .infinity)
                 .padding(8)
         }

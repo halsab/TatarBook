@@ -17,13 +17,14 @@ struct HTableView: View {
                 ForEach(hTableContent, id: \.self) { cell in
                     VStack {
                         Text(cell.head)
-                            .font(.headline)
-                            .padding(.horizontal)
+                            .font(.system(.headline, design: .rounded))
+                            .padding(.horizontal, 8)
                             .padding(.vertical, 8)
                             .frame(maxWidth: .infinity)
                             .background(Color.accentColor.opacity(0.3))
                         ForEach(cell.rows, id: \.self) { row in
                             Text(row)
+                                .font(.system(.body, design: .rounded))
                             if row != cell.rows.last {
                                 Divider()
                             }

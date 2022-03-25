@@ -13,22 +13,21 @@ struct TextView: View {
         VStack {
             if let title = textContent.title {
                 Text(title)
-                    .font(.title)
-                    .padding([.horizontal, .bottom])
+                    .font(.system(.title2, design: .rounded))
+                    .bold()
+                    .padding(.bottom, 8)
             }
             VStack(alignment: .leading) {
                 VStack(alignment: .leading, spacing: 8) {
-                    if let texts = textContent.texts {
-                        ForEach(texts, id: \.self) { text in
-                            Text(text)
-                                .font(.body)
-                        }
+                    ForEach(textContent.texts, id: \.self) { text in
+                        Text(text)
+                            .font(.system(.body, design: .rounded))
                     }
                 }
                 if let footer = textContent.footer {
                     Divider()
                     Text(footer)
-                        .font(.footnote)
+                        .font(.system(.footnote, design: .rounded))
                 }
             }
         }

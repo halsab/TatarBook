@@ -14,7 +14,7 @@ struct VTableView: View {
             ForEach(vTableContent, id: \.self) { cell in
                 HStack {
                     Text(cell.head)
-                        .font(.headline)
+                        .font(.system(.headline, design: .rounded))
                         .padding(.horizontal)
                         .padding(.vertical, 8)
                         .background(Color.accentColor.opacity(0.3))
@@ -22,6 +22,7 @@ struct VTableView: View {
                         HStack {
                             ForEach(cell.rows, id: \.self) { row in
                                 Text(row)
+                                    .font(.system(.body, design: .rounded))
                                 if row != cell.rows.last {
                                     Divider()
                                 }

@@ -13,21 +13,19 @@ struct ListView: View {
             VStack(alignment: .leading) {
                 if let title = textContent.title {
                     Text(title)
-                        .font(.headline)
+                        .font(.system(.headline, design: .rounded))
                 }
                 VStack(alignment: .leading, spacing: 8) {
-                    if let texts = textContent.texts {
-                        ForEach(texts, id: \.self) { text in
-                            HStack {
-                                Circle()
-                                    .frame(width: 8, height: 8)
-                                    .foregroundColor(.accentColor)
-                                Text(text)
-                                    .font(.body)
-                            }
-                            if text != texts.last {
-                                Divider()
-                            }
+                    ForEach(textContent.texts, id: \.self) { text in
+                        HStack {
+                            Circle()
+                                .frame(width: 8, height: 8)
+                                .foregroundColor(.accentColor)
+                            Text(text)
+                                .font(.system(.body, design: .rounded))
+                        }
+                        if text != textContent.texts.last {
+                            Divider()
                         }
                     }
                 }
@@ -35,7 +33,7 @@ struct ListView: View {
                 .border(Color.accentColor)
                 if let footer = textContent.footer {
                     Text(footer)
-                        .font(.footnote)
+                        .font(.system(.footnote, design: .rounded))
                 }
             }
     }
