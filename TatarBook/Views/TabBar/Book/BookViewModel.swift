@@ -11,9 +11,8 @@ class BookViewModel: ObservableObject {
     
     @Published var contents: [Content]
     
-    private let file = File(name: "book", type: "json")
-    
     init() {
+        let file = File(name: "book", type: "json")
         contents = JSONSerializer.shared.getModel(of: file)
     }
 }

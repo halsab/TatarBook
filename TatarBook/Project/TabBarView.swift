@@ -18,7 +18,7 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Тест", systemImage: "list.number")
                 }
-            Text("Сүзлек")
+            DictionaryView()
                 .tabItem {
                     Label("Сүзлек", systemImage: "textformat")
                 }

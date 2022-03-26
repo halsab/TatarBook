@@ -16,6 +16,9 @@
 		5F91099727EB8AC800210E03 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099627EB8AC800210E03 /* File.swift */; };
 		5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099927EB8C4D00210E03 /* Logger.swift */; };
 		5F91099D27EB8CB700210E03 /* book.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F91099C27EB8CB700210E03 /* book.json */; };
+		5FAA82EF27EE57A70015A60D /* DictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA82EE27EE57A70015A60D /* DictionaryView.swift */; };
+		5FAA82F127EE57AD0015A60D /* DictionaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA82F027EE57AD0015A60D /* DictionaryViewModel.swift */; };
+		5FAA82F327EE59650015A60D /* dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FAA82F227EE59650015A60D /* dictionary.json */; };
 		5FF2735627EB97B60075A855 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735527EB97B60075A855 /* Serializable.swift */; };
 		5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735827EB99740075A855 /* BookViewModel.swift */; };
 		5FF2735B27EB9C4B0075A855 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735A27EB9C4B0075A855 /* Content.swift */; };
@@ -41,6 +44,9 @@
 		5F91099627EB8AC800210E03 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		5F91099927EB8C4D00210E03 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		5F91099C27EB8CB700210E03 /* book.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = book.json; sourceTree = "<group>"; };
+		5FAA82EE27EE57A70015A60D /* DictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryView.swift; sourceTree = "<group>"; };
+		5FAA82F027EE57AD0015A60D /* DictionaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModel.swift; sourceTree = "<group>"; };
+		5FAA82F227EE59650015A60D /* dictionary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dictionary.json; sourceTree = "<group>"; };
 		5FF2735527EB97B60075A855 /* Serializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		5FF2735827EB99740075A855 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		5FF2735A27EB9C4B0075A855 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
@@ -137,6 +143,7 @@
 		5F91098F27EB84CE00210E03 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				5FAA82ED27EE578F0015A60D /* Dictionary */,
 				5FF2735727EB995E0075A855 /* Book */,
 			);
 			path = TabBar;
@@ -171,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				5F91099C27EB8CB700210E03 /* book.json */,
+				5FAA82F227EE59650015A60D /* dictionary.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -182,6 +190,15 @@
 				5FF2736C27EBBCC80075A855 /* ContentInner */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		5FAA82ED27EE578F0015A60D /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				5FAA82EE27EE57A70015A60D /* DictionaryView.swift */,
+				5FAA82F027EE57AD0015A60D /* DictionaryViewModel.swift */,
+			);
+			path = Dictionary;
 			sourceTree = "<group>";
 		};
 		5FF2735427EB97820075A855 /* Protocols */ = {
@@ -291,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F91098327EB766B00210E03 /* Preview Assets.xcassets in Resources */,
+				5FAA82F327EE59650015A60D /* dictionary.json in Resources */,
 				5F91098027EB766B00210E03 /* Assets.xcassets in Resources */,
 				5F91099D27EB8CB700210E03 /* book.json in Resources */,
 			);
@@ -311,7 +329,9 @@
 				5FF2737027ECC21D0075A855 /* TextView.swift in Sources */,
 				5FF2735B27EB9C4B0075A855 /* Content.swift in Sources */,
 				5FF2735D27EB9FCA0075A855 /* TextContent.swift in Sources */,
+				5FAA82EF27EE57A70015A60D /* DictionaryView.swift in Sources */,
 				5FF2737C27EDB3FC0075A855 /* HTableView.swift in Sources */,
+				5FAA82F127EE57AD0015A60D /* DictionaryViewModel.swift in Sources */,
 				5FF2737627ECF08F0075A855 /* NavigationLinkView.swift in Sources */,
 				5F91099127EB84DC00210E03 /* BookView.swift in Sources */,
 				5FF2736E27ECC0F60075A855 /* ContentsView.swift in Sources */,
