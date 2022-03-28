@@ -14,7 +14,7 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Китап", systemImage: "books.vertical")
                 }
-            Text("Тест")
+            TestView()
                 .tabItem {
                     Label("Тест", systemImage: "list.number")
                 }
