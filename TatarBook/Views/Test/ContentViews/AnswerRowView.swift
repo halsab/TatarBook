@@ -26,9 +26,7 @@ struct AnswerRowView: View {
     var body: some View {
         Button {
             if selectedAnswer.isEmpty {
-                withAnimation(.easeIn(duration: 0.3)) {
-                    selectedAnswer = answer
-                }
+                selectedAnswer = answer
             }
         } label: {
             Text(answer)
