@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    let content: Content
+    let content: ContentModel
     var body: some View {
         VStack(spacing: 16) {
             if let textContent = content.text {

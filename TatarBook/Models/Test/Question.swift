@@ -11,4 +11,8 @@ struct Question: Serializable {
     let text: String
     let wrongAnswers: [String]
     let correctAnswer: String
+    
+    var answers: [String] {
+        wrongAnswers + [correctAnswer]
+    }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NavigationLinkView: View {
     let title: String
-    let contents: [Content]
+    let contents: [ContentModel]
     var body: some View {
         NavigationLink(
             destination:

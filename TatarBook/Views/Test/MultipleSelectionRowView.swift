@@ -1,5 +1,5 @@
 //
-//  MultipleSelectionRow.swift
+//  MultipleSelectionRowView.swift
 //  TatarBook
 //
 //  Created by halsab on 28.03.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MultipleSelectionRow: View {
+struct MultipleSelectionRowView: View {
     var title: String
     var isSelected: Bool
     var action: () -> Void
@@ -22,15 +22,16 @@ struct MultipleSelectionRow: View {
                 if isSelected {
                     Spacer()
                     Image(systemName: "checkmark")
-                        .padding(.leading)
+                        .padding(.horizontal, 8)
+                        .foregroundColor(.accentColor)
                 }
             }
         }
     }
 }
 
-struct MultipleSelectionRow_Previews: PreviewProvider {
+struct MultipleSelectionRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MultipleSelectionRow(title: "Row 1", isSelected: false) {}
+        MultipleSelectionRowView(title: "Row 1", isSelected: false) {}
     }
 }

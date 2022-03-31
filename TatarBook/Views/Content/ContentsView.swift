@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentsView: View {
-    let contents: [Content]
+    let contents: [ContentModel]
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {

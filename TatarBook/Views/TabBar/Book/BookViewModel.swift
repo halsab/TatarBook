@@ -9,7 +9,7 @@ import SwiftUI
 
 class BookViewModel: ObservableObject {
     
-    @Published var contents: [Content]
+    @Published var contents: [ContentModel]
     
     init() {
         let file = File(name: "book", type: "json")
