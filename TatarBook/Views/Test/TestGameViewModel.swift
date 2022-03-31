@@ -20,6 +20,7 @@ class TestGameViewModel: ObservableObject {
     @Published var answers: [String] = []
     @Published private var correctAnswer = ""
     @Published var selectedAnswer = ""
+    @Published var progress: CGFloat = 0
     
     private var cancellabels: Set<AnyCancellable> = []
     
@@ -35,6 +36,7 @@ class TestGameViewModel: ObservableObject {
         
         $currntQuestionNumber
             .sink { [unowned self] currntQuestionNumber in
+                progress = CGFloat(currntQuestionNumber) / CGFloat(questionsCount)
                 status = "\(currntQuestionNumber)/\(questionsCount)"
                 if !questions.isEmpty {
                     setupGame(by: currntQuestionNumber)

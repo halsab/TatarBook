@@ -16,7 +16,7 @@ struct TestView: View {
             VStack(spacing: 16) {
                 List {
                     ForEach(vm.tests) { test in
-                        MultipleSelectionRowView(title: test.name, isSelected: vm.selectedTests.contains(test)) {
+                        SelectionRowView(title: test.name, isSelected: vm.selectedTests.contains(test)) {
                             if vm.selectedTests.contains(test) {
                                 vm.selectedTests.removeAll(where: { $0 == test })
                             } else {

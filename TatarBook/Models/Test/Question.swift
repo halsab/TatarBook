@@ -13,6 +13,6 @@ struct Question: Serializable {
     let correctAnswer: String
     
     var answers: [String] {
-        wrongAnswers + [correctAnswer]
+        (wrongAnswers + [correctAnswer]).shuffled()
     }
 }

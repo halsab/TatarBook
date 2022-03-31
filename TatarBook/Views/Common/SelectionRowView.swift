@@ -1,5 +1,5 @@
 //
-//  MultipleSelectionRowView.swift
+//  SelectionRowView.swift
 //  TatarBook
 //
 //  Created by halsab on 28.03.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MultipleSelectionRowView: View {
+struct SelectionRowView: View {
     var title: String
     var isSelected: Bool
     var action: () -> Void
@@ -32,6 +32,6 @@ struct MultipleSelectionRowView: View {
 
 struct MultipleSelectionRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MultipleSelectionRowView(title: "Row 1", isSelected: false) {}
+        SelectionRowView(title: "Row 1", isSelected: false) {}
     }
 }
