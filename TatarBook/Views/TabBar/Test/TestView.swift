@@ -13,7 +13,7 @@ struct TestView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 16) {
+            VStack {
                 List {
                     ForEach(vm.tests) { test in
                         SelectionRowView(title: test.name, isSelected: vm.selectedTests.contains(test)) {
@@ -31,17 +31,9 @@ struct TestView: View {
                 } label: {
                     Text("Тестны башларга")
                         .capsuleButtonStyle()
-                        .padding(.horizontal)
+                        .padding()
                 }
                 .disabled(vm.selectedTests.isEmpty)
-                
-                Button {
-                    // reset statistics
-                } label: {
-                    Text("Статистиканы чистартырга")
-                        .padding(.bottom)
-                        .foregroundColor(.secondary)
-                }
             }
             .navigationTitle(Text("Тест"))
         }

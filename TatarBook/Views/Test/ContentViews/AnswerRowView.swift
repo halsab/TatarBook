@@ -10,10 +10,14 @@ import SwiftUI
 struct AnswerRowView: View {
     
     let answer: String
+    let correctAnswer: String
     @Binding var selectedAnswer: String
     
     private var backgroundColor: Color {
-        isSelected ? Color.accentColor.opacity(0.3) : Color.clear
+        if isSelected {
+            return (answer == correctAnswer ? Color.green : Color.red).opacity(0.3)
+        }
+        return .clear
     }
     private var isSelected: Bool {
         answer == selectedAnswer
@@ -21,7 +25,11 @@ struct AnswerRowView: View {
     
     var body: some View {
         Button {
-            selectedAnswer = answer
+            if selectedAnswer.isEmpty {
+                withAnimation(.easeIn(duration: 0.3)) {
+                    selectedAnswer = answer
+                }
+            }
         } label: {
             Text(answer)
                 .font(.system(.body, design: .serif))

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TestGameView: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @StateObject private var vm = TestGameViewModel()
     private let tests: [Test]
     
@@ -26,28 +27,34 @@ struct TestGameView: View {
                         .font(.system(.caption, design: .monospaced))
                         .foregroundColor(.secondary)
                 }
-                .padding(.horizontal)
-                .padding(.top)
+                .padding([.horizontal, .top])
                 
                 Text(vm.question)
                     .font(.system(.headline, design: .serif))
+                    .multilineTextAlignment(.center)
                     .padding()
                 
                 VStack {
                     ForEach(vm.answers, id: \.self) { answer in
-                        AnswerRowView(answer: answer, selectedAnswer: $vm.selectedAnswer)
-                            .padding(.horizontal)
+                        AnswerRowView(
+                            answer: answer,
+                            correctAnswer: vm.correctAnswer,
+                            selectedAnswer: $vm.selectedAnswer
+                        )
+                        .padding(.horizontal)
                     }
                 }
                 
-                Button {
-                    withAnimation {
-                        vm.nextQuestion()
+                if !vm.selectedAnswer.isEmpty {
+                    Button {
+                        withAnimation {
+                            vm.nextQuestion()
+                        }
+                    } label: {
+                        Text(vm.mainButtonTitle)
+                            .capsuleButtonStyle()
+                            .padding()
                     }
-                } label: {
-                    Text("Next Question")
-                        .capsuleButtonStyle()
-                        .padding()
                 }
                 
                 Spacer()
@@ -58,6 +65,13 @@ struct TestGameView: View {
             vm.tests = tests
             vm.start()
         }
+        .alert("Тест тәмам!", isPresented: $vm.gameOver, actions: {
+            Button("Яхшы", role: .cancel) {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }, message: {
+            Text("Дөрес җаваплар: \(vm.score)\nБарлыгы сораулар: \(vm.questionsCount)")
+        })
     }
 }
 
