@@ -21,7 +21,7 @@ enum Logger {
         }
     }
     
-    static func console(
+    static func log(
         _ level: LogLevel,
         _ object: Any,
         shouldLogContext: Bool = true,
@@ -30,26 +30,28 @@ enum Logger {
         line: Int = #line
     ) {
 		#if DEBUG
-        let time = " [\(currentTime())] "
-        let context = " ➜ \(Context(file: file, function: function, line: line).description)"
-        print(level.prefix + time + "\(object)" + (shouldLogContext ? context : ""))
+        let info = level.prefix + getLogInfo(object,
+                                             shouldLogContext: shouldLogContext,
+                                             file: file,
+                                             function: function,
+                                             line: line)
+        print(info)
 		#endif
     }
     
-    private struct Context {
-        let file: String
-        let function: String
-        let line: Int
-        var description: String {
-            return "\((file as NSString).lastPathComponent):\(line) \(function)"
-        }
-    }
-    
-    private static func currentTime() -> String {
+    private static func getLogInfo(
+        _ object: Any,
+        shouldLogContext: Bool,
+        file: String,
+        function: String,
+        line: Int
+    ) -> String {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss.SSSS"
-        return formatter.string(from: date)
+        let time = " [\(formatter.string(from: date))] "
+        let context = " ➜ " + "\((file as NSString).lastPathComponent):\(line) \(function)"
+        return time + "\(object)" + (shouldLogContext ? context : "")
     }
 }
 

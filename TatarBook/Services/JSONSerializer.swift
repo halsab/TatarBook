@@ -7,21 +7,31 @@
 
 import Foundation
 
-class JSONSerializer {
+protocol JSONSerializerProtocol {
+    func getModel<T: Codable>(of file: File) -> T
+}
+
+class JSONSerializer: JSONSerializerProtocol {
     
-    static let shared = JSONSerializer()
+    static let shared: JSONSerializerProtocol = JSONSerializer()
     
     private init() {}
+    
+    func getModel<T: Codable>(of file: File) -> T {
+        let data = getData(of: file)
+        let model: T = parse(data)
+        return model
+    }
     
     private func getData(of file: File) -> Data {
         if let path = Bundle.main.path(forResource: file.name, ofType: file.type) {
             do {
                 return try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             } catch (let error) {
-                fatalError("### Error: \(error.localizedDescription)")
+                fatalError(error.localizedDescription)
             }
         } else {
-            fatalError("### Error: Unable to get file: '\(file.name).\(file.type)'")
+            fatalError("Unable to get file: '\(file.name).\(file.type)'")
         }
     }
     
@@ -30,13 +40,7 @@ class JSONSerializer {
             let jsonObject = try JSONDecoder().decode(T.self, from: data)
             return jsonObject
         } catch (let error) {
-            fatalError("### Error: \(error.localizedDescription)")
+            fatalError(error.localizedDescription)
         }
-    }
-    
-    func getModel<T: Codable>(of file: File) -> T {
-        let data = getData(of: file)
-        let model: T = parse(data)
-        return model
     }
 }
