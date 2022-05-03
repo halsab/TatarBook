@@ -13,7 +13,7 @@ struct TextView: View {
         VStack {
             if let title = textContent.title {
                 Text(.init(title))
-                    .font(.system(.title2, design: .serif))
+                    .font(.system(.title3, design: .serif))
                     .bold()
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 8)
