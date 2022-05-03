@@ -32,9 +32,11 @@ struct VTableView_Previews: PreviewProvider {
 
 struct VTableCellView: View {
     let cell: TableSimpleCellContent
+    private let idealWidth = UIScreen.main.bounds.width / 10
     var body: some View {
         HStack {
             Text(.init(cell.head))
+                .frame(minWidth: idealWidth)
                 .font(.system(.headline, design: .serif))
                 .padding(.horizontal)
                 .padding(.vertical, 8)
@@ -45,6 +47,7 @@ struct VTableCellView: View {
                     HStack {
                         ForEach(rows, id: \.self) { row in
                             Text(.init(row))
+                                .frame(minWidth: idealWidth)
                                 .font(.system(.body, design: .serif))
                             
                             if row != rows.last {
