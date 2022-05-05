@@ -30,7 +30,6 @@
 		5FC279B427F1B22500086FD0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC279B327F1B22500086FD0 /* Question.swift */; };
 		5FC279B627F1D01200086FD0 /* SelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC279B527F1D01200086FD0 /* SelectionRowView.swift */; };
 		5FC279BB27F24C6D00086FD0 /* Extensions+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC279BA27F24C6D00086FD0 /* Extensions+Text.swift */; };
-		5FC279BE27F2ECCD00086FD0 /* TestGameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC279BD27F2ECCD00086FD0 /* TestGameManager.swift */; };
 		5FF2735627EB97B60075A855 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735527EB97B60075A855 /* Serializable.swift */; };
 		5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735827EB99740075A855 /* BookViewModel.swift */; };
 		5FF2735B27EB9C4B0075A855 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735A27EB9C4B0075A855 /* ContentModel.swift */; };
@@ -70,7 +69,6 @@
 		5FC279B327F1B22500086FD0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		5FC279B527F1D01200086FD0 /* SelectionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRowView.swift; sourceTree = "<group>"; };
 		5FC279BA27F24C6D00086FD0 /* Extensions+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Text.swift"; sourceTree = "<group>"; };
-		5FC279BD27F2ECCD00086FD0 /* TestGameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGameManager.swift; sourceTree = "<group>"; };
 		5FF2735527EB97B60075A855 /* Serializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		5FF2735827EB99740075A855 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		5FF2735A27EB9C4B0075A855 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				5FF2736627EBB3430075A855 /* TatarBook.entitlements */,
-				5F91097B27EB766A00210E03 /* TatarBookApp.swift */,
 				5F91098927EB794D00210E03 /* Project */,
 				5F91098E27EB84A800210E03 /* Views */,
 				5F91099527EB8AB700210E03 /* Models */,
@@ -141,6 +138,7 @@
 		5F91098927EB794D00210E03 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				5F91097B27EB766A00210E03 /* TatarBookApp.swift */,
 				5F91098B27EB797700210E03 /* TabBarView.swift */,
 			);
 			path = Project;
@@ -180,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				5F91099327EB88E900210E03 /* JSONSerializer.swift */,
-				5FC279BD27F2ECCD00086FD0 /* TestGameManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -399,7 +396,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FC279A927F1931400086FD0 /* TestView.swift in Sources */,
-				5FC279BE27F2ECCD00086FD0 /* TestGameManager.swift in Sources */,
 				5FF2737827EDAF7E0075A855 /* TableSimpleCellContent.swift in Sources */,
 				5FF2735627EB97B60075A855 /* Serializable.swift in Sources */,
 				5FF2737A27EDB03E0075A855 /* VTableView.swift in Sources */,
