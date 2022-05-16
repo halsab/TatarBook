@@ -29,15 +29,27 @@ struct AnswerRowView: View {
                 selectedAnswer = answer
             }
         } label: {
-            Text(answer)
-                .font(.system(.body, design: .serif))
-                .foregroundColor(.primary)
-                .padding()
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(.secondary, lineWidth: 2)
-                )
+            HStack(spacing: 0) {
+                if isSelected {
+                    Image(systemName: answer == correctAnswer ? "checkmark.circle" : "xmark.circle")
+                        .foregroundColor(answer == correctAnswer ? Color.green : Color.red)
+                        .padding()
+                } else {
+                    Image(systemName: "circle")
+                        .padding()
+                }
+                
+                Text(answer)
+                    .font(.system(.body, design: .serif))
+                    .foregroundColor(.primary)
+                    .padding([.top, .bottom, .trailing])
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .multilineTextAlignment(.leading)
+            }
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(.secondary, lineWidth: 2)
+            )
         }
         .background(backgroundColor)
         .animation(.easeIn(duration: 0.3), value: backgroundColor)

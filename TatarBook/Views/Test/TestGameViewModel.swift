@@ -34,7 +34,7 @@ class TestGameViewModel: ObservableObject {
         $tests
             .sink { [unowned self] tests in
                 questions = tests
-                    .map { $0.questions.shuffled() }
+                    .map { $0.questions }
                     .flatMap { $0 }
                 questionsCount = questions.count
             }
