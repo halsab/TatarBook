@@ -22,7 +22,7 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Сүзлек", systemImage: "textformat")
                 }
-            SettingsView()
+            Text("Көйләнеш")
                 .tabItem {
                     Label("Көйләнеш", systemImage: "gear")
                 }

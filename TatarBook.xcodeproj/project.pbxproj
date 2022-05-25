@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F60FBC1283507DA00DBE03F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F60FBC0283507DA00DBE03F /* SettingsView.swift */; };
 		5F91097C27EB766A00210E03 /* TatarBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91097B27EB766A00210E03 /* TatarBookApp.swift */; };
 		5F91098027EB766B00210E03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F91097F27EB766B00210E03 /* Assets.xcassets */; };
 		5F91098327EB766B00210E03 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F91098227EB766B00210E03 /* Preview Assets.xcassets */; };
@@ -46,7 +45,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5F60FBC0283507DA00DBE03F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5F91097827EB766A00210E03 /* Иске имля.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Иске имля.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F91097B27EB766A00210E03 /* TatarBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TatarBookApp.swift; sourceTree = "<group>"; };
 		5F91097F27EB766B00210E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,14 +95,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F60FBBF283507CA00DBE03F /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				5F60FBC0283507DA00DBE03F /* SettingsView.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
 		5F91096F27EB766A00210E03 = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +170,6 @@
 				5FC279A727F1930000086FD0 /* Test */,
 				5FAA82ED27EE578F0015A60D /* Dictionary */,
 				5FF2735727EB995E0075A855 /* Book */,
-				5F60FBBF283507CA00DBE03F /* Settings */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -435,7 +424,6 @@
 				5F91099727EB8AC800210E03 /* File.swift in Sources */,
 				5F91098C27EB797700210E03 /* TabBarView.swift in Sources */,
 				5FA5FB7027F59825003F2ECE /* ProgressBar.swift in Sources */,
-				5F60FBC1283507DA00DBE03F /* SettingsView.swift in Sources */,
 				5F91097C27EB766A00210E03 /* TatarBookApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
