@@ -36,6 +36,7 @@ class TestGameViewModel: ObservableObject {
                 questions = tests
                     .map { $0.questions }
                     .flatMap { $0 }
+                    .shuffled()
                 questionsCount = questions.count
             }
             .store(in: &cancellabels)

@@ -44,9 +44,9 @@ struct SettingsView: View {
             CNLabeledValue(label: CNLabelWork, value: "KurtyanikNV@mosreg.ru")
         ]
         let address = CNMutablePostalAddress()
-        address.street = "б-р Строителей, д. 7, 11 этаж"
-        address.city = "г. Красногорск"
-        address.state = "Московская обл."
+        address.street = "бульвар Строителей, дом 7, 11 этаж"
+        address.city = "город Красногорск"
+        address.state = "Московская область"
         address.postalCode = "143401"
         address.country = "Россия"
         newContact.postalAddresses = [

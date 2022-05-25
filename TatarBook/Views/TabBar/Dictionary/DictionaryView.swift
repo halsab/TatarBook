@@ -28,7 +28,7 @@ struct DictionaryView: View {
                 }
             }
             .listStyle(PlainListStyle())
-            .searchable(text: $searchText) {
+            .searchable(text: $searchText, prompt: "Сүзне яза башлагыз...") {
                 ForEach(searchResults, id: \.self) { result in
                     Text(.init(result)).searchCompletion(result)
                         .font(.system(.body, design: .serif))
