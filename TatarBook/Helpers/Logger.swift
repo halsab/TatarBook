@@ -26,15 +26,13 @@ enum Logger {
         _ object: Any,
         shouldLogContext: Bool = true,
         file: String = #file,
-        function: String = #function,
-        line: Int = #line
+        function: String = #function
     ) {
 		#if DEBUG
         let info = level.prefix + getLogInfo(object,
                                              shouldLogContext: shouldLogContext,
                                              file: file,
-                                             function: function,
-                                             line: line)
+                                             function: function)
         print(info)
 		#endif
     }
@@ -43,14 +41,13 @@ enum Logger {
         _ object: Any,
         shouldLogContext: Bool,
         file: String,
-        function: String,
-        line: Int
+        function: String
     ) -> String {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss.SSSS"
         let time = " [\(formatter.string(from: date))] "
-        let context = " ➜ " + "\((file as NSString).lastPathComponent):\(line) \(function)"
+        let context = " ➜ " + "\((file as NSString).lastPathComponent) - \(function)"
         return time + "\(object)" + (shouldLogContext ? context : "")
     }
 }

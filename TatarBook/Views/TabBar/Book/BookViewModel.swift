@@ -12,7 +12,7 @@ class BookViewModel: ObservableObject {
     @Published var contents: [ContentModel]
     
     init() {
-        let file = File(name: "book", type: "json")
+        let file = FileName(name: "book", type: "json")
         contents = JSONSerializer.shared.getModel(of: file)
     }
 }

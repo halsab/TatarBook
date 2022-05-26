@@ -13,7 +13,7 @@ class TestViewModel: ObservableObject {
     @Published var selectedTests: [Test] = []
     
     init() {
-        let file = File(name: "test", type: "json")
+        let file = FileName(name: "test", type: "json")
         tests = JSONSerializer.shared.getModel(of: file)
     }
 }

@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F7AB87F283E73D2003608B0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB87E283E73D2003608B0 /* NetworkManager.swift */; };
+		5F7AB881283E77FB003608B0 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB880283E77FB003608B0 /* AppManager.swift */; };
+		5F7AB883283E787C003608B0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB882283E787C003608B0 /* Config.swift */; };
+		5F7AB885283E7D35003608B0 /* FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB884283E7D35003608B0 /* FileType.swift */; };
+		5F7AB887283E7D87003608B0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB886283E7D87003608B0 /* DataManager.swift */; };
 		5F91097C27EB766A00210E03 /* TatarBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91097B27EB766A00210E03 /* TatarBookApp.swift */; };
 		5F91098027EB766B00210E03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F91097F27EB766B00210E03 /* Assets.xcassets */; };
 		5F91098327EB766B00210E03 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F91098227EB766B00210E03 /* Preview Assets.xcassets */; };
 		5F91098C27EB797700210E03 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91098B27EB797700210E03 /* TabBarView.swift */; };
 		5F91099127EB84DC00210E03 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099027EB84DC00210E03 /* BookView.swift */; };
 		5F91099427EB88E900210E03 /* JSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099327EB88E900210E03 /* JSONSerializer.swift */; };
-		5F91099727EB8AC800210E03 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099627EB8AC800210E03 /* File.swift */; };
+		5F91099727EB8AC800210E03 /* FileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099627EB8AC800210E03 /* FileName.swift */; };
 		5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099927EB8C4D00210E03 /* Logger.swift */; };
 		5F91099D27EB8CB700210E03 /* book.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F91099C27EB8CB700210E03 /* book.json */; };
 		5FA5FB6B27F58230003F2ECE /* TestGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA5FB6A27F58230003F2ECE /* TestGameView.swift */; };
@@ -45,6 +50,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F7AB87E283E73D2003608B0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5F7AB880283E77FB003608B0 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		5F7AB882283E787C003608B0 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		5F7AB884283E7D35003608B0 /* FileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileType.swift; sourceTree = "<group>"; };
+		5F7AB886283E7D87003608B0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5F91097827EB766A00210E03 /* Иске имля.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Иске имля.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F91097B27EB766A00210E03 /* TatarBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TatarBookApp.swift; sourceTree = "<group>"; };
 		5F91097F27EB766B00210E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,7 +62,7 @@
 		5F91098B27EB797700210E03 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		5F91099027EB84DC00210E03 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		5F91099327EB88E900210E03 /* JSONSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSerializer.swift; sourceTree = "<group>"; };
-		5F91099627EB8AC800210E03 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		5F91099627EB8AC800210E03 /* FileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileName.swift; sourceTree = "<group>"; };
 		5F91099927EB8C4D00210E03 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		5F91099C27EB8CB700210E03 /* book.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = book.json; sourceTree = "<group>"; };
 		5FA5FB6A27F58230003F2ECE /* TestGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGameView.swift; sourceTree = "<group>"; };
@@ -178,6 +188,10 @@
 			isa = PBXGroup;
 			children = (
 				5F91099327EB88E900210E03 /* JSONSerializer.swift */,
+				5F7AB87E283E73D2003608B0 /* NetworkManager.swift */,
+				5F7AB886283E7D87003608B0 /* DataManager.swift */,
+				5F7AB880283E77FB003608B0 /* AppManager.swift */,
+				5F7AB884283E7D35003608B0 /* FileType.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -185,7 +199,8 @@
 		5F91099527EB8AB700210E03 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5F91099627EB8AC800210E03 /* File.swift */,
+				5F7AB882283E787C003608B0 /* Config.swift */,
+				5F91099627EB8AC800210E03 /* FileName.swift */,
 				5F91099F27EB93D800210E03 /* Content */,
 				5FC279B227F1B21800086FD0 /* Test */,
 			);
@@ -400,12 +415,15 @@
 				5FF2735627EB97B60075A855 /* Serializable.swift in Sources */,
 				5FF2737A27EDB03E0075A855 /* VTableView.swift in Sources */,
 				5FA5FB7327F59FFF003F2ECE /* AnswerRowView.swift in Sources */,
+				5F7AB87F283E73D2003608B0 /* NetworkManager.swift in Sources */,
 				5FC279BB27F24C6D00086FD0 /* Extensions+Text.swift in Sources */,
+				5F7AB881283E77FB003608B0 /* AppManager.swift in Sources */,
 				5F91099427EB88E900210E03 /* JSONSerializer.swift in Sources */,
 				5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */,
 				5FF2737027ECC21D0075A855 /* TextView.swift in Sources */,
 				5FF2735B27EB9C4B0075A855 /* ContentModel.swift in Sources */,
 				5FC279B627F1D01200086FD0 /* SelectionRowView.swift in Sources */,
+				5F7AB885283E7D35003608B0 /* FileType.swift in Sources */,
 				5FF2735D27EB9FCA0075A855 /* TextContent.swift in Sources */,
 				5FA5FB6B27F58230003F2ECE /* TestGameView.swift in Sources */,
 				5FA5FB6D27F58249003F2ECE /* TestGameViewModel.swift in Sources */,
@@ -419,9 +437,11 @@
 				5FC279B127F1B1F500086FD0 /* Test.swift in Sources */,
 				5FF2736E27ECC0F60075A855 /* ContentsView.swift in Sources */,
 				5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */,
+				5F7AB883283E787C003608B0 /* Config.swift in Sources */,
 				5FF2736A27EBB8860075A855 /* ContentView.swift in Sources */,
 				5FF2737227ECC8FE0075A855 /* ListView.swift in Sources */,
-				5F91099727EB8AC800210E03 /* File.swift in Sources */,
+				5F91099727EB8AC800210E03 /* FileName.swift in Sources */,
+				5F7AB887283E7D87003608B0 /* DataManager.swift in Sources */,
 				5F91098C27EB797700210E03 /* TabBarView.swift in Sources */,
 				5FA5FB7027F59825003F2ECE /* ProgressBar.swift in Sources */,
 				5F91097C27EB766A00210E03 /* TatarBookApp.swift in Sources */,

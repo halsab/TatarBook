@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct TatarBookApp: App {
+    
+    init() {
+        AppManager.shared.updateConfig()
+    }
+    
     var body: some Scene {
         WindowGroup {
             TabBarView()
