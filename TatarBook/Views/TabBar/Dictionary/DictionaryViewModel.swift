@@ -13,7 +13,8 @@ class DictionaryViewModel: ObservableObject {
     
     init() {
         let file = FileName(name: "dictionary", type: "json")
-        let rawWords: [String] = JSONSerializer.shared.getModel(of: file)
+        let dictionaryModel: DictionaryModel = JSONSerializer.shared.getModel(of: file)
+        let rawWords = dictionaryModel.content
         words = rawWords.sorted { $0.lowercased() < $1.lowercased() }
     }
 }

@@ -11,6 +11,9 @@ struct SettingsView: View {
     
     @EnvironmentObject var appManager: AppManager
     
+    @State private var showingAlert = false
+    @State private var alertMessage = ""
+    
     var body: some View {
         VStack {
             Text("Config")
@@ -25,13 +28,18 @@ struct SettingsView: View {
             .padding()
             
             Button {
-//                appManager.updateConfig()
-                appManager.config = Config(files: [Config.File(name: "new file", version: "1.1.2")])
+                appManager.updateConfig { isSuccess in
+                    showingAlert = true
+                    alertMessage = isSuccess ? "Config updated" : "Cant update config"
+                }
             } label: {
                 Text("Update")
                     .capsuleButtonStyle()
                     .padding()
             }
+        }
+        .alert(alertMessage, isPresented: $showingAlert) {
+            Button("Ok", role: .cancel) { }
         }
     }
 }

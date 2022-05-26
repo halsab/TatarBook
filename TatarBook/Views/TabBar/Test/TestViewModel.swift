@@ -14,6 +14,7 @@ class TestViewModel: ObservableObject {
     
     init() {
         let file = FileName(name: "test", type: "json")
-        tests = JSONSerializer.shared.getModel(of: file)
+        let testModel: TestModel = JSONSerializer.shared.getModel(of: file)
+        tests = testModel.content
     }
 }

@@ -22,17 +22,19 @@ class AppManager: ObservableObject {
         config = DataManager.shared.getLocalFile(type: .config) ?? Config(files: [])
     }
     
-    func updateConfig() {
+    func updateConfig(completion: @escaping (Bool) -> Void) {
         NetworkManager.shared.getFile(type: .config)
             .receive(on: RunLoop.main)
-            .sink { completion in
-                if case .failure(let error) = completion {
+            .sink { handler in
+                if case .failure(let error) = handler {
                     Logger.log(.error, "Cant update config: \(error.localizedDescription)")
+                    completion(false)
                 }
             } receiveValue: { [unowned self] (config: Config) in
                 Logger.log(.success, "Config updated", withContext: false)
                 self.config = config
                 self.lastConfigUpdateDate = Date.now
+                completion(true)
             }
             .store(in: &cancellables)
     }

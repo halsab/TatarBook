@@ -17,7 +17,7 @@ struct TatarBookApp: App {
             TabBarView()
                 .onAppear {
                     if appManager.isNeedUpdateConfig {
-                        appManager.updateConfig()
+                        appManager.updateConfig() { _ in }
                     }
                 }
                 .environmentObject(appManager)

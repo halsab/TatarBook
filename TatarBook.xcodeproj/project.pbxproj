@@ -13,6 +13,9 @@
 		5F7AB885283E7D35003608B0 /* FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB884283E7D35003608B0 /* FileType.swift */; };
 		5F7AB887283E7D87003608B0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB886283E7D87003608B0 /* DataManager.swift */; };
 		5F7AB88A283F6AAF003608B0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB889283F6AAE003608B0 /* SettingsView.swift */; };
+		5F7AB88D283F9F31003608B0 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB88C283F9F31003608B0 /* BookModel.swift */; };
+		5F7AB88F283F9F3A003608B0 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB88E283F9F3A003608B0 /* TestModel.swift */; };
+		5F7AB891283F9F45003608B0 /* DictionaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB890283F9F45003608B0 /* DictionaryModel.swift */; };
 		5F91097C27EB766A00210E03 /* TatarBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91097B27EB766A00210E03 /* TatarBookApp.swift */; };
 		5F91098027EB766B00210E03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F91097F27EB766B00210E03 /* Assets.xcassets */; };
 		5F91098327EB766B00210E03 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F91098227EB766B00210E03 /* Preview Assets.xcassets */; };
@@ -57,6 +60,9 @@
 		5F7AB884283E7D35003608B0 /* FileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileType.swift; sourceTree = "<group>"; };
 		5F7AB886283E7D87003608B0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5F7AB889283F6AAE003608B0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5F7AB88C283F9F31003608B0 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		5F7AB88E283F9F3A003608B0 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		5F7AB890283F9F45003608B0 /* DictionaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryModel.swift; sourceTree = "<group>"; };
 		5F91097827EB766A00210E03 /* Иске имля.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Иске имля.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F91097B27EB766A00210E03 /* TatarBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TatarBookApp.swift; sourceTree = "<group>"; };
 		5F91097F27EB766B00210E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +119,16 @@
 				5F7AB889283F6AAE003608B0 /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		5F7AB88B283F9EAB003608B0 /* TabModels */ = {
+			isa = PBXGroup;
+			children = (
+				5F7AB88C283F9F31003608B0 /* BookModel.swift */,
+				5F7AB88E283F9F3A003608B0 /* TestModel.swift */,
+				5F7AB890283F9F45003608B0 /* DictionaryModel.swift */,
+			);
+			path = TabModels;
 			sourceTree = "<group>";
 		};
 		5F91096F27EB766A00210E03 = {
@@ -210,6 +226,7 @@
 		5F91099527EB8AB700210E03 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5F7AB88B283F9EAB003608B0 /* TabModels */,
 				5F7AB882283E787C003608B0 /* Config.swift */,
 				5F91099627EB8AC800210E03 /* FileName.swift */,
 				5F91099F27EB93D800210E03 /* Content */,
@@ -231,8 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				5F91099C27EB8CB700210E03 /* book.json */,
-				5FAA82F227EE59650015A60D /* dictionary.json */,
 				5FC279AE27F1B1CF00086FD0 /* test.json */,
+				5FAA82F227EE59650015A60D /* dictionary.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -422,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FC279A927F1931400086FD0 /* TestView.swift in Sources */,
+				5F7AB88F283F9F3A003608B0 /* TestModel.swift in Sources */,
 				5FF2737827EDAF7E0075A855 /* TableSimpleCellContent.swift in Sources */,
 				5FF2735627EB97B60075A855 /* Serializable.swift in Sources */,
 				5FF2737A27EDB03E0075A855 /* VTableView.swift in Sources */,
@@ -430,6 +448,7 @@
 				5FC279BB27F24C6D00086FD0 /* Extensions+Text.swift in Sources */,
 				5F7AB881283E77FB003608B0 /* AppManager.swift in Sources */,
 				5F91099427EB88E900210E03 /* JSONSerializer.swift in Sources */,
+				5F7AB891283F9F45003608B0 /* DictionaryModel.swift in Sources */,
 				5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */,
 				5FF2737027ECC21D0075A855 /* TextView.swift in Sources */,
 				5FF2735B27EB9C4B0075A855 /* ContentModel.swift in Sources */,
@@ -450,6 +469,7 @@
 				5FF2736E27ECC0F60075A855 /* ContentsView.swift in Sources */,
 				5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */,
 				5F7AB883283E787C003608B0 /* Config.swift in Sources */,
+				5F7AB88D283F9F31003608B0 /* BookModel.swift in Sources */,
 				5FF2736A27EBB8860075A855 /* ContentView.swift in Sources */,
 				5FF2737227ECC8FE0075A855 /* ListView.swift in Sources */,
 				5F91099727EB8AC800210E03 /* FileName.swift in Sources */,
