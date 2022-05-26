@@ -8,12 +8,18 @@
 import Foundation
 
 protocol AppManagerProtocol {
+    var isNeedUpdateConfig: Bool { get }
+    
     func updateConfig()
 }
 
 class AppManager: AppManagerProtocol {
     
     var config: Config!
+    
+    var isNeedUpdateConfig: Bool {
+        Date.now < lastConfigUpdateDate.addingTimeInterval(86400)
+    }
     
     static let shared: AppManagerProtocol = AppManager()
     private init() {
@@ -27,10 +33,6 @@ class AppManager: AppManagerProtocol {
     }
     
     func updateConfig() {
-        guard isNeedUpdateConfig else {
-            Logger.log(.info, "There is no need to update config", shouldLogContext: false)
-            return
-        }
         Logger.log(.info, "Update config", shouldLogContext: false)
         NetworkManager.shared.getData(for: .config) { [unowned self] data in
             guard let data = data else { return }
@@ -42,14 +44,6 @@ class AppManager: AppManagerProtocol {
                 Logger.log(.error, "Cant update config", shouldLogContext: false)
             }
         }
-    }
-}
-
-// MARK: - Computed Properties
-
-extension AppManager {
-    var isNeedUpdateConfig: Bool {
-        Date.now < lastConfigUpdateDate.addingTimeInterval(86400)
     }
 }
 

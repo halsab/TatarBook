@@ -11,7 +11,11 @@ import SwiftUI
 struct TatarBookApp: App {
     
     init() {
-        AppManager.shared.updateConfig()
+        if AppManager.shared.isNeedUpdateConfig {
+            AppManager.shared.updateConfig()
+        } else {
+            Logger.log(.info, "There is no need to update config", shouldLogContext: false)
+        }
     }
     
     var body: some Scene {
