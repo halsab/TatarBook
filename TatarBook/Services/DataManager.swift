@@ -10,6 +10,7 @@ import Foundation
 protocol DataManagerProtocol {
     func getLocalFile<Model: Decodable>(type: FileType) -> Model?
     func getObject<Model: Decodable>(from data: Data) -> Model?
+    func saveObject(data: Data, to file: FileType) -> Bool
 }
 
 class DataManager: DataManagerProtocol {
@@ -28,5 +29,13 @@ class DataManager: DataManagerProtocol {
             return getObject(from: data)
         }
         return nil
+    }
+    
+    func saveObject(data: Data, to file: FileType) -> Bool {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        guard let url = urls.first else { return false }
+        var fileURL = url.appendingPathComponent(file.rawValue)
+        fileURL = fileURL.appendingPathExtension("json")
+        return (try? data.write(to: fileURL, options: [.atomicWrite])) != nil
     }
 }

@@ -13,10 +13,26 @@ struct SettingsView: View {
     
     @State private var showingAlert = false
     @State private var alertMessage = ""
+    @State private var isNeedUpdate = false
+    @State private var lastUpdate = Date.now
+    @State private var dateNow = Date.now
     
     var body: some View {
         VStack {
+            Text("Last update: \(lastUpdate)")
+                .font(.title2)
+                .padding()
+            Text("Now: \(dateNow)")
+                .font(.title2)
+                .padding()
+            Text("Need update: \(isNeedUpdate ? "true" : "false")")
+                .font(.title2)
+                .padding()
+            Text("Updated config: \(appManager.isUpdatedConfig ? "true" : "false")")
+                .font(.title2)
+                .padding()
             Text("Config")
+                .font(.title2)
                 .bold()
             ForEach(appManager.config.files, id: \.id) { file in
                 HStack {
@@ -40,6 +56,11 @@ struct SettingsView: View {
         }
         .alert(alertMessage, isPresented: $showingAlert) {
             Button("Ok", role: .cancel) { }
+        }
+        .onAppear {
+            isNeedUpdate = appManager.isNeedUpdateConfig
+            lastUpdate = appManager.lastConfigUpdateDate
+            dateNow = Date.now
         }
     }
 }

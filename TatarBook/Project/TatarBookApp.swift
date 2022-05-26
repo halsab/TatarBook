@@ -14,13 +14,22 @@ struct TatarBookApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TabBarView()
-                .onAppear {
-                    if appManager.isNeedUpdateConfig {
-                        appManager.updateConfig() { _ in }
+            if appManager.isFirstLoad {
+                DownloadingView()
+                    .onAppear {
+                        appManager.updateConfig() { isSuccess in
+                            appManager.isFirstLoad = !isSuccess
+                        }
                     }
-                }
-                .environmentObject(appManager)
+            } else {
+                TabBarView()
+                    .onAppear {
+                        if appManager.isNeedUpdateConfig {
+                            appManager.updateConfig() { _ in }
+                        }
+                    }
+                    .environmentObject(appManager)
+            }
         }
     }
 }

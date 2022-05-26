@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 protocol NetworkManagerProtocol {
+    func getData(of type: FileType) -> AnyPublisher<Data, Error>
     func getFile<Model: Decodable>(type: FileType) -> AnyPublisher<Model, Error>
 }
 
@@ -18,7 +19,6 @@ class NetworkManager: NetworkManagerProtocol {
     private init() {}
     
     private var serverState: ServerState = .dev
-    
     private var endpoint: String {
         switch serverState {
         case .prod:
@@ -26,6 +26,16 @@ class NetworkManager: NetworkManagerProtocol {
         case .dev:
             return "https://raw.githubusercontent.com/halsab/Database/dev/TatarBook/"
         }
+    }
+    
+    func getData(of type: FileType) -> AnyPublisher<Data, Error> {
+        guard let url = URL(string: endpoint + type.rawValue + ".json") else {
+            preconditionFailure("Cant create correct URL")
+        }
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .mapError { $0 }
+            .eraseToAnyPublisher()
     }
 
     func getFile<Model: Decodable>(type: FileType) -> AnyPublisher<Model, Error> {

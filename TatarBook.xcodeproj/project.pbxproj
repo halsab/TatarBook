@@ -16,6 +16,7 @@
 		5F7AB88D283F9F31003608B0 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB88C283F9F31003608B0 /* BookModel.swift */; };
 		5F7AB88F283F9F3A003608B0 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB88E283F9F3A003608B0 /* TestModel.swift */; };
 		5F7AB891283F9F45003608B0 /* DictionaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB890283F9F45003608B0 /* DictionaryModel.swift */; };
+		5F7AB893283FBF9A003608B0 /* DownloadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB892283FBF9A003608B0 /* DownloadingView.swift */; };
 		5F91097C27EB766A00210E03 /* TatarBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91097B27EB766A00210E03 /* TatarBookApp.swift */; };
 		5F91098027EB766B00210E03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F91097F27EB766B00210E03 /* Assets.xcassets */; };
 		5F91098327EB766B00210E03 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F91098227EB766B00210E03 /* Preview Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		5F7AB88C283F9F31003608B0 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		5F7AB88E283F9F3A003608B0 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		5F7AB890283F9F45003608B0 /* DictionaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryModel.swift; sourceTree = "<group>"; };
+		5F7AB892283FBF9A003608B0 /* DownloadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingView.swift; sourceTree = "<group>"; };
 		5F91097827EB766A00210E03 /* Иске имля.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Иске имля.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F91097B27EB766A00210E03 /* TatarBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TatarBookApp.swift; sourceTree = "<group>"; };
 		5F91097F27EB766B00210E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				5F91097B27EB766A00210E03 /* TatarBookApp.swift */,
+				5F7AB892283FBF9A003608B0 /* DownloadingView.swift */,
 				5F91098B27EB797700210E03 /* TabBarView.swift */,
 			);
 			path = Project;
@@ -459,6 +462,7 @@
 				5FA5FB6D27F58249003F2ECE /* TestGameViewModel.swift in Sources */,
 				5FC279B427F1B22500086FD0 /* Question.swift in Sources */,
 				5FAA82EF27EE57A70015A60D /* DictionaryView.swift in Sources */,
+				5F7AB893283FBF9A003608B0 /* DownloadingView.swift in Sources */,
 				5FF2737C27EDB3FC0075A855 /* HTableView.swift in Sources */,
 				5FAA82F127EE57AD0015A60D /* DictionaryViewModel.swift in Sources */,
 				5F7AB88A283F6AAF003608B0 /* SettingsView.swift in Sources */,
