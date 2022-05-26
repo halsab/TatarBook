@@ -29,10 +29,10 @@ class DataManager: DataManagerProtocol {
     
     func getLocalObject<Model: Decodable>(for fileType: FileType) -> Model? {
         if let data = getData(for: fileType) {
-            Logger.log(.success, "Successfully got local object type '\(fileType)'", shouldLogContext: false)
+            Logger.log(.success, "Successfully got local object type '\(fileType)'", withContext: false)
             return getObject(from: data)
         } else {
-            Logger.log(.error, "Cant find local object type '\(fileType)'", shouldLogContext: false)
+            Logger.log(.error, "Cant find local object type '\(fileType)'", withContext: false)
             return nil
         }
     }

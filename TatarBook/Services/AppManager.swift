@@ -33,15 +33,15 @@ class AppManager: AppManagerProtocol {
     }
     
     func updateConfig() {
-        Logger.log(.info, "Update config", shouldLogContext: false)
+        Logger.log(.info, "Update config", withContext: false)
         NetworkManager.shared.getData(for: .config) { [unowned self] data in
             guard let data = data else { return }
             if let config: Config = DataManager.shared.getObject(from: data) {
-                Logger.log(.success, "Config updated", shouldLogContext: false)
+                Logger.log(.success, "Config updated", withContext: false)
                 self.config = config
                 lastConfigUpdateDate = Date.now
             } else {
-                Logger.log(.error, "Cant update config", shouldLogContext: false)
+                Logger.log(.error, "Cant update config", withContext: false)
             }
         }
     }

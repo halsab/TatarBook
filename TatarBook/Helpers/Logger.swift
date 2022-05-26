@@ -7,48 +7,27 @@
 
 import Foundation
 
-enum Logger {
-    enum LogLevel {
-        case debug, success, info, warning, error
-        fileprivate var prefix: String {
-            switch self {
-            case .debug: return "🐞-🟣"
-            case .success: return "🐞-🟢"
-            case .info: return "🐞-⚪️"
-            case .warning: return "🐞-🟡"
-            case .error: return "🐞-🔴"
-            }
-        }
-    }
+enum Logger: String {
+    case debug = "🐞-🟣"
+    case success = "🐞-🟢"
+    case info = "🐞-⚪️"
+    case warning = "🐞-🟡"
+    case error = "🐞-🔴"
     
     static func log(
-        _ level: LogLevel,
+        _ level: Logger,
         _ object: Any,
-        shouldLogContext: Bool = true,
+        withContext: Bool = true,
         file: String = #file,
         function: String = #function
     ) {
 		#if DEBUG
-        let info = level.prefix + getLogInfo(object,
-                                             shouldLogContext: shouldLogContext,
-                                             file: file,
-                                             function: function)
-        print(info)
-		#endif
-    }
-    
-    private static func getLogInfo(
-        _ object: Any,
-        shouldLogContext: Bool,
-        file: String,
-        function: String
-    ) -> String {
-        let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss.SSSS"
-        let time = " [\(formatter.string(from: date))] "
-        let context = " ➜ " + "\((file as NSString).lastPathComponent) - \(function)"
-        return time + "\(object)" + (shouldLogContext ? context : "")
+        let time = " [\(formatter.string(from: Date.now))] "
+        let context = " ➜ " + "\((file as NSString).lastPathComponent): \(function)"
+        let info = level.rawValue + time + "\(object)" + (withContext ? context : "")
+        print(info)
+        #endif
     }
 }
-

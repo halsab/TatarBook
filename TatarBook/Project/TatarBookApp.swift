@@ -14,7 +14,7 @@ struct TatarBookApp: App {
         if AppManager.shared.isNeedUpdateConfig {
             AppManager.shared.updateConfig()
         } else {
-            Logger.log(.info, "There is no need to update config", shouldLogContext: false)
+            Logger.log(.info, "There is no need to update config", withContext: false)
         }
     }
     
