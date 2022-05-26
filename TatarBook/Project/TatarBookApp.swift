@@ -16,11 +16,8 @@ struct TatarBookApp: App {
         WindowGroup {
             TabBarView()
                 .onAppear {
-                    appManager.getLocalConfig()
-                    if appManager.isNeedUpdateConfig() {
+                    if appManager.isNeedUpdateConfig {
                         appManager.updateConfig()
-                    } else {
-                        Logger.log(.info, "There is no need to update config", withContext: false)
                     }
                 }
                 .environmentObject(appManager)

@@ -14,18 +14,12 @@ class AppManager: ObservableObject {
     
     private var cancellables: Set<AnyCancellable> = []
     
-    init() {
-        config = Config(files: [])
-    }
-    
-    func isNeedUpdateConfig() -> Bool {
+    var isNeedUpdateConfig: Bool {
         Date.now < lastConfigUpdateDate.addingTimeInterval(86400)
     }
     
-    func getLocalConfig() {
-        if let config: Config = DataManager.shared.getLocalFile(type: .config) {
-            self.config = config
-        }
+    init() {
+        config = DataManager.shared.getLocalFile(type: .config) ?? Config(files: [])
     }
     
     func updateConfig() {
@@ -38,6 +32,7 @@ class AppManager: ObservableObject {
             } receiveValue: { [unowned self] (config: Config) in
                 Logger.log(.success, "Config updated", withContext: false)
                 self.config = config
+                self.lastConfigUpdateDate = Date.now
             }
             .store(in: &cancellables)
     }
