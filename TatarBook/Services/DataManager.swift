@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DataManagerProtocol {
-    func getLocalObject<Model: Decodable>(for fileType: FileType) -> Model?
+    func getLocalFile<Model: Decodable>(type: FileType) -> Model?
     func getObject<Model: Decodable>(from data: Data) -> Model?
 }
 
@@ -17,23 +17,16 @@ class DataManager: DataManagerProtocol {
     static let shared: DataManagerProtocol = DataManager()
     private init() {}
     
-    func getData(for fileType: FileType) -> Data? {
-        guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        let fileURL = url.appendingPathComponent(fileType.rawValue).appendingPathExtension("json")
-        return try? Data(contentsOf: fileURL)
-    }
-    
     func getObject<Model: Decodable>(from data: Data) -> Model? {
         try? JSONDecoder().decode(Model.self, from: data)
     }
     
-    func getLocalObject<Model: Decodable>(for fileType: FileType) -> Model? {
-        if let data = getData(for: fileType) {
-            Logger.log(.success, "Successfully got local object type '\(fileType)'", withContext: false)
+    func getLocalFile<Model: Decodable>(type: FileType) -> Model? {
+        guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        let fileURL = url.appendingPathComponent(type.rawValue).appendingPathExtension("json")
+        if let data = try? Data(contentsOf: fileURL) {
             return getObject(from: data)
-        } else {
-            Logger.log(.error, "Cant find local object type '\(fileType)'", withContext: false)
-            return nil
         }
+        return nil
     }
 }

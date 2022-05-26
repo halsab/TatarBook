@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Combine
 
 protocol NetworkManagerProtocol {
-    func getData(for fileType: FileType, completion: @escaping (Data?) -> Void)
+    func getFile<Model: Decodable>(type: FileType) -> AnyPublisher<Model, Error>
 }
 
 class NetworkManager: NetworkManagerProtocol {
@@ -18,20 +19,13 @@ class NetworkManager: NetworkManagerProtocol {
     
     private let endpoint = "https://raw.githubusercontent.com/halsab/Database/main/TatarBook/"
 
-    func getData(for fileType: FileType, completion: @escaping (Data?) -> Void) {
-        guard let url = URL(string: endpoint + fileType.rawValue + ".json") else {
-            Logger.log(.error, "Cant create correct URL", withContext: false)
-            return
+    func getFile<Model: Decodable>(type: FileType) -> AnyPublisher<Model, Error> {
+        guard let url = URL(string: endpoint + type.rawValue + ".json") else {
+            preconditionFailure("Cant create correct URL")
         }
-        Logger.log(.info, "Get data for URL path: \(url.path)", withContext: false)
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            if let data = data, error == nil {
-                Logger.log(.success, "Successfully got remote data type '\(fileType)'", withContext: false)
-                completion(data)
-            } else {
-                Logger.log(.error, "Cant get remote data type '\(fileType)'", withContext: false)
-                completion(nil)
-            }
-        }.resume()
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: Model.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
     }
 }

@@ -12,6 +12,8 @@ class AppManager: ObservableObject {
     
     @Published var config: Config
     
+    private var cancellables: Set<AnyCancellable> = []
+    
     init() {
         config = Config(files: [])
     }
@@ -21,26 +23,23 @@ class AppManager: ObservableObject {
     }
     
     func getLocalConfig() {
-        if let config: Config = DataManager.shared.getLocalObject(for: .config) {
-            Logger.log(.success, "Config exist and accepted")
+        if let config: Config = DataManager.shared.getLocalFile(type: .config) {
             self.config = config
-        } else {
-            Logger.log(.warning, "There is no config file locally saved")
         }
     }
     
     func updateConfig() {
-        Logger.log(.info, "Update config", withContext: false)
-        NetworkManager.shared.getData(for: .config) { [unowned self] data in
-            guard let data = data else { return }
-            if let config: Config = DataManager.shared.getObject(from: data) {
+        NetworkManager.shared.getFile(type: .config)
+            .receive(on: RunLoop.main)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    Logger.log(.error, "Cant update config: \(error.localizedDescription)")
+                }
+            } receiveValue: { [unowned self] (config: Config) in
                 Logger.log(.success, "Config updated", withContext: false)
                 self.config = config
-                lastConfigUpdateDate = Date.now
-            } else {
-                Logger.log(.error, "Cant update config", withContext: false)
             }
-        }
+            .store(in: &cancellables)
     }
 }
 
