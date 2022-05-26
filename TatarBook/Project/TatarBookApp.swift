@@ -10,17 +10,20 @@ import SwiftUI
 @main
 struct TatarBookApp: App {
     
-    init() {
-        if appManager.isNeedUpdateConfig {
-            appManager.updateConfig()
-        } else {
-            Logger.log(.info, "There is no need to update config", withContext: false)
-        }
-    }
+    @StateObject var appManager = AppManager()
     
     var body: some Scene {
         WindowGroup {
             TabBarView()
+                .onAppear {
+                    appManager.getLocalConfig()
+                    if appManager.isNeedUpdateConfig() {
+                        appManager.updateConfig()
+                    } else {
+                        Logger.log(.info, "There is no need to update config", withContext: false)
+                    }
+                }
+                .environmentObject(appManager)
         }
     }
 }

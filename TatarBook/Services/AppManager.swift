@@ -6,30 +6,26 @@
 //
 
 import Foundation
+import Combine
 
-protocol AppManagerProtocol {
-    var config: Config { get set }
-    var isNeedUpdateConfig: Bool { get }
+class AppManager: ObservableObject {
     
-    func updateConfig()
-}
-
-var appManager: AppManagerProtocol = AppManager()
-class AppManager: AppManagerProtocol {
+    @Published var config: Config
     
-    var config: Config
+    init() {
+        config = Config(files: [])
+    }
     
-    var isNeedUpdateConfig: Bool {
+    func isNeedUpdateConfig() -> Bool {
         Date.now < lastConfigUpdateDate.addingTimeInterval(86400)
     }
     
-    init() {
+    func getLocalConfig() {
         if let config: Config = DataManager.shared.getLocalObject(for: .config) {
             Logger.log(.success, "Config exist and accepted")
             self.config = config
         } else {
             Logger.log(.warning, "There is no config file locally saved")
-            self.config = Config(files: [])
         }
     }
     
@@ -39,7 +35,7 @@ class AppManager: AppManagerProtocol {
             guard let data = data else { return }
             if let config: Config = DataManager.shared.getObject(from: data) {
                 Logger.log(.success, "Config updated", withContext: false)
-                self.config.update(by: config)
+                self.config = config
                 lastConfigUpdateDate = Date.now
             } else {
                 Logger.log(.error, "Cant update config", withContext: false)

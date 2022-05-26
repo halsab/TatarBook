@@ -8,15 +8,25 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @EnvironmentObject var appManager: AppManager
+    
     var body: some View {
         VStack {
             Text("Config")
                 .bold()
             ForEach(appManager.config.files, id: \.id) { file in
-                Text("file name: \(file.name); version: \(file.version)")
+                HStack {
+                    Text("file name: \(file.name)")
+                    Spacer()
+                    Text("version: \(file.version)")
+                }
             }
+            .padding()
+            
             Button {
-                appManager.updateConfig()
+//                appManager.updateConfig()
+                appManager.config = Config(files: [Config.File(name: "new file", version: "1.1.2")])
             } label: {
                 Text("Update")
                     .capsuleButtonStyle()
