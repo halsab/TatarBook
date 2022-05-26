@@ -11,8 +11,8 @@ import SwiftUI
 struct TatarBookApp: App {
     
     init() {
-        if AppManager.shared.isNeedUpdateConfig {
-            AppManager.shared.updateConfig()
+        if appManager.isNeedUpdateConfig {
+            appManager.updateConfig()
         } else {
             Logger.log(.info, "There is no need to update config", withContext: false)
         }

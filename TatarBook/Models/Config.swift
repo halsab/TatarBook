@@ -12,5 +12,9 @@ struct Config: Serializable {
         let name: String
         let version: String
     }
-    let files: [File]
+    var files: [File]
+    
+    mutating func update(by config: Config) {
+        files = config.files
+    }
 }
