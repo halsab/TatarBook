@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum FileType: String {
+enum FileType: String, CaseIterable {
     case config, book, test, dictionary
 }

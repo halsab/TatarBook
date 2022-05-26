@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct DownloadingView: View {
+    
+    @EnvironmentObject var appManager: AppManager
+    
     var body: some View {
         ProgressView()
             .progressViewStyle(CircularProgressViewStyle())
             .tint(.accentColor)
             .scaleEffect(2, anchor: .center)
+            .onAppear {
+                appManager.getAndSaveAll { isSuccess in
+                    appManager.isFirstLoad = !isSuccess
+                    appManager.isNeedLoad = !isSuccess
+                }
+            }
     }
 }
 

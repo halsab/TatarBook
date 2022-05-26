@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TabBarView: View {
+    
+    @EnvironmentObject var appManager: AppManager
+    
     var body: some View {
         TabView {
             BookView()
@@ -26,6 +29,11 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Көйләнеш", systemImage: "gear")
                 }
+        }
+        .onAppear {
+            if appManager.isNeedUpdateConfig {
+                appManager.updateConfig { _ in }
+            }
         }
     }
 }

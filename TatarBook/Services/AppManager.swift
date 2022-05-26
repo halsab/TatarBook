@@ -12,15 +12,17 @@ class AppManager: ObservableObject {
     
     @Published var config: Config
     @Published var isUpdatedConfig = false
+    @Published var isNeedLoad = true
     
     private var cancellables: Set<AnyCancellable> = []
     
     var isNeedUpdateConfig: Bool {
-        Date.now > lastConfigUpdateDate.addingTimeInterval(20)
+        Date.now > lastConfigUpdateDate.addingTimeInterval(86400)
     }
     
     init() {
         config = DataManager.shared.getLocalFile(type: .config) ?? Config(files: [])
+        isNeedLoad = isFirstLoad
     }
     
     func updateConfig(completion: @escaping (Bool) -> Void) {
@@ -44,21 +46,12 @@ class AppManager: ObservableObject {
                 completion(true)
             }
             .store(in: &cancellables)
-//
-//        NetworkManager.shared.getFile(type: .config)
-//            .receive(on: RunLoop.main)
-//            .sink { handler in
-//                if case .failure(let error) = handler {
-//                    Logger.log(.error, "Cant update config: \(error.localizedDescription)")
-//                    completion(false)
-//                }
-//            } receiveValue: { [unowned self] (config: Config) in
-//                Logger.log(.success, "Config updated", withContext: false)
-//                self.config = config
-//                self.lastConfigUpdateDate = Date.now
-//                completion(true)
-//            }
-//            .store(in: &cancellables)
+    }
+    
+    func getAndSaveAll(completion: @escaping (Bool) -> Void) {
+        NetworkManager.shared.getAndSaveAll { isSuccess in
+            completion(isSuccess)
+        }
     }
 }
 
