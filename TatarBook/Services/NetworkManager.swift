@@ -59,13 +59,30 @@ class NetworkManager: NetworkManagerProtocol {
                 }
             } receiveValue: { data in
                 Logger.log(.success, "Received \(fileType)")
-                answers.append(DataManager.shared.saveObject(data: data, to: fileType))
+                switch fileType {
+                case .config:
+                    answers.append(checkAndSave(data, model: Config.self, type: fileType))
+                case .book:
+                    answers.append(checkAndSave(data, model: BookModel.self, type: fileType))
+                case .test:
+                    answers.append(checkAndSave(data, model: TestModel.self, type: fileType))
+                case .dictionary:
+                    answers.append(checkAndSave(data, model: DictionaryModel.self, type: fileType))
+                }
                 group.leave()
             }
             .store(in: &cancellables)
         }
         group.notify(queue: .main) {
             completion(answers.allSatisfy { $0 })
+        }
+        
+        func checkAndSave<T: Decodable>(_ data: Data, model: T.Type, type: FileType) -> Bool {
+            if let _: T = DataManager.shared.getObject(from: data),
+               DataManager.shared.saveObject(data: data, to: type) {
+                return true
+            }
+            return false
         }
     }
 }

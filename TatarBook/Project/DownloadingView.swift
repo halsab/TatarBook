@@ -11,17 +11,44 @@ struct DownloadingView: View {
     
     @EnvironmentObject var appManager: AppManager
     
+    @State private var isLoading = true
+    
     var body: some View {
-        ProgressView()
-            .progressViewStyle(CircularProgressViewStyle())
-            .tint(.accentColor)
-            .scaleEffect(2, anchor: .center)
-            .onAppear {
-                appManager.getAndSaveAll { isSuccess in
-                    appManager.isFirstLoad = !isSuccess
-                    appManager.isNeedLoad = !isSuccess
+        Group {
+            if isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
+                    .scaleEffect(2)
+            } else {
+                if appManager.isNeedLoad {
+                    VStack {
+                        Button {
+                            isLoading = true
+                            downloadAll()
+                        } label: {
+                            Image(systemName: "arrow.triangle.2.circlepath")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 48.0, height: 48.0)
+                        }
+                    }
                 }
             }
+        }
+        .onAppear {
+            downloadAll()
+        }
+    }
+    
+    private func downloadAll() {
+        appManager.getAndSaveAll { isSuccess in
+            isLoading = false
+            if isSuccess {
+                appManager.lastConfigUpdateDate = Date.now
+                appManager.isFirstLoad = false
+                appManager.isNeedLoad = false
+            }
+        }
     }
 }
 
