@@ -6,15 +6,11 @@
 //
 
 import Foundation
-import Combine
 
 class AppManager: ObservableObject {
     
     @Published var config: Config
-    @Published var isUpdatedConfig = false
     @Published var isNeedLoad = true
-    
-    private var cancellables: Set<AnyCancellable> = []
     
     var isNeedUpdateConfig: Bool {
         Date.now > lastConfigUpdateDate.addingTimeInterval(86400)
@@ -22,35 +18,47 @@ class AppManager: ObservableObject {
     
     init() {
         config = DataManager.shared.getLocalFile(type: .config) ?? Config(files: [])
-        isNeedLoad = isFirstLoad
+        isNeedLoad = true//isFirstLoad
     }
     
-    func updateConfig(completion: @escaping (Bool) -> Void) {
-        NetworkManager.shared.getData(of: .config)
-            .receive(on: RunLoop.main)
-            .sink { handler in
-                if case .failure(let error) = handler {
-                    Logger.log(.error, "Cant update config: \(error.localizedDescription)")
-                    completion(false)
-                }
-            } receiveValue: { [unowned self] configData in
-                guard DataManager.shared.saveObject(data: configData, to: .config),
-                      let config: Config = DataManager.shared.getObject(from: configData) else {
+    func loadAndSaveAllFiles(completion: @escaping (Bool) -> Void) {
+        let dispatchGroup = DispatchGroup()
+        var answers: [Bool] = []
+        for fileType in FileType.allCases {
+            dispatchGroup.enter()
+            loadAndSave(fileType: fileType) { isSuccess in
+                answers.append(isSuccess)
+                dispatchGroup.leave()
+            }
+        }
+        dispatchGroup.notify(queue: .main) {
+            completion(answers.allSatisfy({ $0 }))
+        }
+        
+        func loadAndSave(fileType: FileType, completion: @escaping (Bool) -> Void) {
+            NetworkManager.shared.getData(of: fileType) { data in
+                guard let data = data,
+                      isDecodable(fileType: fileType, data: data)
+                else {
                     completion(false)
                     return
                 }
-                Logger.log(.success, "Config updated", withContext: false)
-                self.config = config
-                self.lastConfigUpdateDate = Date.now
-                isUpdatedConfig = true
-                completion(true)
+                completion(DataManager.shared.saveObject(data: data, to: fileType))
             }
-            .store(in: &cancellables)
-    }
-    
-    func getAndSaveAll(completion: @escaping (Bool) -> Void) {
-        NetworkManager.shared.getAndSaveAll { isSuccess in
-            completion(isSuccess)
+            
+            func isDecodable(fileType: FileType, data: Data) -> Bool {
+                switch fileType {
+                case .config:
+                    if let _: Config = DataManager.shared.getObject(from: data) { return true }
+                case .book:
+                    if let _: BookModel = DataManager.shared.getObject(from: data) { return true }
+                case .test:
+                    if let _: TestModel = DataManager.shared.getObject(from: data) { return true }
+                case .dictionary:
+                    if let _: DictionaryModel = DataManager.shared.getObject(from: data) { return true }
+                }
+                return false
+            }
         }
     }
 }

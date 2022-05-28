@@ -6,15 +6,16 @@
 //
 
 import Foundation
-import Combine
 
 protocol NetworkManagerProtocol {
-    func getData(of type: FileType) -> AnyPublisher<Data, Error>
-    func getFile<Model: Decodable>(type: FileType) -> AnyPublisher<Model, Error>
-    func getAndSaveAll(completion: @escaping (Bool) -> Void)
+    func getData(of type: FileType, completion: @escaping (Data?) -> Void)
 }
 
 class NetworkManager: NetworkManagerProtocol {
+    
+    enum ServerState {
+        case prod, dev
+    }
     
     static let shared: NetworkManagerProtocol = NetworkManager()
     private init() {}
@@ -29,68 +30,20 @@ class NetworkManager: NetworkManagerProtocol {
         }
     }
     
-    private var cancellables: Set<AnyCancellable> = []
-    
-    func getData(of type: FileType) -> AnyPublisher<Data, Error> {
+    func getData(of type: FileType, completion: @escaping (Data?) -> Void) {
         let url = URL(string: endpoint + type.rawValue + ".json")!
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map(\.data)
-            .mapError { $0 }
-            .eraseToAnyPublisher()
-    }
-    
-    func getFile<Model: Decodable>(type: FileType) -> AnyPublisher<Model, Error> {
-        let url = URL(string: endpoint + type.rawValue + ".json")!
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map(\.data)
-            .decode(type: Model.self, decoder: JSONDecoder())
-            .eraseToAnyPublisher()
-    }
-    
-    func getAndSaveAll(completion: @escaping (Bool) -> Void) {
-        let group = DispatchGroup()
-        var answers: [Bool] = []
-        for fileType in FileType.allCases {
-            group.enter()
-            getData(of: fileType).sink { handler in
-                if case .failure(let error) = handler {
-                    Logger.log(.error, "Cant load '\(fileType)' file: \(error.localizedDescription)")
-                    group.leave()
-                }
-            } receiveValue: { data in
-                Logger.log(.success, "Received \(fileType)")
-                switch fileType {
-                case .config:
-                    answers.append(checkAndSave(data, model: Config.self, type: fileType))
-                case .book:
-                    answers.append(checkAndSave(data, model: BookModel.self, type: fileType))
-                case .test:
-                    answers.append(checkAndSave(data, model: TestModel.self, type: fileType))
-                case .dictionary:
-                    answers.append(checkAndSave(data, model: DictionaryModel.self, type: fileType))
-                }
-                group.leave()
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if error == nil,
+               let r = response as? HTTPURLResponse,
+               r.statusCode == 200,
+               let data = data
+            {
+                Logger.log(.info, "Get data type '\(type)'", withContext: false)
+                completion(data)
+            } else {
+                Logger.log(.error, "Cant get data type '\(type)'", withContext: false)
+                completion(nil)
             }
-            .store(in: &cancellables)
-        }
-        group.notify(queue: .main) {
-            completion(answers.allSatisfy { $0 })
-        }
-        
-        func checkAndSave<T: Decodable>(_ data: Data, model: T.Type, type: FileType) -> Bool {
-            if let _: T = DataManager.shared.getObject(from: data),
-               DataManager.shared.saveObject(data: data, to: type) {
-                return true
-            }
-            return false
-        }
-    }
-}
-
-// MARK: - Server State
-
-extension NetworkManager {
-    enum ServerState {
-        case prod, dev
+        }.resume()
     }
 }
