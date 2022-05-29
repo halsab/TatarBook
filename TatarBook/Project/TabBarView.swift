@@ -30,11 +30,12 @@ struct TabBarView: View {
                     Label("Көйләнеш", systemImage: "gear")
                 }
         }
-//        .onAppear {
-//            if appManager.isNeedUpdateConfig {
-//                appManager.updateConfig { _ in }
-//            }
-//        }
+        .onAppear {
+            Logger.log(.info, "taab bar appear")
+            if appManager.isNeedUpdateConfig {
+                appManager.updateConfig()
+            }
+        }
     }
 }
 

@@ -12,6 +12,8 @@ class AppManager: ObservableObject {
     @Published var config: Config
     @Published var isNeedLoad = true
     
+    let UD = UserDefaults.standard
+    
     var isNeedUpdateConfig: Bool {
         Date.now > lastConfigUpdateDate.addingTimeInterval(86400)
     }
@@ -20,7 +22,38 @@ class AppManager: ObservableObject {
         config = DataManager.shared.getLocalFile(type: .config) ?? Config(files: [])
         isNeedLoad = isFirstLoad
     }
+}
+
+// MARK: - User Defaults
+
+extension AppManager {
+    enum UDKey: String {
+        case lastConfigUpdateDate
+        case isFirstLoad
+    }
     
+    var lastConfigUpdateDate: Date {
+        get {
+            return (UD.object(forKey: UDKey.lastConfigUpdateDate.rawValue) as? Date) ?? Date.now
+        }
+        set {
+            UD.set(newValue, forKey: UDKey.lastConfigUpdateDate.rawValue)
+        }
+    }
+    
+    var isFirstLoad: Bool {
+        get {
+            return (UD.object(forKey: UDKey.isFirstLoad.rawValue) as? Bool) ?? true
+        }
+        set {
+            UD.set(newValue, forKey: UDKey.isFirstLoad.rawValue)
+        }
+    }
+}
+
+// MARK: - Networking
+
+extension AppManager {
     func loadAndSaveAllFiles(completion: @escaping (Bool) -> Void) {
         let dispatchGroup = DispatchGroup()
         var answers: [Bool] = []
@@ -61,31 +94,17 @@ class AppManager: ObservableObject {
             }
         }
     }
-}
-
-// MARK: - User Defaults
-
-extension AppManager {
-    enum UDKey: String {
-        case lastConfigUpdateDate
-        case isFirstLoad
-    }
     
-    var lastConfigUpdateDate: Date {
-        get {
-            return (UserDefaults.standard.object(forKey: UDKey.lastConfigUpdateDate.rawValue) as? Date) ?? Date.now
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: UDKey.lastConfigUpdateDate.rawValue)
-        }
-    }
-    
-    var isFirstLoad: Bool {
-        get {
-            return (UserDefaults.standard.object(forKey: UDKey.isFirstLoad.rawValue) as? Bool) ?? true
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: UDKey.isFirstLoad.rawValue)
+    func updateConfig() {
+        NetworkManager.shared.getData(of: .config) { [unowned self] data in
+            guard let data = data,
+                  let config: Config = DataManager.shared.getObject(from: data) else { return }
+            if DataManager.shared.saveObject(data: data, to: .config) {
+                self.lastConfigUpdateDate = Date.now
+                DispatchQueue.main.async {
+                    self.config = config
+                }
+            }
         }
     }
 }
