@@ -42,11 +42,7 @@ struct SettingsView: View {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle())
                 } else {
-                    Text("TEST")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(.indigo)
-                        .clipShape(Capsule())
+                    Text("Update")
                 }
             }
             Text(text1)

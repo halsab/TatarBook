@@ -32,10 +32,24 @@ class DataManager: DataManagerProtocol {
     }
     
     func saveObject(data: Data, to file: FileType) -> Bool {
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        guard let url = urls.first else { return false }
-        var fileURL = url.appendingPathComponent(file.rawValue)
+//        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        guard let url = urls.first else { return false }
+//        var fileURL = url.appendingPathComponent(file.rawValue)
+//        fileURL = fileURL.appendingPathExtension("json")
+//        return (try? data.write(to: fileURL, options: [.atomicWrite])) != nil
+        
+        guard let folderURL = try? FileManager.default.url(
+            for: .documentDirectory,
+            in: .userDomainMask,
+            appropriateFor: nil,
+            create: false
+        ) else { return false }
+        var fileURL = folderURL.appendingPathComponent(file.rawValue)
         fileURL = fileURL.appendingPathExtension("json")
-        return (try? data.write(to: fileURL, options: [.atomicWrite])) != nil
+        if let _ = try? data.write(to: fileURL) {
+            return true
+        } else {
+            return false
+        }
     }
 }

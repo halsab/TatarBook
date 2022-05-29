@@ -9,12 +9,12 @@ import SwiftUI
 
 class DictionaryViewModel: ObservableObject {
     
-    @Published var words: [String]
+    @Published var words: [String] = []
     
     init() {
-        let file = FileName(name: "dictionary", type: "json")
-        let dictionaryModel: DictionaryModel = JSONSerializer.shared.getModel(of: file)
-        let rawWords = dictionaryModel.content
-        words = rawWords.sorted { $0.lowercased() < $1.lowercased() }
+        if let dictionaryModel: DictionaryModel = DataManager.shared.getLocalFile(type: .dictionary) {
+            let rawWords = dictionaryModel.content
+            words = rawWords.sorted { $0.lowercased() < $1.lowercased() }
+        }
     }
 }

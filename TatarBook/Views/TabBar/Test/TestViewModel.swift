@@ -9,12 +9,12 @@ import SwiftUI
 
 class TestViewModel: ObservableObject {
     
-    @Published var tests: [Test]
+    @Published var tests: [Test] = []
     @Published var selectedTests: [Test] = []
     
     init() {
-        let file = FileName(name: "test", type: "json")
-        let testModel: TestModel = JSONSerializer.shared.getModel(of: file)
-        tests = testModel.content
+        if let testModel: TestModel = DataManager.shared.getLocalFile(type: .test) {
+            tests = testModel.content
+        }
     }
 }

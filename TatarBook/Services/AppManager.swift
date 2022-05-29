@@ -18,7 +18,7 @@ class AppManager: ObservableObject {
     
     init() {
         config = DataManager.shared.getLocalFile(type: .config) ?? Config(files: [])
-        isNeedLoad = true//isFirstLoad
+        isNeedLoad = isFirstLoad
     }
     
     func loadAndSaveAllFiles(completion: @escaping (Bool) -> Void) {
