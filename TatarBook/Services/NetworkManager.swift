@@ -38,10 +38,10 @@ class NetworkManager: NetworkManagerProtocol {
                r.statusCode == 200,
                let data = data
             {
-                Logger.log(.info, "Get data type '\(type)'", withContext: false)
+                Logger.log(.info, "Got data type '\(type)'", withContext: false)
                 completion(data)
             } else {
-                Logger.log(.error, "Cant get data type '\(type)'", withContext: false)
+                Logger.log(.error, "Can't get data type '\(type)'", withContext: false)
                 completion(nil)
             }
         }.resume()

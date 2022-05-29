@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     
     @EnvironmentObject var appManager: AppManager
+    @Environment(\.scenePhase) var scenePhase
     
     var body: some View {
         TabView {
@@ -30,9 +31,9 @@ struct TabBarView: View {
                     Label("Көйләнеш", systemImage: "gear")
                 }
         }
-        .onAppear {
-            Logger.log(.info, "taab bar appear")
-            if appManager.isNeedUpdateConfig {
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active, appManager.isNeedUpdateConfig {
+                Logger.log(.info, "Active - update config", withContext: false)
                 appManager.updateConfig()
             }
         }

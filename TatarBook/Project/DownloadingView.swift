@@ -33,6 +33,7 @@ struct DownloadingView: View {
                 appManager.lastConfigUpdateDate = Date.now
                 appManager.isFirstLoad = false
                 appManager.isNeedLoad = false
+                Logger.log(.success, "Loaded and save all data", withContext: false)
             }
         }
     }

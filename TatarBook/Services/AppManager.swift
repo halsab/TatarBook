@@ -12,10 +12,11 @@ class AppManager: ObservableObject {
     @Published var config: Config
     @Published var isNeedLoad = true
     
-    let UD = UserDefaults.standard
+    private let UD = UserDefaults.standard
+    private let configUpdateTimeInterval: TimeInterval = 86400 // 24 hours in seconds
     
     var isNeedUpdateConfig: Bool {
-        Date.now > lastConfigUpdateDate.addingTimeInterval(86400)
+        Date.now > lastConfigUpdateDate.addingTimeInterval(configUpdateTimeInterval)
     }
     
     init() {

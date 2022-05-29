@@ -13,6 +13,10 @@ protocol DataManagerProtocol {
     func saveObject(data: Data, to file: FileType) -> Bool
 }
 
+enum FileType: String, CaseIterable {
+    case config, book, test, dictionary
+}
+
 class DataManager: DataManagerProtocol {
     
     static let shared: DataManagerProtocol = DataManager()
@@ -27,28 +31,24 @@ class DataManager: DataManagerProtocol {
         let fileURL = url.appendingPathComponent(type.rawValue).appendingPathExtension("json")
         if let data = try? Data(contentsOf: fileURL) {
             return getObject(from: data)
+        } else {
+            return nil
         }
-        return nil
     }
     
     func saveObject(data: Data, to file: FileType) -> Bool {
-//        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        guard let url = urls.first else { return false }
-//        var fileURL = url.appendingPathComponent(file.rawValue)
-//        fileURL = fileURL.appendingPathExtension("json")
-//        return (try? data.write(to: fileURL, options: [.atomicWrite])) != nil
-        
-        guard let folderURL = try? FileManager.default.url(
+        guard let url = try? FileManager.default.url(
             for: .documentDirectory,
             in: .userDomainMask,
             appropriateFor: nil,
-            create: false
-        ) else { return false }
-        var fileURL = folderURL.appendingPathComponent(file.rawValue)
+            create: false) else { return false }
+        var fileURL = url.appendingPathComponent(file.rawValue)
         fileURL = fileURL.appendingPathExtension("json")
         if let _ = try? data.write(to: fileURL) {
+            Logger.log(.info, "Saved data type '\(file)'", withContext: false)
             return true
         } else {
+            Logger.log(.error, "Can't save data type '\(file)'", withContext: false)
             return false
         }
     }

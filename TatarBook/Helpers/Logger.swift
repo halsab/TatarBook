@@ -8,11 +8,11 @@
 import Foundation
 
 enum Logger: String {
-    case debug = "🐞-🟣"
-    case success = "🐞-🟢"
-    case info = "🐞-⚪️"
-    case warning = "🐞-🟡"
-    case error = "🐞-🔴"
+    case debug = "//-🟣"
+    case success = "//-🟢"
+    case info = "//-⚪️"
+    case warning = "//-🟡"
+    case error = "//-🔴"
     
     static func log(
         _ level: Logger,
