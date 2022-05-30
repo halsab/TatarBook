@@ -14,11 +14,20 @@ struct DownloadingView: View {
     
     var body: some View {
         Group {
-            Button {
-                isLoading = true
-                download()
-            } label: {
-                LoadingButton(isLoading: $isLoading)
+            if isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
+                    .scaleEffect(1.5)
+            } else {
+                Button {
+                    isLoading = true
+                    download()
+                } label: {
+                    Image(systemName: "arrow.triangle.2.circlepath")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 48, height: 48)
+                }
             }
         }
         .onAppear {
@@ -33,23 +42,9 @@ struct DownloadingView: View {
                 appManager.lastConfigUpdateDate = Date.now
                 appManager.isFirstLoad = false
                 appManager.isNeedLoad = false
-                Logger.log(.success, "Loaded and save all data", withContext: false)
-            }
-        }
-    }
-    
-    struct LoadingButton: View {
-        @Binding var isLoading: Bool
-        var body: some View {
-            if isLoading {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
-                    .scaleEffect(1.5)
+                Logger.log(.success, "Loaded and save all data")
             } else {
-                Image(systemName: "arrow.triangle.2.circlepath")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 48, height: 48)
+                Logger.log(.error, "Can't load and save all data")
             }
         }
     }

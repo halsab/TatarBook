@@ -23,15 +23,23 @@ class DataManager: DataManagerProtocol {
     private init() {}
     
     func getObject<Model: Decodable>(from data: Data) -> Model? {
-        try? JSONDecoder().decode(Model.self, from: data)
+        do {
+            let model: Model = try JSONDecoder().decode(Model.self, from: data)
+            return model
+        } catch {
+            Logger.log(.error, "Can't decode data to object type '\(Model.Type.self)'. " + error.localizedDescription)
+            return nil
+        }
     }
     
     func getLocalFile<Model: Decodable>(type: FileType) -> Model? {
         guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         let fileURL = url.appendingPathComponent(type.rawValue).appendingPathExtension("json")
-        if let data = try? Data(contentsOf: fileURL) {
+        do {
+            let data = try Data(contentsOf: fileURL)
             return getObject(from: data)
-        } else {
+        } catch {
+            Logger.log(.error, "Can't find data of file '\(type)'. " + error.localizedDescription)
             return nil
         }
     }
@@ -44,11 +52,11 @@ class DataManager: DataManagerProtocol {
             create: false) else { return false }
         var fileURL = url.appendingPathComponent(file.rawValue)
         fileURL = fileURL.appendingPathExtension("json")
-        if let _ = try? data.write(to: fileURL) {
-            Logger.log(.info, "Saved data type '\(file)'", withContext: false)
+        do {
+            try data.write(to: fileURL)
             return true
-        } else {
-            Logger.log(.error, "Can't save data type '\(file)'", withContext: false)
+        } catch {
+            Logger.log(.error, "Can't save data of file '\(file)'. " + error.localizedDescription)
             return false
         }
     }

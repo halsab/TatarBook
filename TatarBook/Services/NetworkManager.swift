@@ -36,12 +36,10 @@ class NetworkManager: NetworkManagerProtocol {
             if error == nil,
                let r = response as? HTTPURLResponse,
                r.statusCode == 200,
-               let data = data
-            {
-                Logger.log(.info, "Got data type '\(type)'", withContext: false)
+               let data = data {
                 completion(data)
             } else {
-                Logger.log(.error, "Can't get data type '\(type)'", withContext: false)
+                Logger.log(.error, "Can't get data type '\(type)'")
                 completion(nil)
             }
         }.resume()
