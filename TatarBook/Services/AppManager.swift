@@ -89,14 +89,11 @@ extension AppManager {
     }
     
     func updateConfig() {
-        NetworkManager.shared.getData(of: .config) { [unowned self] data in
-            guard let data = data,
-                  let config: Config = DataManager.shared.getObject(from: data) else { return }
-            if DataManager.shared.saveObject(data: data, to: .config) {
-                self.lastConfigUpdateDate = Date.now
-                DispatchQueue.main.async {
-                    self.config = config
-                }
+        NetworkManager.shared.getModel(of: .config) { [unowned self] (config: Config?) in
+            guard let config = config else { return }
+            lastConfigUpdateDate = Date.now
+            DispatchQueue.main.async {
+                self.config = config
             }
         }
     }
