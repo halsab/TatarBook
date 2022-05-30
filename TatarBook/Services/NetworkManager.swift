@@ -9,6 +9,7 @@ import Foundation
 
 protocol NetworkManagerProtocol {
     func getData(of type: FileType, completion: @escaping (Data?) -> Void)
+    func getModel<T: Decodable>(of fileType: FileType, completion: @escaping (T?) -> Void)
 }
 
 class NetworkManager: NetworkManagerProtocol {
@@ -30,8 +31,8 @@ class NetworkManager: NetworkManagerProtocol {
         }
     }
     
-    func getData(of type: FileType, completion: @escaping (Data?) -> Void) {
-        let url = URL(string: endpoint + type.rawValue + ".json")!
+    func getData(of fileType: FileType, completion: @escaping (Data?) -> Void) {
+        let url = URL(string: endpoint + fileType.rawValue + ".json")!
         URLSession.shared.dataTask(with: url) { data, response, error in
             if error == nil,
                let r = response as? HTTPURLResponse,
@@ -39,9 +40,24 @@ class NetworkManager: NetworkManagerProtocol {
                let data = data {
                 completion(data)
             } else {
-                Logger.log(.error, "Can't get data type '\(type)'")
+                Logger.log(.error, "Can't get data type '\(fileType)'")
                 completion(nil)
             }
         }.resume()
+    }
+    
+    func getModel<T: Decodable>(of fileType: FileType, completion: @escaping (T?) -> Void) {
+        getData(of: fileType) { data in
+            guard let data = data,
+                  let model: T = DataManager.shared.getObject(from: data) else {
+                completion(nil)
+                return
+            }
+            if DataManager.shared.saveObject(data: data, to: fileType) {
+                completion(model)
+            } else {
+                completion(nil)
+            }
+        }
     }
 }

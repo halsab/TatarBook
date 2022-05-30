@@ -6,31 +6,24 @@
 //
 
 import SwiftUI
+import Combine
 
 class BookViewModel: ObservableObject {
     
     @Published var model: BookModel = BookModel(version: "", content: [])
     @Published var contents: [ContentModel] = []
     
+    private var cancellabels: Set<AnyCancellable> = []
+    
     init() {
+        $model
+            .sink { [unowned self] sinkModel in
+                contents = sinkModel.content
+            }
+            .store(in: &cancellabels)
+        
         if let model: BookModel = DataManager.shared.getLocalFile(type: .book) {
             self.model = model
-            contents = model.content
-        }
-    }
-    
-    func loadModel(completion: @escaping (BookModel?) -> Void) {
-        NetworkManager.shared.getData(of: .book) { data in
-            guard let data = data,
-                  let model: BookModel = DataManager.shared.getObject(from: data) else {
-                completion(nil)
-                return
-            }
-            if DataManager.shared.saveObject(data: data, to: .book) {
-                completion(model)
-            } else {
-                completion(nil)
-            }
         }
     }
 }
