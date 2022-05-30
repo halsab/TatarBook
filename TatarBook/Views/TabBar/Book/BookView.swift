@@ -28,9 +28,11 @@ struct BookView: View {
             Logger.log(.info, "Update book")
             vm.loadModel { model in
                 if let model = model {
-                    vm.model = model
-                    vm.contents = model.content
-                    Logger.log(.success, "Book updated")
+                    DispatchQueue.main.async {
+                        vm.model = model
+                        vm.contents = model.content
+                        Logger.log(.success, "Book updated")
+                    }
                 }
             }
         }
