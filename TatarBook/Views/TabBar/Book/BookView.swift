@@ -11,18 +11,38 @@ struct BookView: View {
     
     @EnvironmentObject var appManager: AppManager
     @StateObject private var vm = BookViewModel()
+    @State private var isLoading = false
     
     var body: some View {
-        NavigationView {
-            ContentsView(contents: vm.contents)
-                .navigationTitle(Text("Китап"))
+        if isLoading {
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
+                .scaleEffect(1.5)
+        } else {
+            NavigationView {
+                ContentsView(contents: vm.contents)
+                    .navigationTitle(Text("Китап"))
+                    .navigationViewStyle(.stack)
+                    .navigationBarTitleDisplayMode(.inline)
+            }
+            .onAppear {
+                updateIfNeed()
+            }
         }
-        .onAppear {
-            appManager.updateFileIfNeed(type: .book, version: vm.currentVersion) { (model: BookModel?) in
+    }
+    
+    private func updateIfNeed() {
+        let configFileVersion = appManager.config.files.first(where: { $0.name == FileType.book.rawValue })?.version ?? ""
+        if vm.currentVersion < configFileVersion {
+            isLoading = true
+            appManager.updateFile(type: .book) { (model: BookModel?) in
                 if let model = model {
                     DispatchQueue.main.async {
                         vm.model = model
+                        isLoading = false
                     }
+                } else {
+                    isLoading = false
                 }
             }
         }

@@ -104,21 +104,17 @@ extension AppManager {
         }
     }
     
-    func updateFileIfNeed<T: Decodable>(
+    func updateFile<T: Decodable>(
         type fileType: FileType,
-        version currentVersion: String,
         completion: @escaping (T?) -> Void
     ) {
-        let configFileVersion = config.files.first(where: { $0.name == fileType.rawValue })?.version ?? ""
-        if currentVersion < configFileVersion {
-            Logger.log(.info, "Update '\(fileType)'")
-            NetworkManager.shared.getModel(of: fileType) { (model: T?) in
-                if let model = model {
-                    Logger.log(.success, "'\(fileType)' updated")
-                    completion(model)
-                } else {
-                    completion(nil)
-                }
+        Logger.log(.info, "Update '\(fileType)'")
+        NetworkManager.shared.getModel(of: fileType) { (model: T?) in
+            if let model = model {
+                Logger.log(.success, "'\(fileType)' updated")
+                completion(model)
+            } else {
+                completion(nil)
             }
         }
     }

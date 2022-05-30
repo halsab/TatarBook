@@ -35,6 +35,8 @@ struct DictionaryView: View {
                 }
             }
             .navigationTitle(Text("Сүзлек"))
+            .navigationViewStyle(.stack)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

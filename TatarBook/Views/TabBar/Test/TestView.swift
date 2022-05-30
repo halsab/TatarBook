@@ -36,6 +36,8 @@ struct TestView: View {
                 .disabled(vm.selectedTests.isEmpty)
             }
             .navigationTitle(Text("Тест"))
+            .navigationViewStyle(.stack)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
