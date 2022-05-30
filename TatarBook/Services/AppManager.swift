@@ -104,7 +104,10 @@ extension AppManager {
                 self.lastConfigUpdateDate = Date.now
                 DispatchQueue.main.async {
                     self.config = config
+                    Logger.log(.success, "Config updated")
                 }
+            } else {
+                Logger.log(.error, "Can't update config")
             }
         }
     }

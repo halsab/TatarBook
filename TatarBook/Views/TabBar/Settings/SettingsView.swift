@@ -11,27 +11,20 @@ struct SettingsView: View {
     
     @EnvironmentObject var appManager: AppManager
     
-    @State private var text1 = ""
-    @State private var isLoading = false
-    
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
             Button {
-                isLoading = true
                 appManager.loadAndSaveAllFiles { isSuccess in
-                    isLoading = false
-                    text1 = isSuccess ? "Success" : "Error"
+                    Logger.log(.success, "Load all data: \(isSuccess ? "true" : "false")")
                 }
             } label: {
-                if isLoading {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle())
-                } else {
-                    Text("Update")
-                }
+                Text("Update all data")
             }
-            Text(text1)
-                .padding()
+            Button {
+                appManager.updateConfig()
+            } label: {
+                Text("Update config")
+            }
         }
     }
 }

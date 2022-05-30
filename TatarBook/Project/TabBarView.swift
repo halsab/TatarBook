@@ -33,7 +33,6 @@ struct TabBarView: View {
         }
         .onChange(of: scenePhase) { newPhase in
             if newPhase == .active, appManager.isNeedUpdateConfig {
-                Logger.log(.info, "Active - update config", withContext: false)
                 appManager.updateConfig()
             }
         }
