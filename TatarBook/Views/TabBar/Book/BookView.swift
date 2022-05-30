@@ -35,7 +35,7 @@ struct BookView: View {
         let configFileVersion = appManager.config.files.first(where: { $0.name == FileType.book.rawValue })?.version ?? ""
         if vm.currentVersion < configFileVersion {
             isLoading = true
-            appManager.updateFile(type: .book) { (model: BookModel?) in
+            NetworkManager.shared.getModel(of: .book) { (model: BookModel?) in
                 if let model = model {
                     DispatchQueue.main.async {
                         vm.model = model

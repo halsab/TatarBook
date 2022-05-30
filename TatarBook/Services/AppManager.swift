@@ -96,25 +96,7 @@ extension AppManager {
                 self.lastConfigUpdateDate = Date.now
                 DispatchQueue.main.async {
                     self.config = config
-                    Logger.log(.success, "Config updated")
                 }
-            } else {
-                Logger.log(.error, "Can't update config")
-            }
-        }
-    }
-    
-    func updateFile<T: Decodable>(
-        type fileType: FileType,
-        completion: @escaping (T?) -> Void
-    ) {
-        Logger.log(.info, "Update '\(fileType)'")
-        NetworkManager.shared.getModel(of: fileType) { (model: T?) in
-            if let model = model {
-                Logger.log(.success, "'\(fileType)' updated")
-                completion(model)
-            } else {
-                completion(nil)
             }
         }
     }
