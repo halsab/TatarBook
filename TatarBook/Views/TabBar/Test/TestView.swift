@@ -25,7 +25,7 @@ struct TestView: View {
                         }
                     }
                 }
-                
+
                 NavigationLink {
                     TestGameView(tests: vm.selectedTests)
                 } label: {
@@ -36,9 +36,9 @@ struct TestView: View {
                 .disabled(vm.selectedTests.isEmpty)
             }
             .navigationTitle(Text("Тест"))
-            .navigationViewStyle(.stack)
             .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationViewStyle(.stack)
     }
 }
 

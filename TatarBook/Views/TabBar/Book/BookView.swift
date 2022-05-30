@@ -22,9 +22,9 @@ struct BookView: View {
             NavigationView {
                 ContentsView(contents: vm.contents)
                     .navigationTitle(Text("Китап"))
-                    .navigationViewStyle(.stack)
                     .navigationBarTitleDisplayMode(.inline)
             }
+            .navigationViewStyle(.stack)
             .onAppear {
                 updateIfNeed()
             }
