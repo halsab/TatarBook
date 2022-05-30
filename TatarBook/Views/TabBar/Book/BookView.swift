@@ -18,20 +18,10 @@ struct BookView: View {
                 .navigationTitle(Text("Китап"))
         }
         .onAppear {
-            updateModelIfNeed()
-        }
-    }
-    
-    private func updateModelIfNeed() {
-        let configFileVersion = appManager.config.files.first(where: { $0.name == FileType.book.rawValue })?.version ?? ""
-        if vm.model.version < configFileVersion {
-            Logger.log(.info, "Update book")
-            
-            NetworkManager.shared.getModel(of: .book) { (model: BookModel?) in
+            appManager.updateFileIfNeed(type: .book, version: vm.currentVersion) { (model: BookModel?) in
                 if let model = model {
                     DispatchQueue.main.async {
                         vm.model = model
-                        Logger.log(.success, "Book updated")
                     }
                 }
             }

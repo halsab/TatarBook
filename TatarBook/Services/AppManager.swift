@@ -60,39 +60,31 @@ extension AppManager {
         var answers: [Bool] = []
         for fileType in FileType.allCases {
             dispatchGroup.enter()
-            loadAndSave(fileType: fileType) { isSuccess in
-                answers.append(isSuccess)
-                dispatchGroup.leave()
+            switch fileType {
+            case .config:
+                NetworkManager.shared.getModel(of: fileType) { (model: Config?) in
+                    answers.append(model != nil)
+                    dispatchGroup.leave()
+                }
+            case .book:
+                NetworkManager.shared.getModel(of: fileType) { (model: BookModel?) in
+                    answers.append(model != nil)
+                    dispatchGroup.leave()
+                }
+            case .test:
+                NetworkManager.shared.getModel(of: fileType) { (model: TestModel?) in
+                    answers.append(model != nil)
+                    dispatchGroup.leave()
+                }
+            case .dictionary:
+                NetworkManager.shared.getModel(of: fileType) { (model: DictionaryModel?) in
+                    answers.append(model != nil)
+                    dispatchGroup.leave()
+                }
             }
         }
         dispatchGroup.notify(queue: .main) {
-            completion(answers.allSatisfy({ $0 }))
-        }
-        
-        func loadAndSave(fileType: FileType, completion: @escaping (Bool) -> Void) {
-            NetworkManager.shared.getData(of: fileType) { data in
-                guard let data = data,
-                      isDecodable(fileType: fileType, data: data)
-                else {
-                    completion(false)
-                    return
-                }
-                completion(DataManager.shared.saveObject(data: data, to: fileType))
-            }
-            
-            func isDecodable(fileType: FileType, data: Data) -> Bool {
-                switch fileType {
-                case .config:
-                    if let _: Config = DataManager.shared.getObject(from: data) { return true }
-                case .book:
-                    if let _: BookModel = DataManager.shared.getObject(from: data) { return true }
-                case .test:
-                    if let _: TestModel = DataManager.shared.getObject(from: data) { return true }
-                case .dictionary:
-                    if let _: DictionaryModel = DataManager.shared.getObject(from: data) { return true }
-                }
-                return false
-            }
+            completion(answers.allSatisfy { $0 })
         }
     }
     
@@ -108,6 +100,25 @@ extension AppManager {
                 }
             } else {
                 Logger.log(.error, "Can't update config")
+            }
+        }
+    }
+    
+    func updateFileIfNeed<T: Decodable>(
+        type fileType: FileType,
+        version currentVersion: String,
+        completion: @escaping (T?) -> Void
+    ) {
+        let configFileVersion = config.files.first(where: { $0.name == fileType.rawValue })?.version ?? ""
+        if currentVersion < configFileVersion {
+            Logger.log(.info, "Update '\(fileType)'")
+            NetworkManager.shared.getModel(of: fileType) { (model: T?) in
+                if let model = model {
+                    Logger.log(.success, "'\(fileType)' updated")
+                    completion(model)
+                } else {
+                    completion(nil)
+                }
             }
         }
     }
