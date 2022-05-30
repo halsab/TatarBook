@@ -6,15 +6,23 @@
 //
 
 import SwiftUI
+import Combine
 
 class DictionaryViewModel: ObservableObject {
     
+    @Published var model: DictionaryModel
     @Published var words: [String] = []
+    @Published var currentVersion: String = ""
+    
+    private var cancellabels: Set<AnyCancellable> = []
     
     init() {
-        if let dictionaryModel: DictionaryModel = DataManager.shared.getLocalFile(type: .dictionary) {
-            let rawWords = dictionaryModel.content
-            words = rawWords.sorted { $0.lowercased() < $1.lowercased() }
-        }
+        model = DataManager.shared.getLocalFile(type: .dictionary) ?? DictionaryModel(version: "", content: [])
+        $model
+            .sink { [unowned self] sinkModel in
+                words = sinkModel.content.sorted { $0.lowercased() < $1.lowercased() }
+                currentVersion = sinkModel.version
+            }
+            .store(in: &cancellabels)
     }
 }
