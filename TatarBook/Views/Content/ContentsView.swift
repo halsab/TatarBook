@@ -18,7 +18,10 @@ struct ContentsView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .border(Color.accentColor)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.accentColor, lineWidth: 1)
+                    )
                 ForEach(contents) { content in
                     if let title = content.title,
                        let contents = content.contents {
