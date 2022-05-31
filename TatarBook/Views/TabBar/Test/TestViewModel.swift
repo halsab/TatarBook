@@ -12,7 +12,7 @@ class TestViewModel: ObservableObject {
     
     @Published var model: TestModel
     @Published var tests: [Test] = []
-    @Published var selectedTests: [Test] = []
+    @Published var selectedTests: Set<Test> = []
     @Published var currentVersion: String = ""
     
     private var cancellabels: Set<AnyCancellable> = []

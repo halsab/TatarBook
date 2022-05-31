@@ -11,9 +11,9 @@ struct TestGameView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var vm = TestGameViewModel()
-    private let tests: [Test]
+    private let tests: Set<Test>
     
-    init(tests: [Test]) {
+    init(tests: Set<Test>) {
         self.tests = tests
     }
     

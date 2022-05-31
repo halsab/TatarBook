@@ -11,12 +11,9 @@ struct NavigationLinkView: View {
     let title: String
     let contents: [ContentModel]
     var body: some View {
-        NavigationLink(
-            destination:
-                ContentsView(contentTitle: title, contents: contents)
-//                .navigationBarTitleDisplayMode(.inline)
-//                .navigationTitle(Text(title))
-        ) {
+        NavigationLink {
+            ContentsView(contentTitle: title, contents: contents)
+        } label: {
             Text(.init(title))
                 .font(.system(.title3, design: .serif))
                 .bold()

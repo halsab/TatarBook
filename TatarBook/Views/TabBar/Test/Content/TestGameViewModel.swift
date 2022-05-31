@@ -10,7 +10,7 @@ import Combine
 
 class TestGameViewModel: ObservableObject {
     
-    @Published var tests: [Test] = []
+    @Published var tests: Set<Test> = []
     @Published private var questions: [Question] = []
     @Published var questionsCount: Int = 0
     

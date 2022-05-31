@@ -21,26 +21,28 @@ struct TestView: View {
         } else {
             NavigationView {
                 VStack {
-                    List {
-                        ForEach(vm.tests) { test in
-                            SelectionRowView(title: test.name, isSelected: vm.selectedTests.contains(test)) {
-                                if vm.selectedTests.contains(test) {
-                                    vm.selectedTests.removeAll(where: { $0 == test })
-                                } else {
-                                    vm.selectedTests.append(test)
-                                }
-                            }
+                    ScrollView {
+                        ForEach(vm.tests, id: \.id) { test in
+                            TestSelectionRowView(selectedTests: $vm.selectedTests, test: test)
+                                .padding(.horizontal)
+                                .padding(.top, 8)
                         }
                     }
-                    
-                    NavigationLink {
-                        TestGameView(tests: vm.selectedTests)
-                    } label: {
-                        Text("Тестны башларга")
-                            .capsuleButtonStyle()
-                            .padding()
+                    Spacer()
+                    if !vm.selectedTests.isEmpty {
+                        NavigationLink {
+                            TestGameView(tests: vm.selectedTests)
+                        } label: {
+                            Text(.init("Тестны башларга (\(vm.selectedTests.count)/\(vm.tests.count))"))
+                                .font(.system(.title3, design: .serif))
+                                .bold()
+                                .frame(maxWidth: .infinity)
+                                .padding(8)
+                        }
+                        .buttonStyle(BorderedButtonStyle())
+                        .padding([.horizontal, .bottom])
+                        .padding(.top, 8)
                     }
-                    .disabled(vm.selectedTests.isEmpty)
                 }
                 .navigationTitle(Text("Тест"))
                 .navigationBarTitleDisplayMode(.inline)
@@ -53,7 +55,8 @@ struct TestView: View {
     }
     
     private func updateIfNeed() {
-        let configFileVersion = appManager.config.files.first(where: { $0.name == FileType.test.rawValue })?.version ?? ""
+        let configFileVersion = appManager.config.files
+            .first(where: { $0.name == FileType.test.rawValue })?.version ?? ""
         if vm.currentVersion < configFileVersion {
             isLoading = true
             NetworkManager.shared.getModel(of: .test) { (model: TestModel?) in
