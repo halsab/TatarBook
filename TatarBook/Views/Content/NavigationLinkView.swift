@@ -13,9 +13,9 @@ struct NavigationLinkView: View {
     var body: some View {
         NavigationLink(
             destination:
-                ContentsView(contents: contents)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle(Text(title))
+                ContentsView(contentTitle: title, contents: contents)
+//                .navigationBarTitleDisplayMode(.inline)
+//                .navigationTitle(Text(title))
         ) {
             Text(.init(title))
                 .font(.system(.title3, design: .serif))

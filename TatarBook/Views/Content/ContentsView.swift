@@ -8,16 +8,23 @@
 import SwiftUI
 
 struct ContentsView: View {
+    let contentTitle: String
     let contents: [ContentModel]
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
+                Text(.init(contentTitle))
+                    .font(.system(.title, design: .serif))
+                    .multilineTextAlignment(.center)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .border(Color.accentColor)
                 ForEach(contents) { content in
                     if let title = content.title,
                        let contents = content.contents {
                         NavigationLinkView(title: title, contents: contents)
                     } else {
-                        ContentView(content: content)
+                        ContentView(title: contentTitle, content: content)
                     }
                 }
             }

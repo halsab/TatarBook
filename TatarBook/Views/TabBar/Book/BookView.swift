@@ -20,7 +20,7 @@ struct BookView: View {
                 .scaleEffect(1.5)
         } else {
             NavigationView {
-                ContentsView(contents: vm.contents)
+                ContentsView(contentTitle: "Иске имля", contents: vm.contents)
                     .navigationTitle(Text("Китап"))
                     .navigationBarTitleDisplayMode(.inline)
             }
