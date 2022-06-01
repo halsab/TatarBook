@@ -29,6 +29,7 @@ struct DictionaryView: View {
                             Spacer()
                             Text(.init(word.oldTatar))
                                 .font(.system(.title, design: .serif))
+                                .foregroundColor(appManager.tintColor)
                         }
                     }
                 }
