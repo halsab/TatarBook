@@ -12,14 +12,6 @@ struct DictionaryView: View {
     @EnvironmentObject var appManager: AppManager
     @StateObject private var vm = DictionaryViewModel()
     @State private var isLoading = false
-    @State private var searchText = ""
-    var searchResults: [String] {
-        if searchText.isEmpty {
-            return vm.words
-        } else {
-            return vm.words.filter { $0.lowercased().contains(searchText.lowercased()) }
-        }
-    }
     
     var body: some View {
         if isLoading {
@@ -29,18 +21,14 @@ struct DictionaryView: View {
         } else {
             NavigationView {
                 List {
-                    ForEach(searchResults, id: \.self) { name in
-                        Text(.init(name))
+                    ForEach(vm.filteredWords, id: \.self) { word in
+                        Text(.init(word))
                             .font(.system(.body, design: .serif))
                     }
                 }
-                .listStyle(PlainListStyle())
-                .searchable(text: $searchText, prompt: "Сүзне яза башлагыз...") {
-                    ForEach(searchResults, id: \.self) { result in
-                        Text(.init(result)).searchCompletion(result)
-                            .font(.system(.body, design: .serif))
-                    }
-                }
+                .id(UUID())
+                .listStyle(.plain)
+                .searchable(text: $vm.searchQuery, prompt: Text("Сүзне яза башлагыз...")) {}
                 .navigationTitle(Text("Сүзлек"))
                 .navigationBarTitleDisplayMode(.inline)
             }

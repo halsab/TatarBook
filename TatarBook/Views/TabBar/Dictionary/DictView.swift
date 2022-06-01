@@ -8,13 +8,26 @@
 import SwiftUI
 
 struct DictView: View {
+    
+    @StateObject var vm = DictViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct DictView_Previews: PreviewProvider {
-    static var previews: some View {
-        DictView()
+        NavigationView {
+            List {
+                ForEach(vm.filteredObjects, id: \.id) { object in
+                    VStack(alignment: .leading) {
+                        Text("Char: \(object.char)")
+                        Text("Number: \(object.number)")
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+            .id(UUID())
+            .listStyle(.plain)
+            .searchable(text: $vm.searchQuery, prompt: Text("Сүзне яза башлагыз...")) {}
+            .navigationTitle("Сүзлек")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+        .navigationViewStyle(.stack)
     }
 }

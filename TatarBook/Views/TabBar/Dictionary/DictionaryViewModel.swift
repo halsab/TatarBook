@@ -13,6 +13,8 @@ class DictionaryViewModel: ObservableObject {
     @Published var model: DictionaryModel
     @Published var words: [String] = []
     @Published var currentVersion: String = ""
+    @Published var filteredWords: [String] = []
+    @Published var searchQuery = ""
     
     private var cancellabels: Set<AnyCancellable> = []
     
@@ -23,6 +25,16 @@ class DictionaryViewModel: ObservableObject {
                 words = sinkModel.content.sorted { $0.lowercased() < $1.lowercased() }
                 currentVersion = sinkModel.version
             }
+            .store(in: &cancellabels)
+        $searchQuery
+            .sink(receiveValue: { [unowned self] searchQueryValue in
+                if searchQueryValue.isEmpty {
+                    filteredWords = words
+                } else {
+                    filteredWords = words
+                        .filter { $0.lowercased().contains(searchQueryValue.lowercased()) }
+                }
+            })
             .store(in: &cancellabels)
     }
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5F4DFC6F2846C452004890C4 /* TestSelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC6E2846C452004890C4 /* TestSelectionRowView.swift */; };
+		5F4DFC7128479E08004890C4 /* DictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC7028479E08004890C4 /* DictView.swift */; };
+		5F4DFC7328479E10004890C4 /* DictViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC7228479E10004890C4 /* DictViewModel.swift */; };
 		5F7AB87F283E73D2003608B0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB87E283E73D2003608B0 /* NetworkManager.swift */; };
 		5F7AB881283E77FB003608B0 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB880283E77FB003608B0 /* AppManager.swift */; };
 		5F7AB883283E787C003608B0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB882283E787C003608B0 /* Config.swift */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		5F4DFC6E2846C452004890C4 /* TestSelectionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSelectionRowView.swift; sourceTree = "<group>"; };
+		5F4DFC7028479E08004890C4 /* DictView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictView.swift; sourceTree = "<group>"; };
+		5F4DFC7228479E10004890C4 /* DictViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictViewModel.swift; sourceTree = "<group>"; };
 		5F7AB87E283E73D2003608B0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5F7AB880283E77FB003608B0 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		5F7AB882283E787C003608B0 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 			children = (
 				5FAA82EE27EE57A70015A60D /* DictionaryView.swift */,
 				5FAA82F027EE57AD0015A60D /* DictionaryViewModel.swift */,
+				5F4DFC7028479E08004890C4 /* DictView.swift */,
+				5F4DFC7228479E10004890C4 /* DictViewModel.swift */,
 			);
 			path = Dictionary;
 			sourceTree = "<group>";
@@ -418,6 +424,7 @@
 				5FA5FB7327F59FFF003F2ECE /* AnswerRowView.swift in Sources */,
 				5F7AB87F283E73D2003608B0 /* NetworkManager.swift in Sources */,
 				5FC279BB27F24C6D00086FD0 /* Extensions+Text.swift in Sources */,
+				5F4DFC7128479E08004890C4 /* DictView.swift in Sources */,
 				5F7AB881283E77FB003608B0 /* AppManager.swift in Sources */,
 				5F7AB891283F9F45003608B0 /* DictionaryModel.swift in Sources */,
 				5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */,
@@ -435,6 +442,7 @@
 				5FAA82F127EE57AD0015A60D /* DictionaryViewModel.swift in Sources */,
 				5F7AB88A283F6AAF003608B0 /* SettingsView.swift in Sources */,
 				5FF2737627ECF08F0075A855 /* NavigationLinkView.swift in Sources */,
+				5F4DFC7328479E10004890C4 /* DictViewModel.swift in Sources */,
 				5F91099127EB84DC00210E03 /* BookView.swift in Sources */,
 				5FC279AB27F1932A00086FD0 /* TestViewModel.swift in Sources */,
 				5FC279B127F1B1F500086FD0 /* Test.swift in Sources */,
