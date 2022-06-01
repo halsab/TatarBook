@@ -9,5 +9,5 @@ import Foundation
 
 struct DictionaryModel: Serializable {
     let version: String
-    let content: [String]
+    let content: [Word]
 }

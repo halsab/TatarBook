@@ -22,8 +22,14 @@ struct DictionaryView: View {
             NavigationView {
                 List {
                     ForEach(vm.filteredWords, id: \.self) { word in
-                        Text(.init(word))
-                            .font(.system(.body, design: .serif))
+                        HStack {
+                            Text(.init(word.tatar))
+                                .font(.system(.body, design: .serif))
+                                .foregroundColor(.secondary)
+                            Spacer()
+                            Text(.init(word.oldTatar))
+                                .font(.system(.title, design: .serif))
+                        }
                     }
                 }
                 .id(UUID())

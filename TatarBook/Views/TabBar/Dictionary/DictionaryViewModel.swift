@@ -11,9 +11,9 @@ import Combine
 class DictionaryViewModel: ObservableObject {
     
     @Published var model: DictionaryModel
-    @Published var words: [String] = []
+    @Published var words: [Word] = []
     @Published var currentVersion: String = ""
-    @Published var filteredWords: [String] = []
+    @Published var filteredWords: [Word] = []
     @Published var searchQuery = ""
     
     private var cancellabels: Set<AnyCancellable> = []
@@ -22,7 +22,7 @@ class DictionaryViewModel: ObservableObject {
         model = DataManager.shared.getLocalFile(type: .dictionary) ?? DictionaryModel(version: "", content: [])
         $model
             .sink { [unowned self] sinkModel in
-                words = sinkModel.content.sorted { $0.lowercased() < $1.lowercased() }
+                words = sinkModel.content.sorted { $0.tatar.lowercased() < $1.tatar.lowercased() }
                 currentVersion = sinkModel.version
             }
             .store(in: &cancellabels)
@@ -32,7 +32,7 @@ class DictionaryViewModel: ObservableObject {
                     filteredWords = words
                 } else {
                     filteredWords = words
-                        .filter { $0.lowercased().contains(searchQueryValue.lowercased()) }
+                        .filter { $0.searchString.contains(searchQueryValue.lowercased()) }
                 }
             })
             .store(in: &cancellabels)
