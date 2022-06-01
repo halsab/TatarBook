@@ -5,12 +5,16 @@
 //  Created by halsab on 25.05.2022.
 //
 
-import Foundation
+import SwiftUI
+import Combine
 
 class AppManager: ObservableObject {
     
     @Published var config: Config
     @Published var isNeedLoad = true
+    @Published var tintColor: Color = .blue
+    
+    private var cancellabels: Set<AnyCancellable> = []
     
     private let UD = UserDefaults.standard
     private let configUpdateTimeInterval: TimeInterval = 86400 // 24 hours in seconds
@@ -21,6 +25,16 @@ class AppManager: ObservableObject {
     
     init() {
         config = DataManager.shared.getLocalFile(type: .config) ?? Config(files: [])
+        tintColor = storedTintColor.color
+        $tintColor
+            .sink(receiveValue: { [unowned self] sinkTintColor in
+                for storedTintColor in TintColor.allCases {
+                    if storedTintColor.color == sinkTintColor {
+                        self.storedTintColor = storedTintColor
+                    }
+                }
+            })
+            .store(in: &cancellabels)
         isNeedLoad = isFirstLoad
     }
 }
@@ -31,6 +45,7 @@ extension AppManager {
     enum UDKey: String {
         case lastConfigUpdateDate
         case isFirstLoad
+        case storedTintColor
     }
     
     var lastConfigUpdateDate: Date {
@@ -48,6 +63,22 @@ extension AppManager {
         }
         set {
             UD.set(newValue, forKey: UDKey.isFirstLoad.rawValue)
+        }
+    }
+    
+    var storedTintColor: TintColor {
+        get {
+            if let data = UD.data(forKey: UDKey.storedTintColor.rawValue),
+               let tintColor = try? JSONDecoder().decode(TintColor.self, from: data) {
+             	return tintColor
+            } else {
+                return .blue
+            }
+        }
+        set {
+            if let data = try? JSONEncoder().encode(newValue) {
+                UD.set(data, forKey: UDKey.storedTintColor.rawValue)
+            }
         }
     }
 }
@@ -94,6 +125,35 @@ extension AppManager {
             lastConfigUpdateDate = Date.now
             DispatchQueue.main.async {
                 self.config = config
+            }
+        }
+    }
+}
+
+// MARK: Tint Color
+
+extension AppManager {
+    enum TintColor: String, CaseIterable, Identifiable, Codable {
+        case cyan = "Күк зәңгәр"
+        case blue = "Зәңгәр"
+        case indigo = "Шәмәхә"
+        case red = "Кызыл"
+        case monochrome = "Монохром"
+        
+        var id: Self { self }
+        
+        var color: Color {
+            switch self {
+            case .cyan:
+                return .cyan
+            case .blue:
+                return .blue
+            case .indigo:
+                return .indigo
+            case .red:
+                return .red
+            case .monochrome:
+                return .primary
             }
         }
     }

@@ -16,9 +16,11 @@ struct TatarBookApp: App {
         WindowGroup {
             if appManager.isNeedLoad {
                 DownloadingView()
+                    .accentColor(appManager.tintColor)
                     .environmentObject(appManager)
             } else {
                 TabBarView()
+                    .accentColor(appManager.tintColor)
                     .environmentObject(appManager)
             }
         }

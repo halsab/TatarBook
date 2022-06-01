@@ -10,22 +10,29 @@ import SwiftUI
 struct SettingsView: View {
     
     @EnvironmentObject var appManager: AppManager
-    
+
     var body: some View {
-        VStack(spacing: 16) {
-            Button {
-                appManager.loadAndSaveAllFiles { isSuccess in
-                    Logger.log(.success, "Load all data: \(isSuccess ? "true" : "false")")
+        NavigationView {
+            Form {
+                Section {
+                    Picker(selection: $appManager.tintColor) {
+                        ForEach(AppManager.TintColor.allCases) { tintColor in
+                            Text(tintColor.rawValue)
+                                .foregroundColor(tintColor.color)
+                                .font(.system(.body, design: .serif))
+                                .bold()
+                                .tag(tintColor.color)
+                        }
+                    } label: {
+                        Text("Кушымтаның төп төсе")
+                            .font(.system(.body, design: .serif))
+                    }
                 }
-            } label: {
-                Text("Update all data")
             }
-            Button {
-                appManager.updateConfig()
-            } label: {
-                Text("Update config")
-            }
+            .navigationTitle(Text("Көйләнеш"))
+            .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationViewStyle(.stack)
     }
 }
 
