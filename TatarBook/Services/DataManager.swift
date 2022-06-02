@@ -13,10 +13,6 @@ protocol DataManagerProtocol {
     func saveObject(data: Data, to file: FileType) -> Bool
 }
 
-enum FileType: String, CaseIterable {
-    case config, book, test, dictionary
-}
-
 class DataManager: DataManagerProtocol {
     
     static let shared: DataManagerProtocol = DataManager()

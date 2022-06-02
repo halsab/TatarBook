@@ -10,40 +10,54 @@ import SwiftUI
 struct SettingsView: View {
     
     @EnvironmentObject var appManager: AppManager
+    
+    private var appVersion: String {
+        (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? ""
+    }
 
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    Picker("", selection: $appManager.colorScheme) {
-                        ForEach(AppManager.AppColorScheme.allCases) { colorScheme in
-                            Text(colorScheme.rawValue)
-                                .tag(colorScheme.mode)
-                        }
-                    }
-                    .pickerStyle(.segmented)
+                    ColorSchemePicker(colorScheme: $appManager.colorScheme)
                 } header: {
                     Text("Кушымтаның төс схемасы")
+                        .font(.system(.footnote, design: .serif))
                 }
                 Section {
-                    Picker(selection: $appManager.tintColor) {
-                        ForEach(AppManager.TintColor.allCases) { tintColor in
-                            Text(tintColor.rawValue)
-                                .foregroundColor(tintColor.color)
-                                .font(.system(.body, design: .serif))
-                                .bold()
-                                .tag(tintColor.color)
+                    TintColorPicker(tintColor: $appManager.tintColor)
+                }
+                Section {
+                    VStack {
+                        VersionRowView(name: "Кушымта", version: appVersion)
+                        ForEach(appManager.config.files) { file in
+                            Divider()
+                            VersionRowView(name: appManager.config.getPrettyName(of: file), version: file.version)
                         }
-                    } label: {
-                        Text("Кушымтаның төп төсе")
-                            .font(.system(.body, design: .serif))
                     }
+                    .padding(.vertical, 8)
+                } header: {
+                    Text("Версиялар")
+                        .font(.system(.footnote, design: .serif))
+                }
+                Section {
+                    VStack(spacing: 8) {
+                        Text("Бу кушымта «Иман» нәшрияте тарафыннан бастыралган «Иске татар имлясы буенча дәреслек» нигезендә ясалды.")
+                        Text("Китапны төзүче: «Мөхәммәдия» мәдрәсәсе мөгаллиме, Апанай мәчетенең имамы, Әхмәт хәзрәт Сабыр.")
+                        Text("Бастыру өчен җаваплы: тарих фәннәре кандидаты Нияз хәзрәт Сабиров.")
+                    }
+                    .font(.system(.callout, design: .serif))
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
                 }
             }
             .navigationTitle(Text("Көйләнеш"))
             .navigationBarTitleDisplayMode(.inline)
         }
         .navigationViewStyle(.stack)
+        .onAppear {
+            appManager.updateConfig()
+        }
     }
 }
 

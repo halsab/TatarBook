@@ -17,4 +17,8 @@ struct Config: Serializable {
     func getFileVersion(of fileType: FileType) -> String {
         files.first(where: { $0.name == fileType.rawValue })?.version ?? ""
     }
+    
+    func getPrettyName(of file: File) -> String {
+        FileType.allCases.first(where: { $0.rawValue == file.name })?.prettyName ?? ""
+    }
 }
