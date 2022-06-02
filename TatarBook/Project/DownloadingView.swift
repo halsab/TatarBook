@@ -15,18 +15,11 @@ struct DownloadingView: View {
     var body: some View {
         Group {
             if isLoading {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
-                    .scaleEffect(1.5)
+                ScaledProgressView()
             } else {
-                Button {
+                LoadButton {
                     isLoading = true
                     download()
-                } label: {
-                    Image(systemName: "arrow.triangle.2.circlepath")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 48, height: 48)
                 }
             }
         }

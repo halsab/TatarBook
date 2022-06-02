@@ -10,12 +10,14 @@ import Combine
 
 class DictionaryViewModel: ObservableObject {
     
-    @Published var model: DictionaryModel
-    @Published var words: [Word] = []
+    @Published var model: DictionaryModel = DictionaryModel(version: "", content: [])
     @Published var currentVersion: String = ""
     @Published var filteredWords: [Word] = []
     @Published var searchQuery = ""
+    @Published var isLoading = false
+    @Published var needData = false
     
+    private var words: [Word] = []
     private var cancellabels: Set<AnyCancellable> = []
     
     init() {
@@ -23,6 +25,8 @@ class DictionaryViewModel: ObservableObject {
         $model
             .sink { [unowned self] sinkModel in
                 words = sinkModel.content.sorted { $0.tatar.lowercased() < $1.tatar.lowercased() }
+                needData = words.isEmpty
+                filteredWords = words
                 currentVersion = sinkModel.version
             }
             .store(in: &cancellabels)
@@ -36,5 +40,17 @@ class DictionaryViewModel: ObservableObject {
                 }
             })
             .store(in: &cancellabels)
+    }
+    
+    func update() {
+        isLoading = true
+        NetworkManager.shared.getModel(of: .dictionary) { [weak self] (model: DictionaryModel?) in
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                if let model = model {
+                    self?.model = model
+                }
+            }
+        }
     }
 }

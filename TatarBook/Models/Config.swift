@@ -13,4 +13,8 @@ struct Config: Serializable {
         let version: String
     }
     var files: [File]
+    
+    func getFileVersion(of fileType: FileType) -> String {
+        files.first(where: { $0.name == fileType.rawValue })?.version ?? ""
+    }
 }

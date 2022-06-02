@@ -32,7 +32,7 @@ struct TabBarView: View {
                 }
         }
         .onChange(of: scenePhase) { newPhase in
-            if newPhase == .active, appManager.isNeedUpdateConfig {
+            if true {//newPhase == .active, appManager.isNeedUpdateConfig {
                 appManager.updateConfig()
             }
         }

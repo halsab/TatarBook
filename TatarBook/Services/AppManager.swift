@@ -128,6 +128,13 @@ extension AppManager {
             }
         }
     }
+    
+    func updateFileIfNeed(_ fileType: FileType, _ currentVersion: String, isNoInfo: Bool, completion: () -> Void) {
+        let configFileVersion = config.getFileVersion(of: fileType)
+        if currentVersion < configFileVersion || isNoInfo {
+            completion()
+        }
+    }
 }
 
 // MARK: Tint Color
