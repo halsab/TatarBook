@@ -10,10 +10,12 @@ import Combine
 
 class TestViewModel: ObservableObject {
     
-    @Published var model: TestModel
+    @Published var model: TestModel = TestModel(version: "", content: [])
     @Published var tests: [Test] = []
     @Published var selectedTests: Set<Test> = []
     @Published var currentVersion: String = ""
+    @Published var isLoading = false
+    @Published var needData = false
     
     private var cancellabels: Set<AnyCancellable> = []
     
@@ -22,8 +24,21 @@ class TestViewModel: ObservableObject {
         $model
             .sink { [unowned self] sinkModel in
                 tests = sinkModel.content
+                needData = tests.isEmpty
                 currentVersion = sinkModel.version
             }
             .store(in: &cancellabels)
+    }
+    
+    func update() {
+        isLoading = true
+        NetworkManager.shared.getModel(of: .test) { [weak self] (model: TestModel?) in
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                if let model = model {
+                    self?.model = model
+                }
+            }
+        }
     }
 }

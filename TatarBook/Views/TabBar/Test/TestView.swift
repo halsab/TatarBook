@@ -11,38 +11,20 @@ struct TestView: View {
     
     @EnvironmentObject var appManager: AppManager
     @StateObject private var vm = TestViewModel()
-    @State private var isLoading = false
     
     var body: some View {
-        if isLoading {
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
-                .scaleEffect(1.5)
-        } else {
             NavigationView {
-                VStack {
-                    ScrollView {
-                        ForEach(vm.tests, id: \.id) { test in
-                            TestSelectionRowView(selectedTests: $vm.selectedTests, test: test)
-                                .padding(.horizontal)
-                                .padding(.top, 8)
-                        }
-                    }
-                    Spacer()
-                    if !vm.selectedTests.isEmpty {
-                        NavigationLink {
-                            TestGameView(tests: vm.selectedTests)
-                        } label: {
-                            Text(.init("Тестны башларга (\(vm.selectedTests.count)/\(vm.tests.count))"))
-                                .font(.system(.title3, design: .serif))
-                                .bold()
-                                .frame(maxWidth: .infinity)
-                                .padding(8)
-                        }
-                        .buttonStyle(BorderedButtonStyle())
-                        .padding([.horizontal, .bottom])
-                        .padding(.top, 8)
-                    }
+                MainContentView(
+                    isLoading: $vm.isLoading,
+                    showReloadButton: $vm.needData,
+                    contentView: AnyView(
+                        TestContentView(
+                            tests: $vm.tests,
+                            selectedTests: $vm.selectedTests
+                        )
+                    )
+                ) {
+                    updateIfNeed()
                 }
                 .navigationTitle(Text("Тест"))
                 .navigationBarTitleDisplayMode(.inline)
@@ -51,24 +33,11 @@ struct TestView: View {
             .onAppear {
                 updateIfNeed()
             }
-        }
     }
     
     private func updateIfNeed() {
-        let configFileVersion = appManager.config.files
-            .first(where: { $0.name == FileType.test.rawValue })?.version ?? ""
-        if vm.currentVersion < configFileVersion {
-            isLoading = true
-            NetworkManager.shared.getModel(of: .test) { (model: TestModel?) in
-                if let model = model {
-                    DispatchQueue.main.async {
-                        vm.model = model
-                        isLoading = false
-                    }
-                } else {
-                    isLoading = false
-                }
-            }
+        appManager.updateFileIfNeed(.test, vm.currentVersion, isNoInfo: vm.needData) {
+            vm.update()
         }
     }
 }
