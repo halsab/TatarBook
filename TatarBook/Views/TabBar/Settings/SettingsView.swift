@@ -15,6 +15,17 @@ struct SettingsView: View {
         NavigationView {
             Form {
                 Section {
+                    Picker("", selection: $appManager.colorScheme) {
+                        ForEach(AppManager.AppColorScheme.allCases) { colorScheme in
+                            Text(colorScheme.rawValue)
+                                .tag(colorScheme.mode)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                } header: {
+                    Text("Кушымтаның төс схемасы")
+                }
+                Section {
                     Picker(selection: $appManager.tintColor) {
                         ForEach(AppManager.TintColor.allCases) { tintColor in
                             Text(tintColor.rawValue)

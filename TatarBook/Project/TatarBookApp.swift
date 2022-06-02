@@ -14,15 +14,27 @@ struct TatarBookApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if appManager.isNeedLoad {
-                DownloadingView()
-                    .accentColor(appManager.tintColor)
-                    .environmentObject(appManager)
-            } else {
-                TabBarView()
-                    .accentColor(appManager.tintColor)
-                    .environmentObject(appManager)
+            Group {
+                if appManager.isNeedLoad {
+                    DownloadingView()
+                } else {
+                    TabBarView()
+                }
             }
+            .preferredColorScheme(appManager.colorScheme)
+            .accentColor(appManager.tintColor)
+            .environmentObject(appManager)
+//            if appManager.isNeedLoad {
+//                DownloadingView()
+//                    .preferredColorScheme(appManager.colorScheme)
+//                    .accentColor(appManager.tintColor)
+//                    .environmentObject(appManager)
+//            } else {
+//                TabBarView()
+//                    .preferredColorScheme(appManager.colorScheme)
+//                    .accentColor(appManager.tintColor)
+//                    .environmentObject(appManager)
+//            }
         }
     }
 }

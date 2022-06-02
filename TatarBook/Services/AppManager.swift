@@ -13,6 +13,7 @@ class AppManager: ObservableObject {
     @Published var config: Config
     @Published var isNeedLoad = true
     @Published var tintColor: Color = .blue
+    @Published var colorScheme: ColorScheme? = .none
     
     private var cancellabels: Set<AnyCancellable> = []
     
@@ -26,11 +27,21 @@ class AppManager: ObservableObject {
     init() {
         config = DataManager.shared.getLocalFile(type: .config) ?? Config(files: [])
         tintColor = storedTintColor.color
+        colorScheme = storedColorScheme.mode
         $tintColor
             .sink(receiveValue: { [unowned self] sinkTintColor in
                 for storedTintColor in TintColor.allCases {
                     if storedTintColor.color == sinkTintColor {
                         self.storedTintColor = storedTintColor
+                    }
+                }
+            })
+            .store(in: &cancellabels)
+        $colorScheme
+            .sink(receiveValue: { [unowned self] sinkColorScheme in
+                for storedColorScheme in AppColorScheme.allCases {
+                    if storedColorScheme.mode == sinkColorScheme {
+                        self.storedColorScheme = storedColorScheme
                     }
                 }
             })
@@ -46,6 +57,7 @@ extension AppManager {
         case lastConfigUpdateDate
         case isFirstLoad
         case storedTintColor
+        case storedColorScheme
     }
     
     var lastConfigUpdateDate: Date {
@@ -78,6 +90,22 @@ extension AppManager {
         set {
             if let data = try? JSONEncoder().encode(newValue) {
                 UD.set(data, forKey: UDKey.storedTintColor.rawValue)
+            }
+        }
+    }
+    
+    var storedColorScheme: AppColorScheme {
+        get {
+            if let data = UD.data(forKey: UDKey.storedColorScheme.rawValue),
+               let colorScheme = try? JSONDecoder().decode(AppColorScheme.self, from: data) {
+                return colorScheme
+            } else {
+                return .system
+            }
+        }
+        set {
+            if let data = try? JSONEncoder().encode(newValue) {
+                UD.set(data, forKey: UDKey.storedColorScheme.rawValue)
             }
         }
     }
@@ -161,6 +189,27 @@ extension AppManager {
                 return .red
             case .monochrome:
                 return .primary
+            }
+        }
+    }
+}
+
+extension AppManager {
+    enum AppColorScheme: String, CaseIterable, Identifiable, Codable {
+        case dark = "Караңгы"
+        case light = "Якты"
+        case system = "Системаның"
+        
+        var id: Self { self }
+        
+        var mode: ColorScheme? {
+            switch self {
+            case .dark:
+                return .dark
+            case .light:
+                return .light
+            case .system:
+                return .none
             }
         }
     }
