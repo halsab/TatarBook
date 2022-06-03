@@ -20,7 +20,7 @@ class NetworkManager: NetworkManagerProtocol {
     static let shared: NetworkManagerProtocol = NetworkManager()
     private init() {}
     
-    private var serverState: ServerState = .dev
+    private var serverState: ServerState = .prod
     private var endpoint: String {
         switch serverState {
         case .prod:
