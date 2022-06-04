@@ -16,5 +16,7 @@ struct ContentModel: Serializable {
     let vTable: [TableSimpleCellContent]?
     let hTable: [TableSimpleCellContent]?
     
+    let rule: [String]?
+    
     let contents: [ContentModel]?
 }

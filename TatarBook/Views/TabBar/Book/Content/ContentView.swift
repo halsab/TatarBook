@@ -24,6 +24,9 @@ struct ContentView: View {
             if let hTableContent = content.hTable {
                 HTableView(hTableContent: hTableContent)
             }
+            if let rule = content.rule {
+                RuleView(rule: rule)
+            }
         }
     }
 }

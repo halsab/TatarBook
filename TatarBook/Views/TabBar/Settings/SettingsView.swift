@@ -51,6 +51,7 @@ struct SettingsView: View {
                 .font(.system(.footnote, design: .monospaced))
                 .foregroundColor(.secondary)
                 .padding([.horizontal, .bottom])
+                .multilineTextAlignment(.center)
             }
             .navigationTitle(Text("Көйләнеш"))
             .navigationBarTitleDisplayMode(.inline)

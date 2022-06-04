@@ -14,7 +14,7 @@ protocol NetworkManagerProtocol {
 class NetworkManager: NetworkManagerProtocol {
     
     private enum ServerState {
-        case prod, dev
+        case prod, dev, test
     }
     
     static let shared: NetworkManagerProtocol = NetworkManager()
@@ -27,6 +27,8 @@ class NetworkManager: NetworkManagerProtocol {
             return "https://raw.githubusercontent.com/halsab/Database/main/TatarBook/"
         case .dev:
             return "https://raw.githubusercontent.com/halsab/Database/dev/TatarBook/"
+        case .test:
+            return "https://raw.githubusercontent.com/halsab/Database/test/TatarBook/"
         }
     }
     
