@@ -14,49 +14,43 @@ struct SettingsView: View {
     private var appVersion: String {
         (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? ""
     }
-
+    
     var body: some View {
         NavigationView {
-            Form {
-                Section {
-                    ColorSchemePicker(colorScheme: $appManager.colorScheme)
-                } header: {
-                    Text("Кушымтаның төс схемасы")
-                        .font(.system(.footnote, design: .serif))
-                }
-                Section {
-                    TintColorPicker(tintColor: $appManager.tintColor)
-                }
-                Section {
-                    VStack(spacing: 8) {
-                        Text("Бу кушымта «Иман» нәшрияте тарафыннан бастыралган «Иске татар имлясы буенча дәреслек» нигезендә ясалды.")
-                        Text("Китапны төзүче: «Мөхәммәдия» мәдрәсәсе мөгаллиме, Апанай мәчетенең имамы, Әхмәт хәзрәт Сабыр.")
-                        Text("Бастыру өчен җаваплы: тарих фәннәре кандидаты Нияз хәзрәт Сабиров.")
+            VStack {
+                Form {
+                    Section {
+                        ColorSchemePicker(colorScheme: $appManager.colorScheme)
+                    } header: {
+                        Text("Кушымтаның төс схемасы")
+                            .font(.system(.footnote, design: .rounded))
                     }
-                    .font(.system(.callout, design: .serif))
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-                }
-                Section {
-                    HStack {
-                        Spacer()
-                        VStack(alignment: .leading) {
-                            Text("Кушымта ")
-                            ForEach(appManager.config.files) { file in
-                                Text(appManager.config.getPrettyName(of: file) + " ")
-                            }
-                        }
-                        VStack(alignment: .trailing) {
-                            Text(appVersion)
-                            ForEach(appManager.config.files) { file in
-                                Text(file.version)
-                            }
-                        }
-                        Spacer()
+                    Section {
+                        TintColorPicker(tintColor: $appManager.tintColor)
                     }
-                    .font(.system(.footnote, design: .monospaced))
-                    .foregroundColor(.secondary)
+                    Section {
+                        VStack(spacing: 8) {
+                            Text("Бу кушымта «Иман» нәшрияте тарафыннан бастыралган «Иске татар имлясы буенча дәреслек» нигезендә ясалды.")
+                            Text("Китапны төзүче: «Мөхәммәдия» мәдрәсәсе мөгаллиме, Апанай мәчетенең имамы, Әхмәт хәзрәт Сабыр.")
+                            Text("Бастыру өчен җаваплы: тарих фәннәре кандидаты Нияз хәзрәт Сабиров.")
+                        }
+                        .font(.system(.callout, design: .rounded))
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                    }
                 }
+                // Versions of app and docs
+                Text(
+                """
+                A(\(appVersion)) \
+                B(\(appManager.config.files.first(where: { $0.name == FileType.book.rawValue })?.version ?? "")) \
+                T(\(appManager.config.files.first(where: { $0.name == FileType.test.rawValue })?.version ?? "")) \
+                D(\(appManager.config.files.first(where: { $0.name == FileType.dictionary.rawValue })?.version ?? ""))
+                """
+                )
+                .font(.system(.footnote, design: .monospaced))
+                .foregroundColor(.secondary)
+                .padding([.horizontal, .bottom])
             }
             .navigationTitle(Text("Көйләнеш"))
             .navigationBarTitleDisplayMode(.inline)

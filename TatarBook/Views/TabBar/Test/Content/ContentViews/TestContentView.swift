@@ -12,6 +12,9 @@ struct TestContentView: View {
     @Binding var selectedTests: Set<Test>
     var body: some View {
         VStack {
+            Text("Узарга теләгән тестларны сайлагыз")
+                .font(.system(.body, design: .serif))
+                .foregroundColor(.secondary)
             ScrollView {
                 ForEach(tests, id: \.id) { test in
                     TestSelectionRowView(selectedTests: $selectedTests, test: test)

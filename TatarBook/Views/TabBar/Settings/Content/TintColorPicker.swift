@@ -14,13 +14,13 @@ struct TintColorPicker: View {
             ForEach(AppManager.TintColor.allCases) { tintColor in
                 Text(tintColor.rawValue)
                     .foregroundColor(tintColor.color)
-                    .font(.system(.body, design: .serif))
+                    .font(.system(.body, design: .rounded))
                     .bold()
                     .tag(tintColor.color)
             }
         } label: {
             Text("Кушымтаның төп төсе")
-                .font(.system(.body, design: .serif))
+                .font(.system(.body, design: .rounded))
         }
     }
 }
