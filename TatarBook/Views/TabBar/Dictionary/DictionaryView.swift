@@ -20,7 +20,6 @@ struct DictionaryView: View {
                 contentView: AnyView(
                     DictionaryContentView(
                         filteredWords: $vm.filteredWords,
-                        tintColor: $appManager.tintColor,
                         searchQuery: $vm.searchQuery
                     )
                 )

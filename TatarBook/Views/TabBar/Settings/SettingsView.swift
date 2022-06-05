@@ -25,8 +25,10 @@ struct SettingsView: View {
                         Text("Кушымтаның төс схемасы")
                             .font(.system(.footnote, design: .rounded))
                     }
-                    Section {
-                        TintColorPicker(tintColor: $appManager.tintColor)
+                    if UIDevice.current.userInterfaceIdiom == .phone {
+                        Section {
+                            TintColorPicker(tintColor: $appManager.tintColor)
+                        }
                     }
                     Section {
                         VStack(spacing: 8) {

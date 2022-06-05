@@ -9,12 +9,11 @@ import SwiftUI
 
 struct DictionaryContentView: View {
     @Binding var filteredWords: [Word]
-    @Binding var tintColor: Color
     @Binding var searchQuery: String
     var body: some View {
         List {
             ForEach(filteredWords, id: \.self) { word in
-                WordView(word: word, tintColor: tintColor)
+                WordView(word: word)
             }
         }
         .id(UUID())
@@ -25,9 +24,8 @@ struct DictionaryContentView: View {
 
 struct DictionaryContentView_Previews: PreviewProvider {
     @State private static var words: [Word] = []
-    @State private static var color: Color = .blue
     @State private static var query: String = ""
     static var previews: some View {
-        DictionaryContentView(filteredWords: $words, tintColor: $color, searchQuery: $query)
+        DictionaryContentView(filteredWords: $words, searchQuery: $query)
     }
 }
