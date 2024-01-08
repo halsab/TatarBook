@@ -7,18 +7,117 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F4DFC6F2846C452004890C4 /* TestSelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC6E2846C452004890C4 /* TestSelectionRowView.swift */; };
+		5F4DFC762847FCF5004890C4 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC752847FCF5004890C4 /* Word.swift */; };
+		5F4DFC7D2848DC08004890C4 /* LoadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC7C2848DC08004890C4 /* LoadButton.swift */; };
+		5F4DFC7F2848DC38004890C4 /* ScaledProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC7E2848DC38004890C4 /* ScaledProgressView.swift */; };
+		5F4DFC822848DC61004890C4 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC812848DC61004890C4 /* WordView.swift */; };
+		5F4DFC842848F3DA004890C4 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC832848F3DA004890C4 /* MainContentView.swift */; };
+		5F4DFC862848F736004890C4 /* DictionaryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC852848F736004890C4 /* DictionaryContentView.swift */; };
+		5F4DFC882849034E004890C4 /* TestContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC872849034E004890C4 /* TestContentView.swift */; };
+		5F4DFC8A28493F56004890C4 /* BookContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC8928493F56004890C4 /* BookContentView.swift */; };
+		5F4DFC8D284949CA004890C4 /* TintColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC8C284949CA004890C4 /* TintColorPicker.swift */; };
+		5F4DFC8F284949D7004890C4 /* ColorSchemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC8E284949D7004890C4 /* ColorSchemePicker.swift */; };
+		5F4DFC9528495725004890C4 /* FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC9428495725004890C4 /* FileType.swift */; };
+		5F4DFC97284BA944004890C4 /* RuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DFC96284BA944004890C4 /* RuleView.swift */; };
+		5F7AB87F283E73D2003608B0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB87E283E73D2003608B0 /* NetworkManager.swift */; };
+		5F7AB881283E77FB003608B0 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB880283E77FB003608B0 /* AppManager.swift */; };
+		5F7AB883283E787C003608B0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB882283E787C003608B0 /* Config.swift */; };
+		5F7AB887283E7D87003608B0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB886283E7D87003608B0 /* DataManager.swift */; };
+		5F7AB88A283F6AAF003608B0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB889283F6AAE003608B0 /* SettingsView.swift */; };
+		5F7AB88D283F9F31003608B0 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB88C283F9F31003608B0 /* BookModel.swift */; };
+		5F7AB88F283F9F3A003608B0 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB88E283F9F3A003608B0 /* TestModel.swift */; };
+		5F7AB891283F9F45003608B0 /* DictionaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB890283F9F45003608B0 /* DictionaryModel.swift */; };
+		5F7AB893283FBF9A003608B0 /* DownloadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AB892283FBF9A003608B0 /* DownloadingView.swift */; };
 		5F91097C27EB766A00210E03 /* TatarBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91097B27EB766A00210E03 /* TatarBookApp.swift */; };
-		5F91097E27EB766A00210E03 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91097D27EB766A00210E03 /* ContentView.swift */; };
 		5F91098027EB766B00210E03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F91097F27EB766B00210E03 /* Assets.xcassets */; };
 		5F91098327EB766B00210E03 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F91098227EB766B00210E03 /* Preview Assets.xcassets */; };
+		5F91098C27EB797700210E03 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91098B27EB797700210E03 /* TabBarView.swift */; };
+		5F91099127EB84DC00210E03 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099027EB84DC00210E03 /* BookView.swift */; };
+		5F91099727EB8AC800210E03 /* FileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099627EB8AC800210E03 /* FileName.swift */; };
+		5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91099927EB8C4D00210E03 /* Logger.swift */; };
+		5FA5FB6B27F58230003F2ECE /* TestGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA5FB6A27F58230003F2ECE /* TestGameView.swift */; };
+		5FA5FB6D27F58249003F2ECE /* TestGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA5FB6C27F58249003F2ECE /* TestGameViewModel.swift */; };
+		5FA5FB7027F59825003F2ECE /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA5FB6F27F59825003F2ECE /* ProgressBar.swift */; };
+		5FA5FB7327F59FFF003F2ECE /* AnswerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA5FB7227F59FFF003F2ECE /* AnswerRowView.swift */; };
+		5FAA82EF27EE57A70015A60D /* DictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA82EE27EE57A70015A60D /* DictionaryView.swift */; };
+		5FAA82F127EE57AD0015A60D /* DictionaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA82F027EE57AD0015A60D /* DictionaryViewModel.swift */; };
+		5FC279A927F1931400086FD0 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC279A827F1931400086FD0 /* TestView.swift */; };
+		5FC279AB27F1932A00086FD0 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC279AA27F1932A00086FD0 /* TestViewModel.swift */; };
+		5FC279B127F1B1F500086FD0 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC279B027F1B1F500086FD0 /* Test.swift */; };
+		5FC279B427F1B22500086FD0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC279B327F1B22500086FD0 /* Question.swift */; };
+		5FC279B627F1D01200086FD0 /* SelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC279B527F1D01200086FD0 /* SelectionRowView.swift */; };
+		5FC279BB27F24C6D00086FD0 /* Extensions+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC279BA27F24C6D00086FD0 /* Extensions+Text.swift */; };
+		5FF2735627EB97B60075A855 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735527EB97B60075A855 /* Serializable.swift */; };
+		5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735827EB99740075A855 /* BookViewModel.swift */; };
+		5FF2735B27EB9C4B0075A855 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735A27EB9C4B0075A855 /* ContentModel.swift */; };
+		5FF2735D27EB9FCA0075A855 /* TextContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2735C27EB9FCA0075A855 /* TextContent.swift */; };
+		5FF2736A27EBB8860075A855 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2736927EBB8860075A855 /* ContentView.swift */; };
+		5FF2736E27ECC0F60075A855 /* ContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2736D27ECC0F60075A855 /* ContentsView.swift */; };
+		5FF2737027ECC21D0075A855 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2736F27ECC21D0075A855 /* TextView.swift */; };
+		5FF2737227ECC8FE0075A855 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737127ECC8FE0075A855 /* ListView.swift */; };
+		5FF2737627ECF08F0075A855 /* NavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737527ECF08F0075A855 /* NavigationLinkView.swift */; };
+		5FF2737827EDAF7E0075A855 /* TableSimpleCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737727EDAF7E0075A855 /* TableSimpleCellContent.swift */; };
+		5FF2737A27EDB03E0075A855 /* VTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737927EDB03E0075A855 /* VTableView.swift */; };
+		5FF2737C27EDB3FC0075A855 /* HTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2737B27EDB3FC0075A855 /* HTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5F91097827EB766A00210E03 /* TatarBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TatarBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F4DFC6E2846C452004890C4 /* TestSelectionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSelectionRowView.swift; sourceTree = "<group>"; };
+		5F4DFC752847FCF5004890C4 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		5F4DFC7C2848DC08004890C4 /* LoadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadButton.swift; sourceTree = "<group>"; };
+		5F4DFC7E2848DC38004890C4 /* ScaledProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledProgressView.swift; sourceTree = "<group>"; };
+		5F4DFC812848DC61004890C4 /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
+		5F4DFC832848F3DA004890C4 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
+		5F4DFC852848F736004890C4 /* DictionaryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryContentView.swift; sourceTree = "<group>"; };
+		5F4DFC872849034E004890C4 /* TestContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestContentView.swift; sourceTree = "<group>"; };
+		5F4DFC8928493F56004890C4 /* BookContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookContentView.swift; sourceTree = "<group>"; };
+		5F4DFC8C284949CA004890C4 /* TintColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintColorPicker.swift; sourceTree = "<group>"; };
+		5F4DFC8E284949D7004890C4 /* ColorSchemePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemePicker.swift; sourceTree = "<group>"; };
+		5F4DFC9428495725004890C4 /* FileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileType.swift; sourceTree = "<group>"; };
+		5F4DFC96284BA944004890C4 /* RuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleView.swift; sourceTree = "<group>"; };
+		5F7AB87E283E73D2003608B0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5F7AB880283E77FB003608B0 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		5F7AB882283E787C003608B0 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		5F7AB886283E7D87003608B0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		5F7AB889283F6AAE003608B0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5F7AB88C283F9F31003608B0 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		5F7AB88E283F9F3A003608B0 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		5F7AB890283F9F45003608B0 /* DictionaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryModel.swift; sourceTree = "<group>"; };
+		5F7AB892283FBF9A003608B0 /* DownloadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingView.swift; sourceTree = "<group>"; };
+		5F91097827EB766A00210E03 /* Иске имля.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Иске имля.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F91097B27EB766A00210E03 /* TatarBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TatarBookApp.swift; sourceTree = "<group>"; };
-		5F91097D27EB766A00210E03 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F91097F27EB766B00210E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F91098227EB766B00210E03 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5F91098B27EB797700210E03 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		5F91099027EB84DC00210E03 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		5F91099627EB8AC800210E03 /* FileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileName.swift; sourceTree = "<group>"; };
+		5F91099927EB8C4D00210E03 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		5FA5FB6A27F58230003F2ECE /* TestGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGameView.swift; sourceTree = "<group>"; };
+		5FA5FB6C27F58249003F2ECE /* TestGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGameViewModel.swift; sourceTree = "<group>"; };
+		5FA5FB6F27F59825003F2ECE /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		5FA5FB7227F59FFF003F2ECE /* AnswerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerRowView.swift; sourceTree = "<group>"; };
+		5FAA82EE27EE57A70015A60D /* DictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryView.swift; sourceTree = "<group>"; };
+		5FAA82F027EE57AD0015A60D /* DictionaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModel.swift; sourceTree = "<group>"; };
+		5FC279A827F1931400086FD0 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		5FC279AA27F1932A00086FD0 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
+		5FC279B027F1B1F500086FD0 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		5FC279B327F1B22500086FD0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		5FC279B527F1D01200086FD0 /* SelectionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRowView.swift; sourceTree = "<group>"; };
+		5FC279BA27F24C6D00086FD0 /* Extensions+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Text.swift"; sourceTree = "<group>"; };
+		5FF2735527EB97B60075A855 /* Serializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		5FF2735827EB99740075A855 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		5FF2735A27EB9C4B0075A855 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
+		5FF2735C27EB9FCA0075A855 /* TextContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContent.swift; sourceTree = "<group>"; };
+		5FF2736627EBB3430075A855 /* TatarBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TatarBook.entitlements; sourceTree = "<group>"; };
+		5FF2736927EBB8860075A855 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5FF2736D27ECC0F60075A855 /* ContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsView.swift; sourceTree = "<group>"; };
+		5FF2736F27ECC21D0075A855 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		5FF2737127ECC8FE0075A855 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		5FF2737527ECF08F0075A855 /* NavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLinkView.swift; sourceTree = "<group>"; };
+		5FF2737727EDAF7E0075A855 /* TableSimpleCellContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSimpleCellContent.swift; sourceTree = "<group>"; };
+		5FF2737927EDB03E0075A855 /* VTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VTableView.swift; sourceTree = "<group>"; };
+		5FF2737B27EDB3FC0075A855 /* HTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +131,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F4DFC742847FCB7004890C4 /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				5F4DFC752847FCF5004890C4 /* Word.swift */,
+			);
+			path = Dictionary;
+			sourceTree = "<group>";
+		};
+		5F4DFC7B2848DBDC004890C4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5F4DFC7C2848DC08004890C4 /* LoadButton.swift */,
+				5F4DFC7E2848DC38004890C4 /* ScaledProgressView.swift */,
+				5F4DFC832848F3DA004890C4 /* MainContentView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		5F4DFC802848DC52004890C4 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				5F4DFC852848F736004890C4 /* DictionaryContentView.swift */,
+				5F4DFC812848DC61004890C4 /* WordView.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		5F4DFC8B284949BB004890C4 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				5F4DFC8C284949CA004890C4 /* TintColorPicker.swift */,
+				5F4DFC8E284949D7004890C4 /* ColorSchemePicker.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		5F7AB888283F6A99003608B0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5F4DFC8B284949BB004890C4 /* Content */,
+				5F7AB889283F6AAE003608B0 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5F7AB88B283F9EAB003608B0 /* TabModels */ = {
+			isa = PBXGroup;
+			children = (
+				5F7AB88C283F9F31003608B0 /* BookModel.swift */,
+				5F7AB88E283F9F3A003608B0 /* TestModel.swift */,
+				5F7AB890283F9F45003608B0 /* DictionaryModel.swift */,
+				5F91099F27EB93D800210E03 /* Book */,
+				5FC279B227F1B21800086FD0 /* Test */,
+				5F4DFC742847FCB7004890C4 /* Dictionary */,
+			);
+			path = TabModels;
+			sourceTree = "<group>";
+		};
 		5F91096F27EB766A00210E03 = {
 			isa = PBXGroup;
 			children = (
@@ -43,7 +200,7 @@
 		5F91097927EB766A00210E03 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F91097827EB766A00210E03 /* TatarBook.app */,
+				5F91097827EB766A00210E03 /* Иске имля.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,9 +208,14 @@
 		5F91097A27EB766A00210E03 /* TatarBook */ = {
 			isa = PBXGroup;
 			children = (
-				5F91097B27EB766A00210E03 /* TatarBookApp.swift */,
-				5F91097D27EB766A00210E03 /* ContentView.swift */,
-				5F91097F27EB766B00210E03 /* Assets.xcassets */,
+				5FF2736627EBB3430075A855 /* TatarBook.entitlements */,
+				5F91098927EB794D00210E03 /* Project */,
+				5F91099227EB885B00210E03 /* Services */,
+				5F91098E27EB84A800210E03 /* Views */,
+				5F91099527EB8AB700210E03 /* Models */,
+				5F91099827EB8C4000210E03 /* Helpers */,
+				5F91098D27EB7A8400210E03 /* Resources */,
+				5FF2735427EB97820075A855 /* Protocols */,
 				5F91098127EB766B00210E03 /* Preview Content */,
 			);
 			path = TatarBook;
@@ -65,6 +227,185 @@
 				5F91098227EB766B00210E03 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5F91098927EB794D00210E03 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				5F91097B27EB766A00210E03 /* TatarBookApp.swift */,
+				5F7AB892283FBF9A003608B0 /* DownloadingView.swift */,
+				5F91098B27EB797700210E03 /* TabBarView.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		5F91098D27EB7A8400210E03 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5F91097F27EB766B00210E03 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5F91098E27EB84A800210E03 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5F4DFC7B2848DBDC004890C4 /* Common */,
+				5F91098F27EB84CE00210E03 /* TabBar */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5F91098F27EB84CE00210E03 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				5F7AB888283F6A99003608B0 /* Settings */,
+				5FC279A727F1930000086FD0 /* Test */,
+				5FAA82ED27EE578F0015A60D /* Dictionary */,
+				5FF2735727EB995E0075A855 /* Book */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		5F91099227EB885B00210E03 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5F7AB87E283E73D2003608B0 /* NetworkManager.swift */,
+				5F7AB886283E7D87003608B0 /* DataManager.swift */,
+				5F7AB880283E77FB003608B0 /* AppManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5F91099527EB8AB700210E03 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5F7AB882283E787C003608B0 /* Config.swift */,
+				5F91099627EB8AC800210E03 /* FileName.swift */,
+				5F4DFC9428495725004890C4 /* FileType.swift */,
+				5F7AB88B283F9EAB003608B0 /* TabModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5F91099827EB8C4000210E03 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5F91099927EB8C4D00210E03 /* Logger.swift */,
+				5FC279BA27F24C6D00086FD0 /* Extensions+Text.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5F91099F27EB93D800210E03 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				5FF2735A27EB9C4B0075A855 /* ContentModel.swift */,
+				5FF2736C27EBBCC80075A855 /* ContentInner */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		5FA5FB7127F59FE8003F2ECE /* ContentViews */ = {
+			isa = PBXGroup;
+			children = (
+				5F4DFC872849034E004890C4 /* TestContentView.swift */,
+				5FA5FB6F27F59825003F2ECE /* ProgressBar.swift */,
+				5FC279B527F1D01200086FD0 /* SelectionRowView.swift */,
+				5FA5FB7227F59FFF003F2ECE /* AnswerRowView.swift */,
+				5F4DFC6E2846C452004890C4 /* TestSelectionRowView.swift */,
+			);
+			path = ContentViews;
+			sourceTree = "<group>";
+		};
+		5FAA82ED27EE578F0015A60D /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				5F4DFC802848DC52004890C4 /* Content */,
+				5FAA82EE27EE57A70015A60D /* DictionaryView.swift */,
+				5FAA82F027EE57AD0015A60D /* DictionaryViewModel.swift */,
+			);
+			path = Dictionary;
+			sourceTree = "<group>";
+		};
+		5FC279A727F1930000086FD0 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				5FC279B727F246D000086FD0 /* Content */,
+				5FC279A827F1931400086FD0 /* TestView.swift */,
+				5FC279AA27F1932A00086FD0 /* TestViewModel.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		5FC279B227F1B21800086FD0 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				5FC279B027F1B1F500086FD0 /* Test.swift */,
+				5FC279B327F1B22500086FD0 /* Question.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		5FC279B727F246D000086FD0 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				5FA5FB7127F59FE8003F2ECE /* ContentViews */,
+				5FA5FB6A27F58230003F2ECE /* TestGameView.swift */,
+				5FA5FB6C27F58249003F2ECE /* TestGameViewModel.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		5FF2735427EB97820075A855 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5FF2735527EB97B60075A855 /* Serializable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5FF2735727EB995E0075A855 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				5FF2736127EBADB20075A855 /* Content */,
+				5F91099027EB84DC00210E03 /* BookView.swift */,
+				5FF2735827EB99740075A855 /* BookViewModel.swift */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		5FF2736127EBADB20075A855 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				5FF2736B27EBBCA00075A855 /* ContentInner */,
+				5F4DFC8928493F56004890C4 /* BookContentView.swift */,
+				5FF2736D27ECC0F60075A855 /* ContentsView.swift */,
+				5FF2736927EBB8860075A855 /* ContentView.swift */,
+				5FF2737527ECF08F0075A855 /* NavigationLinkView.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		5FF2736B27EBBCA00075A855 /* ContentInner */ = {
+			isa = PBXGroup;
+			children = (
+				5FF2736F27ECC21D0075A855 /* TextView.swift */,
+				5FF2737127ECC8FE0075A855 /* ListView.swift */,
+				5FF2737927EDB03E0075A855 /* VTableView.swift */,
+				5FF2737B27EDB3FC0075A855 /* HTableView.swift */,
+				5F4DFC96284BA944004890C4 /* RuleView.swift */,
+			);
+			path = ContentInner;
+			sourceTree = "<group>";
+		};
+		5FF2736C27EBBCC80075A855 /* ContentInner */ = {
+			isa = PBXGroup;
+			children = (
+				5FF2735C27EB9FCA0075A855 /* TextContent.swift */,
+				5FF2737727EDAF7E0075A855 /* TableSimpleCellContent.swift */,
+			);
+			path = ContentInner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,7 +425,7 @@
 			);
 			name = TatarBook;
 			productName = TatarBook;
-			productReference = 5F91097827EB766A00210E03 /* TatarBook.app */;
+			productReference = 5F91097827EB766A00210E03 /* Иске имля.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -137,7 +478,56 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F91097E27EB766A00210E03 /* ContentView.swift in Sources */,
+				5F4DFC8F284949D7004890C4 /* ColorSchemePicker.swift in Sources */,
+				5FC279A927F1931400086FD0 /* TestView.swift in Sources */,
+				5F7AB88F283F9F3A003608B0 /* TestModel.swift in Sources */,
+				5FF2737827EDAF7E0075A855 /* TableSimpleCellContent.swift in Sources */,
+				5FF2735627EB97B60075A855 /* Serializable.swift in Sources */,
+				5FF2737A27EDB03E0075A855 /* VTableView.swift in Sources */,
+				5FA5FB7327F59FFF003F2ECE /* AnswerRowView.swift in Sources */,
+				5F7AB87F283E73D2003608B0 /* NetworkManager.swift in Sources */,
+				5FC279BB27F24C6D00086FD0 /* Extensions+Text.swift in Sources */,
+				5F7AB881283E77FB003608B0 /* AppManager.swift in Sources */,
+				5F7AB891283F9F45003608B0 /* DictionaryModel.swift in Sources */,
+				5F91099A27EB8C4D00210E03 /* Logger.swift in Sources */,
+				5FF2737027ECC21D0075A855 /* TextView.swift in Sources */,
+				5F4DFC9528495725004890C4 /* FileType.swift in Sources */,
+				5F4DFC8D284949CA004890C4 /* TintColorPicker.swift in Sources */,
+				5FF2735B27EB9C4B0075A855 /* ContentModel.swift in Sources */,
+				5FC279B627F1D01200086FD0 /* SelectionRowView.swift in Sources */,
+				5FF2735D27EB9FCA0075A855 /* TextContent.swift in Sources */,
+				5FA5FB6B27F58230003F2ECE /* TestGameView.swift in Sources */,
+				5F4DFC822848DC61004890C4 /* WordView.swift in Sources */,
+				5FA5FB6D27F58249003F2ECE /* TestGameViewModel.swift in Sources */,
+				5F4DFC762847FCF5004890C4 /* Word.swift in Sources */,
+				5FC279B427F1B22500086FD0 /* Question.swift in Sources */,
+				5F4DFC7D2848DC08004890C4 /* LoadButton.swift in Sources */,
+				5FAA82EF27EE57A70015A60D /* DictionaryView.swift in Sources */,
+				5F4DFC6F2846C452004890C4 /* TestSelectionRowView.swift in Sources */,
+				5F4DFC842848F3DA004890C4 /* MainContentView.swift in Sources */,
+				5F7AB893283FBF9A003608B0 /* DownloadingView.swift in Sources */,
+				5FF2737C27EDB3FC0075A855 /* HTableView.swift in Sources */,
+				5FAA82F127EE57AD0015A60D /* DictionaryViewModel.swift in Sources */,
+				5F4DFC8A28493F56004890C4 /* BookContentView.swift in Sources */,
+				5F7AB88A283F6AAF003608B0 /* SettingsView.swift in Sources */,
+				5FF2737627ECF08F0075A855 /* NavigationLinkView.swift in Sources */,
+				5F91099127EB84DC00210E03 /* BookView.swift in Sources */,
+				5FC279AB27F1932A00086FD0 /* TestViewModel.swift in Sources */,
+				5F4DFC7F2848DC38004890C4 /* ScaledProgressView.swift in Sources */,
+				5FC279B127F1B1F500086FD0 /* Test.swift in Sources */,
+				5FF2736E27ECC0F60075A855 /* ContentsView.swift in Sources */,
+				5FF2735927EB99740075A855 /* BookViewModel.swift in Sources */,
+				5F7AB883283E787C003608B0 /* Config.swift in Sources */,
+				5F4DFC862848F736004890C4 /* DictionaryContentView.swift in Sources */,
+				5F7AB88D283F9F31003608B0 /* BookModel.swift in Sources */,
+				5F4DFC882849034E004890C4 /* TestContentView.swift in Sources */,
+				5FF2736A27EBB8860075A855 /* ContentView.swift in Sources */,
+				5FF2737227ECC8FE0075A855 /* ListView.swift in Sources */,
+				5F91099727EB8AC800210E03 /* FileName.swift in Sources */,
+				5F7AB887283E7D87003608B0 /* DataManager.swift in Sources */,
+				5F91098C27EB797700210E03 /* TabBarView.swift in Sources */,
+				5F4DFC97284BA944004890C4 /* RuleView.swift in Sources */,
+				5FA5FB7027F59825003F2ECE /* ProgressBar.swift in Sources */,
 				5F91097C27EB766A00210E03 /* TatarBookApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,7 +585,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +639,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -264,24 +654,30 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TatarBook/TatarBook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TatarBook/Preview Content\"";
-				DEVELOPMENT_TEAM = 64HK95YC43;
+				DEVELOPMENT_TEAM = F23Y362U6M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Необходим доступ к контактам для сохранения данных";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hasab.TatarBook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tatar.imlya;
+				PRODUCT_NAME = "Иске имля";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -293,24 +689,30 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TatarBook/TatarBook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TatarBook/Preview Content\"";
-				DEVELOPMENT_TEAM = 64HK95YC43;
+				DEVELOPMENT_TEAM = F23Y362U6M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Необходим доступ к контактам для сохранения данных";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hasab.TatarBook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tatar.imlya;
+				PRODUCT_NAME = "Иске имля";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
